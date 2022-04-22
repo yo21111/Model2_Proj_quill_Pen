@@ -2,9 +2,117 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
-
 <mapper namespace="myBatis.mapper.adminMapper">
 
-	<!-- 조건문 -->
+	<select id="isAdmin" parameterType="string" resultType="int">
+		SELECT
+		uId FROM member
+		WHERE uId = #{uId} and grade = 'm'
+	</select>
+
+	<select id="selectNoticeList" parameterType="int"
+		resultType="arraylist">
+		Select * from notice
+		order by writeDate DESC Limit
+		#{pageNo}, 5
+	</select>
+
+	<insert id="insertNotice" parameterType="NoticeBean">
+		Insert into notice (mId,
+		title, content, writeDate)
+		values (#{mId}, #{title}, #{content}, now())
+	</insert>
+
+	<select id="selectNotice" parameterType="int"
+		resultType="NoticeBean">
+		Select * from notice
+		where bno = #{bno}
+	</select>
+
+	<update id="updateNotice" parameterType="NoticeBean">
+		Update notice
+		Set
+		<if test='title!=null'>
+			title = #{title},
+		</if>
+		<if test='content!=null'>
+			content = #{content},
+		</if>
+		writeDate=now()
+		Where bno = #{bno}
+	</update>
+
+	<delete id="deleteNotice" parameterType="int">
+		Delete from notice
+		Where
+		bno = #{bno}
+	</delete>
+
+	<select id="selectDeclList" parameterType="int"
+		resultType="arraylist">
+		Select * From report
+		Order by writeDate DESC Limit
+		#{pageNo}, 5
+	</select>
+
+	<select id="selectDecl" parameterType="int"
+		resultType="DeclBean">
+		Select * From report
+		where bno = #{bno}
+	</select>
+
+	<delete id="deleteDecl" parameterType="int">
+		Delete From report
+		where
+		bno = #{bno}
+	</delete>
+
+	<insert id="insertBook" parameterType="BookBean">
+		Insert Into introBook
+		(fileName, fileOName, title, subTitle, imageName, imageOName, category, link)
+		values (fileName=#{fileName}, fileOName=#{fileOName}, title=#{title},
+		subTitle=#{subTitle}, imageName=#{imageName},
+		imageOName=#{imageOName}, category=#{category}, link=#{link})
+	</insert>
+
+	<select id="selectBook" parameterType="int"
+		resultType="BookBean">
+		Select * from introBook
+		where bookNo = #{bookNo}
+	</select>
+
+	<update id="updateBook" parameterType="BookBean">
+		Update introBook
+		Set
+		<if test='fileName!=null'>
+			fileName = #{fileName},
+		</if>
+		<if test='fileOName!=null'>
+			fileOName = #{fileOName},
+		</if>
+		<if test='title!=null'>
+			title = #{title},
+		</if>
+		<if test='subTitle!=null'>
+			subTitle = #{subTitle},
+		</if>
+		<if test='imageName!=null'>
+			imageName = #{imageName},
+		</if>
+		<if test='imageOName!=null'>
+			imageOName = #{imageOName},
+		</if>
+		<if test='category!=null'>
+			category = #{category},
+		</if>
+		<if test='link!=null'>
+			link = #{link},
+		</if>
+		Where bookNo = #{bookNo}
+	</update>
+	
+	<delete id="deleteBook" parameterType="int">
+		Delete from introBook
+		where bookNo = #{bookNo}
+	</delete>
 </mapper>
