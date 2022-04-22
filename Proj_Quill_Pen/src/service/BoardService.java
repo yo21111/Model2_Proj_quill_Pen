@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,7 +30,7 @@ public interface BoardService {
 	//public LikeBean recom (int bno) throws Exception;
 	
 	// 작가 프로필 선택시
-	public BoardBean writerProf (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	public List<BoardBean> writerProf (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BoardBean writerProf (String writer) throws Exception;
 	
 	// 신고하기

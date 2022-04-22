@@ -38,5 +38,4 @@ public interface AdminService {
 	public BookBean bookIntroDel (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BookBean bookIntroDel (String title) throws Exception;
 	
-
 }
