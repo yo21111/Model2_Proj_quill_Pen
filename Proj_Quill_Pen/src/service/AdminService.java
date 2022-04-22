@@ -1,16 +1,26 @@
 package service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import repository.DTO.BoardBean;
 import repository.DTO.BookBean;
+import repository.DTO.DeclBean;
 import repository.DTO.NoticeBean;
 
 public interface AdminService {
 
-	// 공지 쓰기
+	// 공지글 목록
+	public List<NoticeBean> noticeList (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	//(int bno)
 	
+	// 신고글 목록
+	public List<DeclBean> reportList (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	// (int dno)
+	
+	// 공지 쓰기
 	public NoticeBean writeNotice (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public NoticeBean writeNotice (String mId, String title, String content) throws Exception;
 	
