@@ -1,0 +1,615 @@
+@charset "UTF-8";
+
+* {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.dFlex {
+    display: flex;
+}
+
+div#wrap {
+    margin: 0 auto;
+}
+
+main {
+    width: 1900px;
+    margin: 40px auto;
+}
+/* ///////////////////// 메인페이지 위치 잡기 시작 ///////////////////// */
+section#mainTitle {
+    width: 900px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+section#mainTitle div#mainTitle_container {
+    height: 100%;
+}
+
+section#notice {
+    width: 900px;
+    height: 50px;
+    margin: 0 auto;
+    justify-content: flex-end;
+}
+
+section#notice div#notice_container {
+    width: 400px;
+    height: 100%;
+    text-align: right;
+}
+
+section#imgSlide {
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+section#imgSlide div#imgSlide_img {
+    height: 500px;
+}
+
+section#imgSlide div#imgSlide_nav {
+    height: 100px;
+}
+
+section#category {
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#category div#category_title {
+    height: 100px;
+}
+
+section#category div#category_container {
+    height: 350px;
+}
+
+/* ///////////////////// 메인페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 관리자 페이지 위치 잡기 시작 ///////////////////// */
+section#noticeList {
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#noticeList div#noticeList_title {
+    height: 100px;
+}
+
+section#noticeList div#noticeList_container {
+    height: 350px;
+}
+
+section#reportList {
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#reportList div#reportList_title {
+    height: 100px;
+}
+
+section#reportList div#reportList_container {
+    height: 350px;
+}
+
+section#bookList {
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#bookList div#bookList_title {
+    height: 100px;
+}
+
+section#bookList div#bookList_container {
+    height: 350px;
+}
+/* ///////////////////// 관리자 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 게시물 게시판 위치 잡기 시작 ///////////////////// */
+section#bbs_title {
+    width: 900px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+section#bbs_title div#bbs_title_container {
+    height: 100%;
+}
+
+section#bbs {
+    width: 900px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+section#bbs div#bbs_container {
+    height: 100%;
+}
+/* ///////////////////// 게시물 게시판 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 공지사항 게시판 위치 잡기 시작 ///////////////////// */
+section#noticeBBS {
+    width: 900px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#noticeBBS div#noticeBBS_title {
+    height: 100px;
+}
+
+section#noticeBBS div#noticeBBS_container {
+    height: 350px;
+}
+/* ///////////////////// 공지사항 게시판 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 작가 페이지 위치 잡기 시작 ///////////////////// */
+section#blog_title {
+    width: 900px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+section#blog_title div#blog_title_container {
+    height: 100%;
+}
+
+section#blog_subs {
+    width: 900px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+section#blog_subs div#blog_subs_container {
+    height: 100%;
+}
+
+section#blog_info {
+    width: 900px;
+    margin: 0 auto;
+}
+
+section#blog_info div#info_content {
+    height: 100px;
+}
+
+section#blog_info div#info_writing {
+    height: 180px;
+}
+/* ///////////////////// 작가 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 작가 게시판 위치 잡기 시작 ///////////////////// */
+section#blogList_title {
+    width: 900px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+section#blogList_title div#blogList_title_container {
+    height: 100%;
+}
+
+section#blogList_content {
+    width: 900px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+
+section#blogList_content div#blogList_content_container {
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section#blogList_content div.writer {
+    width: 270px;
+    height: 330px;
+    margin: 10px;
+}
+
+section#blogList_content div.writer_img {
+    height: 130px;
+}
+
+section#blogList_content div.writer_name {
+    height: 40px;
+}
+
+section#blogList_content div.writer_title {
+    height: 60px;
+}
+
+section#blogList_content div.writer_content {
+    height: 100px;
+}
+/* ///////////////////// 작가 게시판 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 게시글 페이지 위치 잡기 시작 ///////////////////// */
+section#board_header {
+    width: 950px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+section#board_header div#board_header_util {
+    height: 50px;
+    justify-content: flex-end;
+}
+
+section#board_header div#board_header_title {
+    width: 900px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+section#board_header div#board_header_subTitle {
+    width: 900px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+section#board_header div#board_header_info {
+    width: 900px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+section#board_content {
+    width: 900px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+section#board_content div#board_content {
+    height: 100%;
+}
+
+section#board_btn {
+    width: 900px;
+    height: 50px;
+    margin: 0 auto;
+    justify-content: flex-end;
+}
+
+section#board_comment {
+    width: 900px;
+    margin: 0 auto;
+}
+
+div#board_comment_info {
+    text-align: left;
+}
+
+div.comment_read {
+    height: 70px;
+    align-items: center;
+}
+
+div.comment_read div.comment_img {
+    height: 100%;
+    width: 70px;
+}
+
+div.comment_read div.comment_container {
+    height: 100%;
+    flex: 1;
+}
+
+div.comment_container div.comment_content_info {
+    text-align: left;
+    height: 30%;
+}
+
+div.comment_container div.comment_content {
+    height: 70%;
+    text-align: left;
+}
+
+div.comment_read div.comment_btn {
+    height: 100%;
+    width: 90px;
+}
+
+div#board_comment_container {
+    height: 60px;
+}
+
+div#board_comment_container div.comment_write {
+    height: 100%;
+    align-items: center;
+}
+
+div.comment_write div.comment_img {
+    width: 70px;
+    height: 100%;
+}
+
+div.comment_write div.comment_input {
+    height: 100%;
+    flex: 1;
+}
+
+div.comment_write div.comment_btn {
+    height: 100%;
+    width: 90px;
+}
+
+section#board_writer {
+    width: 900px;
+    margin: 0 auto;
+    height: 150px;
+}
+
+section#board_writer div#writer_container {
+    height: 100%;
+    align-items: center;
+}
+
+section#board_writer div#writer_info {
+    flex: 1;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div#writer_info div#writer_name {
+    height: 40px;
+}
+
+div#writer_info div#writer_title {
+    height: 70px;
+}
+
+section#board_writer div#writer_img {
+    width: 150px;
+    height: 100%;
+}
+/* ///////////////////// 게시글 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 책소개 페이지 위치 잡기 시작 ///////////////////// */
+section#book_slide {
+    width: 950px;
+    margin: 0 auto;
+}
+
+section#book_slide div#book_slide_title {
+    height: 100px;
+}
+
+section#book_slide div#book_slide_container {
+    height: 270px;
+}
+
+section#book_slide div.book_book_container {
+    height: 90%;
+    width: 150px;
+    margin: 10px;
+}
+
+div.book_book_container div.book_img {
+    height: 70%;
+}
+
+div.book_book_container div.book_title {
+    height: 18%;
+}
+
+div.book_book_container div.book_writer {
+    height: 10%;
+}
+
+section#book_slide div#book_slide_nav {
+    height: 30px;
+}
+
+section#book_info {
+    width: 950px;
+    height: 350px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+section#book_info div#info_left {
+    flex: .5;
+    height: 300px; 
+}
+
+div#info_left div#book_info_container {
+    height: 100%;
+}
+
+div#book_info_container div#book_info_title {
+    height: 15%;
+}
+
+div#book_info_container div#book_info_content {
+    height: 84%;
+    align-items: center;
+    justify-content: center;
+}
+
+div#book_info_content div#book_info_content_left {
+    flex: .6;
+}
+
+div#book_info_content_left div#book_info_content_intro {
+    height: 200px;
+}
+
+div#book_info_content_left div#book_info_content_btn {
+    height: 50px;
+}
+
+div#book_info_content div#book_info_content_img {
+    flex: .4;
+    height: 100%;
+}
+
+section#book_info div#info_right {
+    flex: .2;
+    height: 300px;
+}
+
+div#info_right div#writer_img {
+    height: 100px;
+}
+
+div#info_right div#writer_name {
+    height: 30px;
+}
+
+div#info_right div#writer_content {
+    height: 100px;
+}
+
+div#info_right div#writer_subBtn {
+    height: 60px;
+}
+/* ///////////////////// 책소개 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 개인정보 수정 페이지 위치 잡기 시작 ///////////////////// */
+section#profile {
+    width: 500px;
+    height: 550px;
+    margin: 0 auto;
+}
+
+section#profile div#profile_title {
+    height: 70px;
+}
+
+section#profile div#profile_infoUpdate {
+    height: 140px;
+}
+
+section#profile div#profile_profileUpdate {
+    height: 150px;
+}
+
+section#profile div#profile_pwUpdate {
+    height: 100px;
+}
+
+section#profile div#profile_withdraw {
+    height: 80px;
+}
+/* ///////////////////// 개인정보 수정 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 신고하기 페이지 위치 잡기 시작 ///////////////////// */
+section#report {
+    width: 400px;
+    height: 650px;
+    margin: 0 auto;
+}
+
+section#report div#report_title {
+    height: 80px;
+}
+
+section#report div#report_category {
+    height: 170px;
+}
+
+section#report div#report_content {
+    height: 130px;
+}
+
+section#report div#report_agreement {
+    height: 170px;
+}
+
+section#report div#report_btn {
+    height: 80px;
+}
+/* ///////////////////// 신고하기 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 탈퇴하기 페이지 위치 잡기 시작 ///////////////////// */
+section#withdraw {
+    width: 550px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+section#withdraw div#withdraw_title {
+    height: 70px;
+}
+
+section#withdraw div#withdraw_info {
+    height: 100px;
+}
+
+section#withdraw div#withdraw_content {
+    height: 130px;
+}
+
+section#withdraw div#withdraw_agreement {
+    height: 80px;
+}
+
+section#withdraw div#withdraw_btn {
+    height: 60px;
+}
+/* ///////////////////// 탈퇴하기 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 회원가입 페이지 위치 잡기 시작 ///////////////////// */
+section#register {
+    width: 600px;
+    margin: 0 auto;
+}
+
+section#register div {
+    height: 70px;
+}
+
+section#agreement {
+    width: 600px;
+    margin: 0 auto;
+}
+
+
+section#registerBtn {
+    width: 600px;margin: 0 auto;
+}
+/* ///////////////////// 회원가입 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// 로그인 페이지 위치 잡기 시작 ///////////////////// */
+section#login {
+    width: 300px;
+    margin: 0 auto;
+}
+
+section#login div {
+    height: 60px;
+}
+
+section#login div#login_error {
+    height: 30px;
+}
+/* ///////////////////// 로그인 페이지 위치 잡기 끝 ///////////////////// */
+
+/* ///////////////////// id/pw 찾기 페이지 위치 잡기 시작 ///////////////////// */
+section#findinfo {
+    width: 300px;
+    margin: 0 auto;
+}
+
+section#findinfo div {
+    height: 60px;
+}
+
+section#findinfo div.findinfo_input_title {
+    height: 30px;
+}
+/* ///////////////////// id/pw 찾기 페이지 위치 잡기 끝 ///////////////////// */
