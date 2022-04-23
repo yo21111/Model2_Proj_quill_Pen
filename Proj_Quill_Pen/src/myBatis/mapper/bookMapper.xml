@@ -2,9 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
 
 <mapper namespace="myBatis.mapper.bookMapper">
-
-	<!-- 조건문 -->
+	<select id="isLogin" parameterType="string" resultType="int">
+		Select
+		count(*) From member
+		where uId = #{uId}
+	</select>
+	
+	<select id="selectBookList" resultType="arraylist">
+		Select * from introBook
+		order by bookNo DESC
+	</select>
+	
+	<select id="selectBook" parameterType="int" resultType="BookBean">
+		Select * from introBook
+		where bookNo = #{bookNo}
+	</select>
 </mapper>

@@ -17,7 +17,8 @@ public interface BookService {
 	public BookBean bookSelect (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BookBean bookSelect (String title) throws Exception;
 	
-	// 책구매 선택시
+	// 책구매 선택시 -> 해당 책에 a태그를 넣어서 보내면 됨 / 백단에서는 전체 페이지
+	// 구성시 link정보를 같이 보내주기만 하면 끝
 	public BookBean bookPur (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BookBean bookPur (String link) throws Exception;
 	

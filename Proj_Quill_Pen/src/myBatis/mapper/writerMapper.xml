@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="myBatis.mapper.writerMapper">
+	
+	<select id="selectWriterId" parameterType="string" resultType="string">
+		Select uId from member
+		where writer = #{writer}
+	</select>
+	
+	<select id="selectBoardList" parameterType="string" resultType="arraylist">
+		Select * from board
+		where writer = #{writer}
+		order by bno DESC
+	</select>
+	
+	<select id="selectSubsList" parameterType="string" resultType="arraylist">
+		Select * from subscribe
+		where uId = #{uId}
+	</select>
+	
+	<select id="selectLikeList" parameterType="string" resultType="arraylist">
+		Select * from recommend
+		where uId = #{uId}
+	</select>
+	
+</mapper>

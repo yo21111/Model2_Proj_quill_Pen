@@ -6,7 +6,7 @@
 
 	<select id="isAdmin" parameterType="string" resultType="int">
 		SELECT
-		uId FROM member
+		count(*) FROM member
 		WHERE uId = #{uId} and grade = 'm'
 	</select>
 

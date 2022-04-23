@@ -1,14 +1,15 @@
 package repository.DAO;
 
+import org.apache.ibatis.session.SqlSessionFactory;
 
-public interface HomeDao {
+import myBatis.MyBatis;
 
-	//SqlSessionFactory sqlSessionFactory = MyBatis.getSqlSessionFactory();
-	//이후 각 메서드에서
-	//SqlSession sqlSession = sqlSessionFactory.openSession();
-	//try {
-	//sqlSession."매퍼(mapper)에서 설정한 id"(매개변수, ...);
-	//return 반환값
-	//}finally sqlSession.close();
+public class HomeDao {
+	private static String namespace = "myBatis.mapper.mapper.";
+
+	SqlSessionFactory sqlSessionFactory = MyBatis.getSqlSessionFactory();
+	
+	
+	
 	
 }

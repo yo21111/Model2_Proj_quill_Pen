@@ -10,8 +10,23 @@ import repository.DTO.CmntBean;
 import repository.DTO.DeclBean;
 import repository.DTO.LikeBean;
 import repository.DTO.SubsBean;
+import repository.DTO.WriterBean;
 
 public interface BoardService {
+	
+	// 글쓰기 선택시
+	public BoardBean write (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	//public MemberBean write (String uId, String uName, String writer) throws Exception;
+	
+	// 글 수정하기 선택시
+	public BoardBean update (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	
+	// 글 삭제하기 선택시
+	public BoardBean delete (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+
+	// 게시글 선택시
+	public BoardBean read (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	//public BoardBean read (int bno, String category, int viewCnt) throws Exception;
 	
 	// 댓글달기
 	public CmntBean comment (HttpServletRequest req, HttpServletResponse resp) throws Exception;
@@ -30,7 +45,7 @@ public interface BoardService {
 	//public LikeBean recom (int bno) throws Exception;
 	
 	// 작가 프로필 선택시
-	public List<BoardBean> writerProf (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	public List<WriterBean> writerProf (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BoardBean writerProf (String writer) throws Exception;
 	
 	// 신고하기

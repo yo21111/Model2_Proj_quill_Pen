@@ -2,9 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
 
 <mapper namespace="myBatis.mapper.bbsMapper">
-
-	<!-- 조건문 -->
+	<select id="isLogin" parameterType="string" resultType="int">
+		Select count(*) From member
+		where uId = #{uId}
+	</select>
+	
+	<select id="selectBbsList" resultType="arraylist">
+		Select * from board
+		order by bno DESC
+	</select>
+	
+	<select id="selectBbsCategory" parameterType="int" resultType="arraylist">
+		Select * from board
+		Where category = #{category}
+		order by bno DESC
+	</select>	
+	
+	<select id="selectBbsSearch" parameterType="string" resultType="arraylist">
+		Select * from board
+		Where
+		title like concat("%", #{search}, "%") 
+		or subTitle like concat("%", #{search}, "%") 
+		or content like concat("%", #{search}, "%") 
+		or writer like concat("%", #{search}, "%")
+		or category like concat("%", #{search}, "%")
+		order by bno DESC
+	</select>
 </mapper>

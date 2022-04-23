@@ -2,9 +2,141 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
 
 <mapper namespace="myBatis.mapper.boardMapper">
+	<select id="isLogin" parameterType="string" resultType="int">
+		Select
+		count(*) From member
+		where uId = #{uId}
+	</select>
 
-	<!-- 조건문 -->
+	<select id="selectBoard" parameterType="int"
+		resultType="BoardBean">
+		Select * From board
+		Where bno = #{bno}
+	</select>
+
+	<insert id="insertBoard" parameterType="BoardBean">
+		Insert into board
+		(fileName, fileOName, title, subTitle,
+		content, writer, category)
+		Values
+		(#{fileName}, #{fileOName}, #{title},
+		#{subTitle},
+		#{content},
+		#{writer}, #{category})
+	</insert>
+
+	<update id="updateBoard" parameterType="BoardBean">
+		Update board
+		Set
+		<if test='title!=null'>
+			title = #{title},
+		</if>
+		<if test='subTitle!=null'>
+			subTitle = #{subTitle},
+		</if>
+		<if test='content!=null'>
+			content = #{content},
+		</if>
+		<if test='writer!=null'>
+			writer = #{writer},
+		</if>
+		<if test='category!=null'>
+			category = #{category},
+		</if>
+		<if test='fileName!=null'>
+			fileName = #{fileName},
+		</if>
+		<if test='fileOName!=null'>
+			fileOName = #{fileOName},
+		</if>
+		modifyDate=now()
+		Where bno = #{bno}
+	</update>
+
+	<delete id="deleteBoard" parameterType="int">
+		Delete from board
+		where
+		bno = #{bno}
+	</delete>
+
+	<select id="findcOrder" parameterType="int" resultType="int">
+		Select
+		cOrder from commentTbl
+		where cno=#{cno}
+	</select>
+
+	<select id="findMaxcOrder" parameterType="int" resultType="int">
+		Select max(cOrder) from commentTbl
+		where bno = #{bno}
+	</select>
+
+	<insert id="insertCmnt" parameterType="map">
+		Insert into commentTbl
+		(bno, cOrder, writer, content)
+		Values
+		(#{bno}, #{cOrder}, #{writer},
+		#{content})
+	</insert>
+
+	<update id="updateCmnt" parameterType="map">
+		Update commentTbl
+		Set
+		<if test='writer!=null'>
+			writer = #{writer},
+		</if>
+		<if test='content!=null'>
+			content = #{content},
+		</if>
+		writeDate=now()
+		Where cno = #{cno}
+	</update>
+	
+	<delete id="deleteCmnt" parameterType="int">
+		delete from commentTbl
+		where cno = #{cno}
+	</delete>
+	
+	<select id="selectCmntList" parameterType="int" resultType="arraylist">
+		Select * from commentTbl
+		where bno = #{bno}
+		order by cno, cOrder
+	</select>
+	
+	<select id="isSubs" parameterType="map" resultType="int">
+		Select count(*) from subscribe
+		where uId = #{uId} and bno= #{bno}
+	</select>
+	
+	<insert id="subscribe" parameterType="map">
+		Insert into subscribe
+		Values(#{uId}, #{bno})
+	</insert>
+	
+	<delete id="unSubscribe" parameterType="map">
+		Delete from subscribe
+		where uId = #{uId} and bno = #{bno}
+	</delete>
+	
+		<select id="isLike" parameterType="map" resultType="int">
+		Select count(*) from recommend
+		where uId = #{uId} and writer= #{writer}
+	</select>
+	
+	<insert id="like" parameterType="map">
+		Insert into recommend
+		Values(#{uId}, #{writer})
+	</insert>
+	
+	<delete id="unLike" parameterType="map">
+		Delete from recommend
+		where uId = #{uId} and writer = #{writer}
+	</delete>
+	
+	<select id="selectWriterList" parameterType="string" resultType="arraylist">
+		Select * from board
+		Where writer = #{writer}
+		order by modifyDate DESC
+	</select>
 </mapper>

@@ -2,9 +2,94 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
 
 <mapper namespace="myBatis.mapper.myPageMapper">
+	<select id="isLogin" parameterType="string" resultType="int">
+		Select
+		count(*) From member
+		where uId = #{uId}
+	</select>
 
-	<!-- 조건문 -->
+	<select id="findWriter" parameterType="string"
+		resultType="string">
+		Select writer From member
+		where uId = #{uId}
+	</select>
+
+	<select id="selectMember" parameterType="string"
+		resultType="MemberBean">
+		Select * From member
+		where uId = #{uId}
+	</select>
+
+	<update id="updateMember" parameterType="MemberBean">
+		Update member
+		Set
+		<if test='uEmail!=null'>
+			uEmail = #{uEmail},
+		</if>
+		<if test='uBirth!=null'>
+			uBirth = #{uBirth},
+		</if>
+		<if test='uPhone!=null'>
+			uPhone = #{uPhone},
+		</if>
+		<if test='writer!=null'>
+			writer = #{writer},
+		</if>
+		Where uId = #{uId}
+	</update>
+
+	<select id="selectWriter" parameterType="string"
+		resultType="WriterBean">
+		Select * from writer
+		where writer = #{writer}
+	</select>
+
+	<insert id="insertWriter" parameterType="WriterBean">
+		Insert into writer
+		Values
+		(#{writer}, #{title}, #{content}
+		, #{fileName}, #{fileOName})
+	</insert>
+
+	<update id="updateWriter" parameterType="WriterBean">
+		Update member
+		Set
+		<if test='title!=null'>
+			title = #{title},
+		</if>
+		<if test='content!=null'>
+			content = #{content},
+		</if>
+		<if test='fileName!=null'>
+			fileName = #{fileName},
+		</if>
+		<if test='fileOName!=null'>
+			fileOName = #{fileOName},
+		</if>
+		Where writer = #{writer}
+	</update>
+	
+	<select id="selectMyBoardList" parameterMap="string" resultType="arraylist">
+		Select * from board
+		where writer = #{writer}
+		order by bno DESC
+	</select>
+	
+	<select id="selectSubWriterList" parameterMap="string" resultType="arraylist">
+		Select * from subscribe
+		where uId = #{uId}
+	</select>
+	
+	<select id="selectLikeBoardList" parameterMap="string" resultType="arraylist">
+		Select * from recommend
+		where uId = #{uId}
+	</select>
+	
+	<select id="selectMyCmntList" parameterMap="string" resultType="arraylist">
+		Select * from commentTbl
+		where writer = #{uId}
+	</select>
+
 </mapper>
