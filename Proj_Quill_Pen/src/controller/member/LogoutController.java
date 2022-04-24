@@ -11,7 +11,7 @@ public class LogoutController implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-		return "보여줄 jsp파일";
+		return "/index.jsp";
 	}
 	
 }

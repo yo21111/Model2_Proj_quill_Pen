@@ -39,5 +39,6 @@
 		<mapper resource="myBatis/mapper/bookMapper.xml" />
 		<mapper resource="myBatis/mapper/memberMapper.xml" />
 		<mapper resource="myBatis/mapper/myPageMapper.xml" />
+		<mapper resource="myBatis/mapper/writerMapper.xml" />
 	</mappers>
 </configuration>

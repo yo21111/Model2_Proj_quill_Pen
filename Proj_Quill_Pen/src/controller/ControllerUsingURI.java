@@ -24,6 +24,9 @@ public class ControllerUsingURI extends HttpServlet {
 		String configFile = getInitParameter("configFile");
 		Properties prop = new Properties();
 		String configFilePath = getServletContext().getRealPath(configFile);
+		
+		System.out.println("init() 실행됨");
+		
 		try (FileReader objFR = new FileReader(configFilePath)) {
 			prop.load(objFR);
 		} catch (Exception e) {
@@ -34,6 +37,7 @@ public class ControllerUsingURI extends HttpServlet {
 		while (keyIter.hasNext()) {
 			String command = (String) keyIter.next();
 			String handlerClassName = prop.getProperty(command);
+
 			try {
 				Class<?> handlerClass = Class.forName(handlerClassName);
 				CommandHandler handlerInstance = (CommandHandler) handlerClass.newInstance();
@@ -46,16 +50,20 @@ public class ControllerUsingURI extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("doGet() 실행됨");
 		process(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("doPost() 실행됨");
 		process(req, resp);
 	}
 
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("process() 실행됨");
 		String command = req.getRequestURI();
+		
 		if (command.indexOf(req.getContextPath()) == 0) {
 			command = command.substring(req.getContextPath().length());
 		}
@@ -66,7 +74,6 @@ public class ControllerUsingURI extends HttpServlet {
 		}
 		
 		String viewPage = null;
-		
 		try {
 			viewPage = handler.process(req, resp);
 		} catch (Exception e) {
@@ -79,6 +86,7 @@ public class ControllerUsingURI extends HttpServlet {
 				
 			} else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
+				System.out.println("viewPage : " + viewPage);
 				dispatcher.forward(req, resp);
 			}
 		}
