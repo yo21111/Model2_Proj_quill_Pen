@@ -1,6 +1,7 @@
 package repository.DTO;
 
 public class BookBean {
+	private int bookNo;
 	private String fileName;
 	private String fileOName;
 	private String title;
@@ -12,6 +13,12 @@ public class BookBean {
 
 	// 생성자 작성도 고려해야 할 듯
 	
+	public int getBookNo() {
+		return bookNo;
+	}
+	public void setBookNo(int bookNo) {
+		this.bookNo = bookNo;
+	}
 	public String getFileName() {
 		return fileName;
 	}

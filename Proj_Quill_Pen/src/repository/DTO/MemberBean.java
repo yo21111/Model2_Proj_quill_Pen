@@ -10,7 +10,19 @@ public class MemberBean {
 	private String uPhone;
 	private String regDate;
 	private String grade;
-
+	
+	public MemberBean() {}
+	
+	public MemberBean(String uId, String writer, String uPw, String uName, String uEmail, String uBirth, String uPhone) {
+		this.uId = uId;
+		this.writer = writer;
+		this.uPw = uPw;
+		this.uName = uName;
+		this.uEmail = uEmail;
+		this.uBirth = uBirth;
+		this.uPhone = uPhone;
+	}
+	
 	public String getuId() {
 		return uId;
 	}

@@ -79,6 +79,7 @@ public class ControllerUsingURI extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
+	
 		if (viewPage != null) {
 			
 			if (viewPage.startsWith("redirect:")) {

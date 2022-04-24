@@ -2,16 +2,106 @@ package controller.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.CommandHandler;
+import service.MemberService;
+import service.MemberServiceImpl;
 
 //로그인 컨트롤러
 public class LoginController implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		String uId = (String) req.getParameter("uId");
+		String uPw = (String) req.getParameter("uPw");
+		String uName = (String) req.getParameter("uName");
+		String uPhone = (String) req.getParameter("uPhone");
 
-		return "/viewPage/login.jsp";
+		// GET방식인지 POST방식인지 확인
+		String method = req.getMethod();
+		// 아이디 비밀번호 찾기 페이지에서 ?check=id 또는 ?check=pw 보내기
+		String find = (String) req.getParameter("find");
+		MemberService ms = new MemberServiceImpl();
+		
+		// check를 id로 보냈을 때
+		if (find != null && find.equals("id")) {
+			// GET 방식일 때
+			if (method.equals("GET")) {
+				req.setAttribute("find", "id");  // 아이디 찾기 페이지로 돌아가기
+				return "/viewPage/findInfo.jsp";
+				
+				// POST 방식일 때
+			} else {
+				String id = ms.findId(uName, uPhone);
+				if (id == null) {
+					req.setAttribute("errorMsg", "아이디가 존재하지 않습니다.");
+				} else {
+					req.setAttribute("findId", id);   // 찾은 아이디 정보
+				}
+				req.setAttribute("find", "id");	// 아이디 찾기 페이지로 돌아가기
+				return "/viewPage/findInfo.jsp";				
+			}
+			// check를 pw로 보냈을 때
+		} else if (find != null && find.equals("pw")) {
+			// GET 방식일 때
+			if (method.equals("GET")) {
+				req.setAttribute("find", "pw"); // 비밀번호 찾기 페이지로 돌아가기
+				return "/viewPage/findInfo.jsp";
+				
+				// POST 방식일 때
+			} else {
+				req.setAttribute("find", "pw"); // 비밀번호 찾기 페이지로 돌아가기
+				
+				// 입력이 잘못 되었으면?
+				if (!ms.findPw(uId, uPhone)) {
+					req.setAttribute("errorMsg", "잘못된 입력입니다. 다시 입력해주세요.");		
+					return "/viewPage/findInfo.jsp";
+				}
+				if (!ms.changePw(uId, uPw) ) {
+					req.setAttribute("errorMsg", "알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");		
+					return "/viewPage/findInfo.jsp";					
+				}
+				
+				return "/viewPage/login.jsp";					
+			}
+		}
+
+		// 아직 로그인 버튼 안눌러서 아이디, 비밀번호가 리퀘스트에 없는 경우
+		if (uId == null && uPw == null) {
+			// 1. 원래 가려했던 페이지가 있는지 확인한다.
+			if (req.getParameter("to") == null) {
+				// NullPointException 예외 방지용
+				req.setAttribute("to", "");
+			}
+
+			return "/viewPage/login.jsp";
+
+		} else {
+			// 아이디 비밀번호에 대한 검사 진행 후 (아이디, 비밀번호에 해당하는 계정이 있는지)
+			boolean check = ms.loginChk(uId, uPw);
+
+			// 만약 로그인 정보가 유효하지 않다면 에러메시지와 함께 로그인페이지로 돌아가기
+			if (!check) {
+				req.setAttribute("errorMsg", "아이디 또는 비밀번호를 확인해주세요.");
+				return "/viewPage/login.jsp";
+			}
+
+			// 세션에 아이디 값 넣기
+			HttpSession session = req.getSession();
+			session.setAttribute("uId_Session", uId);
+
+			// 원래 가려던 페이지가 있는지 확인하기
+			String to = (String) req.getParameter("to");
+
+			// 있다면 가려했던 페이지로 리다이렉트
+			if (to != null) {
+				return "redirect:/Proj_Quill_Pen" + to;
+			}
+
+			// 없다면 메인페이지로 리다이렉트
+			return "redirect:/Proj_Quill_Pen/main";
+		}
 	}
-	
+
 }

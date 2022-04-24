@@ -2,9 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 네임스페이스 설정 -->
 
 <mapper namespace="myBatis.mapper.mapper">
 
-	<!-- 조건문 -->
+	<select id="selectBookList" resultType="arraylist">
+		Select bookNo, fileName, title, subTitle 
+		from introBook order by bookNo DESC Limit 10
+	</select>
+
 </mapper>
