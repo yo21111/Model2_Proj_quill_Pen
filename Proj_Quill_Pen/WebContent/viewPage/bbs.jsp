@@ -13,6 +13,7 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 
 		<main>
@@ -22,11 +23,16 @@
 			</section>
 			<!-- section#bbs_title : 게시판 제목 영역 끝 -->
 
-			<!-- section#bbs : 신고목록 영역 시작 -->
+			<!-- section#bbs : 게시판 목록 영역 시작 -->
 			<section id="bbs">
-				<div id="bbs_container">게시글 영역 출력</div>
+				<div id="bbs_container">
+					<p>게시글 영역 출력</p>
+					<button type="button">작성</button>
+					<button type="button">수정</button>
+					<button type="button">삭제</button>
+				</div>
 			</section>
-			<!-- section#reportList : 신고목록 영역 끝 -->
+			<!-- section#bbs : 게시판 목록 영역 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden"></section>
@@ -34,5 +40,6 @@
 		</main>
 
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

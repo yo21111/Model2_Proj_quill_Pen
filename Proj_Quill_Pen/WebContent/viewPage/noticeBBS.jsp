@@ -13,6 +13,7 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 
 		<main>
@@ -29,5 +30,6 @@
 		</main>
 
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

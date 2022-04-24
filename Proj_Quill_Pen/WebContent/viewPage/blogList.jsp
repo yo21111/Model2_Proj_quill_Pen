@@ -13,6 +13,7 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
 			<!-- section#blogList_title : 작가 게시판 제목 영역 시작 -->
@@ -42,5 +43,6 @@
 		</main>
 
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

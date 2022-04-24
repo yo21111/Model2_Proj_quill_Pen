@@ -13,19 +13,36 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
 			<!-- section#report : 신고하기 페이지 시작 -->
 			<section id="report">
 				<div id="report_title">페이지 제목 출력</div>
 				<!-- div#report_title -->
-				<div id="report_category">신고 항목 카테고리</div>
+				<div id="report_category">
+					<select>
+						<option>욕설</option>
+						<option>폭력성</option>
+						<option>선정적</option>
+					</select>
+				</div>
 				<!-- div#report_category -->
-				<div id="report_content">신고 세부 사유</div>
+				<div id="report_content">
+					<textarea cols="30" rows="5" placeholder="신고사유를 입력해 주세요"></textarea>
+				</div>
 				<!-- div#report_content -->
-				<div id="report_agreement">신고 관련 동의사항</div>
+				<div id="report_agreement">
+					<p>약관내용</p>
+					<input type="checkbox">동의하시겠습니까?
+					<p>약관내용</p>
+					<input type="checkbox">동의하시겠습니까?
+				</div>
+
 				<!-- div#report_agreement -->
-				<div id="report_btn">버튼 출력 위치</div>
+				<div id="report_btn">
+					<button type="button">신고하기</button>
+				</div>
 				<!-- div#report_btn -->
 			</section>
 			<!-- section#report : 신고하기 페이지 끝 -->
@@ -35,5 +52,6 @@
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

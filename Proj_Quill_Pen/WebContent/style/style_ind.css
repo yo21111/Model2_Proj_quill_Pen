@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/*아직 style_Reset.css 없어 임시로 넣어놓은 css입니다.*/
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+a:link { /* a요소에서 href속성이 적용된 텍스트의 색상 */
+	color: #333;
+}
+
+a:visited { /* href속성값이 적용된 링크를 방문한 것 */
+	color: #333;
+}
+
+a:hover { /* 하이퍼텍스트에 마우스를 위치하면 색상이 #444로 변경됨 */
+	color: #444;
+}
+
+a:active { /* :hover 상태에서 마우스왼쪽 버튼을 누르는 순간 적용 */
+	color: #444;
+}
+
+.dFlex {
+	display: flex;
+}
+/*아직 style_Reset.css 없어 임시로 넣어놓은 css입니다.*/
+
+/*헤더 템플릿*/
+div#wrap {
+	width: 1900px;
+	border: 1px solid #aaa;
+	margin: 0 auto;
+}
+
+header#header {
+	border: 1px solid #000;
+	width: 100%;
+}
+
+header#header div#imgArea {
+	border: 1px solid #000;
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header#header div#imgArea div#imgArea_left {
+	align-items: center;
+}
+
+header#header img#Logo {
+	margin-left: 15px;
+}
+
+
+header#header nav#lnb ul#LNBul {
+	width: 210px;
+	height: 970px;
+	border: 1px solid #000;
+}
+
+/*푸터 템플릿*/
+div#footer {
+	padding-top: 20px;
+	width: 1900px;
+	height: 350px;
+	background-color: #101010;
+	color: #ccc;
+}
+
+div#footerContent {
+	width: 960px;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+hr#footerLine {
+	border: none;
+	border: 1px solid #939393;
+	color: #939393;
+	margin: 15px 0;
+}
+
+div#footerContent table {
+	text-align: left;
+	padding: 30px;
+}
+
+table#saying {
+	width: 350px;
+}
+
+table#saying p:first-child {
+	font-size: 20px;
+	font-weight: bold;
+	color: fff;
+	padding-bottom: 10px;
+}
+
+table#saying p:last-child {
+	font-size: 12px;
+	color: fff;
+}
+
+table#footerTbl {
+	flex: 1;
+	font-size: 12px;
+}
+
+table#footerTbl td {
+	height: 30px;
+	padding: 5px 0;
+	color: #aaa;
+}
+
+div#footerCopyright {
+	font-size: 13px;
+	justify-content: space-between;
+}
+
+div#SNS img {
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	padding: 5px;
+}

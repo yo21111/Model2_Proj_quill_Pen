@@ -13,6 +13,7 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
 			<!-- section#findinfo : 아이디/비밀번호 찾기 페이지 시작 -->
@@ -21,19 +22,29 @@
 				<!-- div#findinfo_title -->
 				<div class="findinfo_input_title">input 제목 부분1</div>
 				<!-- div.findinfo_input_title -->
-				<div class="findinfo_input">input 입력 부분1</div>
+				<div class="findinfo_input">
+					input 입력 부분1<input type="text">
+				</div>
 				<!-- div.findinfo_input -->
 				<div class="findinfo_input_title">input 제목 부분2</div>
 				<!-- div.findinfo_input_title -->
-				<div class="findinfo_input">input 입력 부분2</div>
+				<div class="findinfo_input">
+					input 입력 부분2<input type="text">
+				</div>
 				<!-- div.findinfo_input -->
 				<div id="findinfo_result">찾은 결과 확인 부분</div>
 				<!-- div#findinfo_result -->
-				<div id="findinfo_findinfoBtn">찾기 버튼 출력 위치</div>
+				<div id="findinfo_findinfoBtn">
+					<button type="button">아이디/비밀번호 찾기</button>
+				</div>
 				<!-- div#findinfo_findinfoBtn -->
-				<div id="findinfo_findinfoBtn">아이디/비밀번호 페이지 이동 버튼 출력 위치</div>
+				<div id="findinfo_findinfoBtn">
+					<button type="button">아이디/비밀번호 찾기로 이동</button>
+				</div>
 				<!-- div#findinfo_findinfoBtn -->
-				<div id="findinfo_loginBtn">로그인 버튼 출력 위치</div>
+				<div id="findinfo_loginBtn">
+					<button type="button">로그인</button>
+				</div>
 				<!-- div#findinfo_loginBtn -->
 			</section>
 			<!-- section#findinfo : 아이디/비밀번호 찾기 페이지 끝 -->
@@ -43,5 +54,6 @@
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

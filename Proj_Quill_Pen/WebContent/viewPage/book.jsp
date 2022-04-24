@@ -13,6 +13,7 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
 			<!-- section#book_slide : 책 리스트 슬라이드 영역 시작 -->
@@ -44,7 +45,9 @@
 						<div id="book_info_content" class="dFlex">
 							<div id="book_info_content_left">
 								<div id="book_info_content_intro">책 소개글 구역</div>
-								<div id="book_info_content_btn">책 구매 버튼 구역</div>
+								<div id="book_info_content_btn">
+									<button type="button">책 구매하기</button>
+								</div>
 							</div>
 							<!-- div#book_info_content_left -->
 							<div id="book_info_content_img">책 이미지</div>
@@ -58,7 +61,9 @@
 					<div id="writer_img">작가 이미지</div>
 					<div id="writer_name">작가이름</div>
 					<div id="writer_content">작가 소개멘트</div>
-					<div id="writer_subBtn">작가 구독버튼</div>
+					<div id="writer_subBtn">
+						<button type="button">구독하기</button>
+					</div>
 				</div>
 				<!-- div#info_right -->
 			</section>
@@ -69,5 +74,6 @@
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>

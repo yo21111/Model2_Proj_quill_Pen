@@ -13,33 +13,87 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
-			<!-- section#noticeList : 공지사항 영역 시작 -->
-			<section id="noticeList">
-				<div id="noticeList_title">공지사항 영역 제목</div>
-				<div id="noticeList_container">공지사항 목록 출력</div>
-			</section>
-			<!-- section#noticeList : 공지사항 영역 끝 -->
+        <!-- section#noticeList : 공지사항 영역 시작 -->
+        <section id="noticeList">
+          <div id="noticeList_title">공지사항 영역 제목</div>
+          <div id="noticeList_container">공지사항 목록 출력
 
-			<!-- section#reportList : 신고목록 영역 시작 -->
-			<section id="reportList">
-				<div id="reportList_title">신고 영역 제목</div>
-				<div id="reportList_container">신고 접수 목록 출력</div>
-			</section>
-			<!-- section#reportList : 신고목록 영역 끝 -->
+              <table>
+                <thead>
+                  <tr>
+                    <td>번호</td>
+                    <td>제목</td>
+                    <td>작성자</td>
+                    <td>작성일시</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>test</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4">
+                      <button type="button">작성하기</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
 
-			<!-- section#bookList : 책소개 영역 시작 -->
-			<section id="bookList">
-				<div id="bookList_title">책소개 영역 제목</div>
-				<div id="bookList_container">책소개 목록 출력</div>
-			</section>
-			<!-- section#bookList : 책소개 영역 끝 -->
+          </div>
+        </section>
+        <!-- section#noticeList : 공지사항 영역 끝 -->
 
-			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
-			<!-- section#hidden : hidden input 영역 끝 -->
-		</main>
+        <!-- section#reportList : 신고목록 영역 시작 -->
+        <section id="reportList">
+          <div id="reportList_title">신고 영역 제목</div>
+          <div id="reportList_container">신고 접수 목록 출력
+
+            <table>
+              <thead>
+                <tr>
+                  <td>번호</td>
+                  <td>제목</td>
+                  <td>작성자</td>
+                  <td>작성일시</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>test</td>
+                  <td>test</td>
+                  <td>test</td>
+                  <td>test</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">
+                    <button type="button">작성하기</button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+
+          </div>
+        </section>
+        <!-- section#reportList : 신고목록 영역 끝 -->
+
+        <!-- section#bookList : 책소개 영역 시작 -->
+        <section id="bookList">
+          <div id="bookList_title">책소개 영역 제목</div>
+          <div id="bookList_container">책소개 목록 출력</div>
+        </section>
+        <!-- section#bookList : 책소개 영역 끝 -->
+      </main>
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />	
 </body>
 </html>

@@ -13,12 +13,16 @@
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
 			<!-- section#board_title : 게시글 상단 영역 시작 -->
 			<section id="board_header">
-				<div id="board_header_util" class="dFlex">게시글 상단 버튼(추천, 댓글,
-					신고)</div>
+				<div id="board_header_util" class="dFlex">
+					<button type="button">추천</button>
+					<button type="button">댓글</button>
+					<button type="button">신고</button>
+				</div>
 				<div id="board_header_title">게시글 제목</div>
 				<div id="board_header_subTitle">게시글 소제목</div>
 				<div id="board_header_info">게시글 정보(작가명, 작성일자)</div>
@@ -35,7 +39,11 @@
 			<!-- ///////////////////////////////////////////////////////////////////////////// -->
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 버튼 출력 영역  /////////////////// -->
 			<section id="board_btn" class="dFlex">
-				<div id="board_btnArea">등록, 수정, 삭제 버튼 출력부분</div>
+				<div id="board_btnArea">
+					<button type="button">등록</button>
+					<button type="button">수정</button>
+					<button type="button">삭제</button>
+				</div>
 			</section>
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 여기까지만 출력 /////////////////// -->
 			<!-- ///////////////////////////////////////////////////////////////////////////// -->
@@ -57,7 +65,11 @@
 							<div class="comment_content">댓글 출력부분</div>
 						</div>
 						<div class="hiddenValue">hidden input 작성 공간</div>
-						<div class="comment_btn">신고, 삭제, 수정버튼</div>
+						<div class="comment_btn">
+							<button type="button">신고</button>
+							<button type="button">수정</button>
+							<button type="button">삭제</button>
+						</div>
 						<!-- div.comment_container -->
 					</div>
 					<!-- div.comment_read -->
@@ -69,7 +81,9 @@
 					<div class="comment_write dFlex">
 						<div class="comment_img">프로필이미지</div>
 						<div class="comment_input">댓글 작성 공간</div>
-						<div class="comment_btn">댓글 등록버튼</div>
+						<div class="comment_btn">
+							<button type="button">댓글 등록</button>
+						</div>
 					</div>
 					<!-- div.comment_write -->
 				</div>
@@ -101,5 +115,6 @@
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>
