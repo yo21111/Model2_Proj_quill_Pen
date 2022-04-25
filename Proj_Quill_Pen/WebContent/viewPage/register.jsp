@@ -23,15 +23,15 @@
 				<div id="register_title">회원가입 제목 출력</div>
 				<!-- div#register_title -->
 				<div id="register_id" class="dFlex">
-					<span>아이디 입력</span><input type="text">
-					<button type="button">중복검사</button>
+					<span>아이디 입력</span><input type="text" id="idChkInput">
+					<button type="button" id="idChkBtn">중복검사</button>
 				</div>
 				<!-- div#register_id -->
 				<div id="register_idValid">아이디 유효성 검사</div>
 				<!-- div#register_idValid -->
 				<div id="register_writer" class="dFlex">
-					<span>작가명 입력</span><input type="text">
-					<button type="button">중복검사</button>
+					<span>작가명 입력</span><input type="text" id="writerChkInput">
+					<button type="button" id="writerChkBtn">중복검사</button>
 				</div>
 				<!-- div#register_writer -->
 				<div id="register_idValid">작가명 유효성 검사</div>
