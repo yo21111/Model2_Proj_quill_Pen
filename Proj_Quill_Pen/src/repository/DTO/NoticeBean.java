@@ -6,7 +6,14 @@ public class NoticeBean {
 	private String title;
 	private String content;
 	private String writeDate;
-
+	
+	public NoticeBean(int bno, String mId, String title, String content) {
+		this.bno = bno;
+		this.mId = mId;
+		this.title = title;
+		this.content = content;
+	}
+	
 	public int getBno() {
 		return bno;
 	}

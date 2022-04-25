@@ -115,4 +115,8 @@
 		Delete from introBook
 		where bookNo = #{bookNo}
 	</delete>
+	
+	<select id="selectBookList" parameterType="int" resultType="arraylist">
+		Select * from introBook order by bookNo DESC Limit #{pageNo}, 5
+	</select>
 </mapper>
