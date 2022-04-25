@@ -119,8 +119,6 @@ public class BookBoard implements CommandHandler  {
 				}
 				
 				
-
-				
 				// 수정하기
 				if(type.equals("update")) {
 					boolean result = as.updateBook(bBean);

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import myBatis.MyBatis;
 import repository.DTO.BoardBean;
 import repository.DTO.CmntBean;
+import repository.DTO.DeclBean;
 import repository.DTO.WriterBean;
 
 public class BoardDao {
@@ -34,8 +35,36 @@ public class BoardDao {
 			sqlSession.close();
 		}
 	}
+	
+	// 본인 글 여부 확인하기 (select)
+	public String idCheck(int bno) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			// 결과가 1이면 true 아니면 false
+			return sqlSession.selectOne(namespace + "idCheck", bno);
+
+		} finally {
+			sqlSession.close();
+		}
+	}
 	//////////////////////////// 로그인 유효성 검사 끝////////////////////////////////
 
+	//////////////////////////// 해당 아이디 작가명 찾기 시작////////////////////////////////
+	// 작가명 찾기 (select)
+	public String findWriter(String uId) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			// 결과가 1이면 true 아니면 false
+			return sqlSession.selectOne(namespace + "findWriter", uId);
+
+		} finally {
+			sqlSession.close();
+		}
+	}
+	//////////////////////////// 해당 아이디 작가명 찾기 끝////////////////////////////////
+	
 	//////////////////////////// 게시글 관련 CRUD 시작 //////////////////////////////
 	// 글 정보 가져오기
 	public BoardBean selectBoard(int bno) throws Exception {
@@ -83,6 +112,19 @@ public class BoardDao {
 
 	//////////////////////////// 게시글 관련 CRUD 끝 ////////////////////////////////
 
+	//////////////////////////// 신고하기 시작 //////////////////////////////
+	// 신고하기
+	public int insertDecl(DeclBean dBean) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.insert(namespace+"insertDecl", dBean);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	//////////////////////////// 신고하기 끝 //////////////////////////////
+	
 	//////////////////////////// 댓글 관련 CRUD 시작 //////////////////////////////
 	// 해당 댓글의 cOrder 찾기 (답글 쓸 때 cOrder)
 	public int findcOrder(int cno) throws Exception {

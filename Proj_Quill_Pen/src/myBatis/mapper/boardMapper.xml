@@ -9,7 +9,17 @@
 		count(*) From member
 		where uId = #{uId}
 	</select>
-
+	
+	<select id="idCheck" parameterType="int" resultType="string">
+		Select uId from board
+		where bno = #{bno}
+	</select>
+	
+	<select id="findWriter" parameterType="string" resultType="string">
+		Select writer from member
+		where uId = #{uId}
+	</select>
+	
 	<select id="selectBoard" parameterType="int"
 		resultType="BoardBean">
 		Select * From board
@@ -60,6 +70,13 @@
 		where
 		bno = #{bno}
 	</delete>
+
+	<insert id="insertDecl" parameterType="dBean">
+		insert into report
+		(category, content, writer, writeDate, bno)
+		values
+		(#{category}, #{content}, #{writer}, now(), #{bno})
+	</insert>
 
 	<select id="findcOrder" parameterType="int" resultType="int">
 		Select
