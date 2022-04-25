@@ -20,7 +20,10 @@ public class BoardServiceImpl implements BoardService {
 			result = bDao.isLogin(uId);
 		} else {
 			result = bDao.isLogin(uId);
-			result = uId.equals(bDao.idCheck(bno));
+			String writer = bDao.idCheck(bno);
+			if (writer != null && uId.equals(writer)) {
+				result = true;
+			}
 		}
 		
 		return result;

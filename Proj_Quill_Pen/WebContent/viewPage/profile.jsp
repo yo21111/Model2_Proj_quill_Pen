@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +20,8 @@
 	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
+		<!-- form 영역 시작 -->
+		<form id="profile_Frm" method = "post" action="">
 			<!-- section#profile : 개인정보 수정 페이지 시작 -->
 			<section id="profile">
 				<div id="profile_title">페이지 제목 출력</div>
@@ -85,16 +91,21 @@
 					</table>
 				</div>
 				<!-- div#profile_pwUpdate -->
+				
+				
 				<div id="profile_withdraw">
 					<button type="button">탈퇴하기</button>
 				</div>
 				<!-- div#profile_withdraw -->
+				
 			</section>
 			<!-- section#profile : 개인정보 수정 페이지 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden"></section>
 			<!-- section#hidden : hidden input 영역 끝 -->
+				</form>
+				<!-- form 영역 끝 -->
 		</main>
 	</div>
 	<jsp:include page="/ind/footerTmp.jsp" />

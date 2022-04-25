@@ -56,7 +56,7 @@
 		where uName = #{uName} and uPhone = #{uPhone}
 	</select>
 
-	<select id="findId" parameterType="map" resultType="string">
+	<select id="isMember" parameterType="map" resultType="string">
 		Select
 		count(*) from member
 		where uId = #{uId} and uPhone = #{uPhone}

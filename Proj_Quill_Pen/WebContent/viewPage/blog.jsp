@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -44,8 +48,10 @@
 							<tr>
 								<td>구독자수<span>123</span></td>
 								<td>관심작가<span>123</span></td>
-								<td><button type="button">구독하기</button></td>
-								<td><button type="button">신고하기</button></td>
+								<form id = "blog_Frm" method="" action="">
+								<td><button id="subscribe_Btn" type="button">구독하기</button></td>
+								<td><button id = "report_Btn" type="button">신고하기</button></td>
+								</form>
 							</tr>
 						</tbody>
 					</table>

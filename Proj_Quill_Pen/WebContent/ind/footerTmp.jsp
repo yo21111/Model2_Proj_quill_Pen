@@ -64,7 +64,7 @@
 
 				<div id="footerCopyright" class="dFlex">
 					<div>
-						&copy;<em>Kakao Corp.</em>
+						&copy;<em>Quill Corp.</em>
 					</div>
 					<div id="SNS">
 						<a href="#"> <img
@@ -80,6 +80,5 @@
 		</div>
 		<!-- div#footer -->
 	</div>
-	<!-- div#wrap -->
 </body>
 </html>

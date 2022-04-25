@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,9 +23,9 @@
 			<!-- section#board_title : 게시글 상단 영역 시작 -->
 			<section id="board_header">
 				<div id="board_header_util" class="dFlex">
-					<button type="button">추천</button>
-					<button type="button">댓글</button>
-					<button type="button">신고</button>
+					<button id="recomend_Btn" type="button">추천</button>
+					<button id="comment_Btn" type="button">댓글</button>
+					<button id ="report_Btn" type="button">신고</button>
 				</div>
 				<div id="board_header_title">게시글 제목</div>
 				<div id="board_header_subTitle">게시글 소제목</div>
@@ -40,9 +44,9 @@
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 버튼 출력 영역  /////////////////// -->
 			<section id="board_btn" class="dFlex">
 				<div id="board_btnArea">
-					<button type="button">등록</button>
-					<button type="button">수정</button>
-					<button type="button">삭제</button>
+					<button id="confirm_Btn" type="button">등록</button>
+					<button id = "modify_Btn" type="button">수정</button>
+					<button id = "delete_Btn" type="button">삭제</button>
 				</div>
 			</section>
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 여기까지만 출력 /////////////////// -->
@@ -66,9 +70,9 @@
 						</div>
 						<div class="hiddenValue">hidden input 작성 공간</div>
 						<div class="comment_btn">
-							<button type="button">신고</button>
-							<button type="button">수정</button>
-							<button type="button">삭제</button>
+							<button id = "report_Btn" type="button">신고</button>
+							<button id = "modify_Btn" type="button">수정</button>
+							<button id = "delete_Btn" type="button">삭제</button>
 						</div>
 						<!-- div.comment_container -->
 					</div>
@@ -82,7 +86,7 @@
 						<div class="comment_img">프로필이미지</div>
 						<div class="comment_input">댓글 작성 공간</div>
 						<div class="comment_btn">
-							<button type="button">댓글 등록</button>
+							<button id= "comment_btn" type="button">댓글 등록</button>
 						</div>
 					</div>
 					<!-- div.comment_write -->

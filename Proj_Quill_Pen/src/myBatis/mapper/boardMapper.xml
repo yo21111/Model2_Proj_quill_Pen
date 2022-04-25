@@ -11,7 +11,7 @@
 	</select>
 	
 	<select id="idCheck" parameterType="int" resultType="string">
-		Select uId from board
+		Select writer from board
 		where bno = #{bno}
 	</select>
 	
@@ -71,7 +71,7 @@
 		bno = #{bno}
 	</delete>
 
-	<insert id="insertDecl" parameterType="dBean">
+	<insert id="insertDecl" parameterType="DeclBean">
 		insert into report
 		(category, content, writer, writeDate, bno)
 		values

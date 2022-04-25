@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,9 +31,9 @@
 			<section id="bbs">
 				<div id="bbs_container">
 					<p>게시글 영역 출력</p>
-					<button type="button">작성</button>
-					<button type="button">수정</button>
-					<button type="button">삭제</button>
+					<button id = "write_Btn" type="button">작성</button>
+					<button id = "modify_Btn" type="button">수정</button>
+					<button id = "delete_Btn" type="button">삭제</button>
 				</div>
 			</section>
 			<!-- section#bbs : 게시판 목록 영역 끝 -->

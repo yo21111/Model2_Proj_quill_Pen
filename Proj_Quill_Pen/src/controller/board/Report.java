@@ -16,15 +16,23 @@ public class Report implements CommandHandler {
 		BoardService bs = new BoardServiceImpl();
 		String method = req.getMethod();
 		
+		
+		Integer bno = Integer.parseInt(req.getParameter("bno"));
+		HttpSession session = req.getSession();
+		String writer = (String)session.getAttribute("uId_Session");
+		
+		
 		if(method.equals("GET")) {
+			if(!bs.isLogin(writer, 0)) {
+				req.setAttribute("bno", bno);
+				req.setAttribute("errorMsg", "로그인 후 이용 가능합니다.");
+				return "/viewPage/board.jsp";
+			}
 			return "/viewPage/report.jsp";
 		}
 		
 		String category = req.getParameter("category");
 		String content = req.getParameter("content");
-		HttpSession session = req.getSession();
-		String writer = (String)session.getAttribute("uId_Session");
-		int bno = Integer.parseInt(req.getParameter("bno"));
 		
 		DeclBean dBean = new DeclBean();
 		dBean.setCategory(category);

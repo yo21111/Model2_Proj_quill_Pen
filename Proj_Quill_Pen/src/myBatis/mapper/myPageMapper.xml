@@ -9,10 +9,27 @@
 		count(*) From member
 		where uId = #{uId}
 	</select>
+	
+	<select id="writerCheck" parameterType="string" resultType="int">
+		Select count(*) from member
+		where writer = #{writer}
+	</select>
+	
+	<select id="findId" parameterType="string" resultType="string">
+		Select uId
+		from writer
+		where writer = #{writer}
+	</select>
 
 	<select id="findWriter" parameterType="string"
 		resultType="string">
 		Select writer From member
+		where uId = #{uId}
+	</select>
+
+	<select id="findWBean" parameterType="string"
+		resultType="WriterBean">
+		Select * from writer
 		where uId = #{uId}
 	</select>
 
@@ -39,6 +56,12 @@
 		</if>
 		Where uId = #{uId}
 	</update>
+
+	<delete id="deleteMember" parameterType="string">
+		delete from member
+		where
+		uId = #{uId}
+	</delete>
 
 	<select id="selectWriter" parameterType="string"
 		resultType="WriterBean">
@@ -70,24 +93,46 @@
 		</if>
 		Where writer = #{writer}
 	</update>
-	
-	<select id="selectMyBoardList" parameterMap="string" resultType="arraylist">
+
+	<select id="getSubCnt" parameterType="string" resultType="int">
+		select
+		count(*) from subscribe
+		where writer = #{writer}
+	</select>
+
+	<select id="getLikeCnt" parameterType="string" resultType="int">
+		select
+		count(*) from recommend
+		where uId = #{uId}
+	</select>
+
+	<select id="selectBoard" parameterType="int" resultType="BoardBean">
+		Select * from board
+		where bno = #{bno}
+	</select>
+
+	<select id="selectMyBoardList" parameterType="string"
+		resultType="arraylist">
 		Select * from board
 		where writer = #{writer}
-		order by bno DESC
+		order by bno
+		DESC
 	</select>
-	
-	<select id="selectSubWriterList" parameterMap="string" resultType="arraylist">
+
+	<select id="selectSubWriterList" parameterType="string"
+		resultType="arraylist">
 		Select * from subscribe
 		where uId = #{uId}
 	</select>
-	
-	<select id="selectLikeBoardList" parameterMap="string" resultType="arraylist">
+
+	<select id="selectLikeBoardList" parameterType="string"
+		resultType="arraylist">
 		Select * from recommend
 		where uId = #{uId}
 	</select>
-	
-	<select id="selectMyCmntList" parameterMap="string" resultType="arraylist">
+
+	<select id="selectMyCmntList" parameterType="string"
+		resultType="arraylist">
 		Select * from commentTbl
 		where writer = #{uId}
 	</select>

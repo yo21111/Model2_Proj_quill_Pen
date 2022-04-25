@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
+
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -41,7 +47,9 @@
                 <tfoot>
                   <tr>
                     <td colspan="4">
-                      <button type="button">작성하기</button>
+                    
+                      <button id = "notice_Btn" type="button" >작성하기</button>
+                      
                     </td>
                   </tr>
                 </tfoot>
@@ -76,7 +84,9 @@
               <tfoot>
                 <tr>
                   <td colspan="4">
+                  <form id = "adminReport_Frm" method="" action="">
                     <button type="button">작성하기</button>
+                   </form>
                   </td>
                 </tr>
               </tfoot>

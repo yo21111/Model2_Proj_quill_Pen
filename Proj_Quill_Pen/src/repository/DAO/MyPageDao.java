@@ -35,7 +35,34 @@ public class MyPageDao {
 			sqlSession.close();
 		}
 	}
+	
+	public boolean writerCheck(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		boolean check = false;
+
+		try {
+			// 결과가 1이면 true 아니면 false
+			int result = sqlSession.selectOne(namespace + "writerCheck", writer);
+			check = result == 1 ? true : false;
+
+			return check;
+		} finally {
+			sqlSession.close();
+		}
+	}
 	//////////////////////////// 로그인 유효성 검사 끝////////////////////////////////
+	
+	public String findId(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.selectOne(namespace + "findId", writer);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	
 	//////////////////////////// 아이디 통해서 작가명 확인 시작///////////////////////////////
 	// 작가명 가져오기
@@ -44,6 +71,17 @@ public class MyPageDao {
 
 		try {
 			return sqlSession.selectOne(namespace + "findWriter", uId);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	// bean으로 가져오기
+	public WriterBean findWBean(String uId) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.selectOne(namespace + "findWBean", uId);
 		} finally {
 			sqlSession.close();
 		}
@@ -69,6 +107,18 @@ public class MyPageDao {
 		
 		try {
 			return sqlSession.update(namespace + "updateMember", bean);
+
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	// 회원 탈퇴하기
+	public int deleteMember(String uId) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();		
+		
+		try {
+			return sqlSession.delete(namespace + "deleteMember", uId);
 
 		} finally {
 			sqlSession.close();
@@ -114,6 +164,28 @@ public class MyPageDao {
 		}
 	}
 	//////////////////////////// 프로필 관련 끝 //////////////////////////////////
+	// 구독자 수 가져오기
+	public int getSubCnt(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();	
+		
+		try {
+			return sqlSession.selectOne(namespace+"getSubCnt", writer);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	// 관심작가 수 가져오기
+	public int getLikeCnt(String uId) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();	
+		
+		try {
+			return sqlSession.selectOne(namespace+"getLikeCnt", uId);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	
 	//////////////////////////// 목록 관련 시작 //////////////////////////////////
 	// 내가 쓴 게시물
@@ -144,6 +216,17 @@ public class MyPageDao {
 		
 		try {
 			return sqlSession.selectList(namespace+"selectLikeBoardList", uId);
+		} finally {
+			sqlSession.close();
+		}
+	}	
+	
+	// 추천한 글목록
+	public BoardBean selectBoard(int bno) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();	
+		
+		try {
+			return sqlSession.selectOne(namespace+"selectBoard", bno);
 		} finally {
 			sqlSession.close();
 		}

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String uId_Session = (String) session.getAttribute("uId_Session");
 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +20,8 @@
 	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
+		<!-- form 영역 시작 -->
+		<form id= "findinfo_Btn" method="post" action="">
 			<!-- section#findinfo : 아이디/비밀번호 찾기 페이지 시작 -->
 			<section id="findinfo">
 				<div id="findinfo_title">아이디/비밀번호 찾기 제목 출력</div>
@@ -52,6 +58,9 @@
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden"></section>
 			<!-- section#hidden : hidden input 영역 끝 -->
+			
+			</form>
+			<!-- form 영역 끝 -->
 		</main>
 	</div>
 	<jsp:include page="/ind/footerTmp.jsp" />
