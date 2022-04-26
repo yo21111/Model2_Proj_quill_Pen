@@ -13,6 +13,7 @@ request.setCharacterEncoding("UTF-8");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>작가 조회페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
+<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_blogList.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
@@ -30,10 +31,88 @@ request.setCharacterEncoding("UTF-8");
 			<section id="blogList_content">
 				<div id="blogList_content_container" class="dFlex">
 					<div class="writer">
-						<div class="writer_img">작가 프로필 이미지</div>
-						<div class="writer_name">작가명</div>
-						<div class="writer_title">작가 소개 멘트</div>
-						<div class="writer_content">작가 소개글</div>
+						<table>
+							<tbody>
+								<tr>
+									<td class="writer_name"><a href="#">작가명</a></td>
+									<td class="writer_img" rowspan="3">
+										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필이미지"></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="writer_title"><a href="#">작가 소개 멘트 veniet fuga doloremque quas praesentium mollitia deserunt nesciunt earum dolorum debitis perferendis quasi.</a></td>
+								</tr>
+								<tr>
+									<td class="writer_content">
+										<div>글 수 180</div>
+										<div>구독자 수 8,615</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="writer">
+						<table>
+							<tbody>
+								<tr>
+									<td class="writer_name"><a href="#">작가명</a></td>
+									<td class="writer_img" rowspan="3">
+										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필"></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="writer_title"><a href="#">작가 소개 멘트Lour adi praesentium enim obcaecati dicta?</a></td>
+								</tr>
+								<tr>
+									<td class="writer_content">
+										<div>글 수 0</div>
+										<div>구독자 수 0</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="writer">
+						<table>
+							<tbody>
+								<tr>
+									<td class="writer_name"><a href="#">작가명</a></td>
+									<td class="writer_img" rowspan="3">
+										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필이미지"></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="writer_title"><a href="#">작가 소개 멘트 veniet fuga doloremque quas praesentium mollitia deserunt nesciunt earum dolorum debitis perferendis quasi.</a></td>
+								</tr>
+								<tr>
+									<td class="writer_content">
+										<div>글 수 180</div>
+										<div>구독자 수 8,615</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="writer">
+						<table>
+							<tbody>
+								<tr>
+									<td class="writer_name"><a href="#">작가명</a></td>
+									<td class="writer_img" rowspan="3">
+										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필"></a>
+									</td>
+								</tr>
+								<tr>
+									<td class="writer_title"><a href="#">작가 소개 멘트Lour adi praesentium enim obcaecati dicta?</a></td>
+								</tr>
+								<tr>
+									<td class="writer_content">
+										<div>글 수 0</div>
+										<div>구독자 수 0</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<!-- div.writer -->
 				</div>

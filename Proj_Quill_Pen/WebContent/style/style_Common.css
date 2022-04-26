@@ -201,7 +201,6 @@ section#blogList_title div#blogList_title_container {
 
 section#blogList_content {
     width: 900px;
-    height: 350px;
     margin: 0 auto;
 }
 
@@ -214,7 +213,6 @@ section#blogList_content div#blogList_content_container {
 
 section#blogList_content div.writer {
     width: 270px;
-    height: 330px;
     margin: 10px;
 }
 
