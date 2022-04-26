@@ -15,7 +15,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_register.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/register.js"></script>
+<script src="/Proj_Quill_Pen/script/script_register.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />

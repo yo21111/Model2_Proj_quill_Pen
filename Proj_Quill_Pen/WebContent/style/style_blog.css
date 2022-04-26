@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+
+* {
+	border: none;
+}
+
+
+/*#########################*/
+/*#######작가 정보 영역###########*/
+/*#########################*/
+
+div#blog_title_container table#profileTbl{
+	/* border: 1px solid #000; */
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#blog_title_container table#profileTbl th:first-child {
+	/* border: 1px solid #000; */
+	font-size: 30px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+div#blog_title_container table#profileTbl th#introMent {
+	font-weight: normal;
+	font-size: 15px;
+	vertical-align: top;
+	padding-top: 5px;
+}
+
+div#blog_title_container table#profileTbl img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;	
+	float: right;
+	margin: 10px;
+}
+
+/*#########################*/
+/*#######작가 구독 영역###########*/
+/*#########################*/
+
+div#blog_subs_container table#subArea {
+	/* border: 1px solid #000; */
+	border-collapse: collapse;
+	width: 100%;
+}
+
+
+div#blog_subs_container table#subArea td:first-child {
+	text-align: left;
+}
+
+div#blog_subs_container table#subArea td:nth-child(2) {
+	text-align: right;
+}
+
+div#blog_subs_container table#subArea td#cntArea div {
+	border: 1px solid #000;
+	display: inline-block;
+	border-radius: 50px;
+	font-size: 15px;
+	padding: 5px;
+}
+
+div#blog_subs_container table#subArea td#cntArea span {
+	padding-left: 5px;
+}
+
+div#blog_subs_container table#subArea td button {
+	background-color: #fff;
+	display: inline-block;
+	border: 1px solid #000;
+	border-radius: 50px;
+	font-size: 15px;
+	padding: 5px;
+}
+
+div#blog_subs_container table#subArea td button:hover {
+	cursor: pointer;
+}
+
+/*#########################*/
+/*#######작가 세부 정보 영역#########*/
+/*#########################*/
+
+
+div#blog_infos_container div#info_content ul {
+	border-top: 1px solid #eee;
+	list-style: none;
+	justify-content: space-around;
+	font-size: 20px;
+}
+
+div#blog_infos_container div#info_content ul a {
+	display:inline-block;
+	width: 450px;
+}
+
+/* 작가 소개 정보 시작 */
+
+div#blog_infos_container div#info_intro>* {
+	text-align: left;
+	font-weight: normal;
+	padding: 10px 0;
+}
+
+div#blog_infos_container div#info_intro>h1 {
+	font-size: 18px;	
+}
+
+
+/* 작가 글 목록 시작 */
+div#blog_infos_container div#info_writing {
+	display: none;
+}
+
+div#blog_infos_container div#info_writing table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+div#blog_infos_container div#info_writing table td {
+	/* border: 1px solid #000; */
+	text-align: left;
+}
+
+div#blog_infos_container div#info_writing table td:first-child {
+	width: 80%;
+}
+
+div#blog_infos_container div#info_writing table td#writeTitle {
+	font-weight: bold;
+	font-size: 22px;
+}
+
+div#blog_infos_container div#info_writing:hover {
+	cursor: pointer;
+}
+
+div#blog_infos_container div#info_writing table td#writeSubTitle {
+	color: #b5b5b5;
+}
+
+div#blog_infos_container div#info_writing table td#writeSubTitle span {
+	color: #898989;
+}
+
+div#blog_infos_container div#info_writing table td#etcArea div {
+	display: inline-block;
+	color: #898989;
+	font-size: 13px;
+}
+
+div#blog_infos_container div#info_writing table td#etcArea div:nth-child(2) {
+	padding-left: 5px;
+}
+
+div#blog_infos_container div#info_writing img {
+	width: 150px;
+	height: 150px;
+	float: right;
+	padding: 5px;
+}
+
+div#blog_infos_container div#info_writing hr {
+	border: 1px solid #eee;
+	margin-top: 30px;
+}
+
+
+
+
+
