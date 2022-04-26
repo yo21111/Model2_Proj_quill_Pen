@@ -18,7 +18,7 @@ public class BookController implements CommandHandler {
 		BookService bs = new BookServiceImple();
 		List<BookBean> bookList = bs.bookList(req, resp);
 		
-		
+		req.setAttribute("pageTitle", "Quill Pen 책방에 오신 걸 환영합니다");
 		req.setAttribute("bookList", bookList);
 		
 		return "/viewPage/book.jsp";

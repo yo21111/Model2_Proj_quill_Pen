@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-String uId_Session = (String) session.getAttribute("uId_Session");
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,8 +10,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>책방 페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
-<script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_book.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/Proj_Quill_Pen/script/script_book.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -22,21 +20,38 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 		<main>
 			<!-- section#book_slide : 책 리스트 슬라이드 영역 시작 -->
 			<section id="book_slide">
-				<div id="book_slide_title">슬라이드 영역 제목</div>
-				<div id="book_slide_container" class="dFlex">
+				<div id="book_slide_title">
+					<h2>${pageTitle}</h2>
+				</div>
+				<div id="book_slide_container" class="dFlex" data-positionX="0">
 					<!-- ///////////////////// 반복 영역 시작 ///////////////////// -->
-					<div class="book_book_container">
-						<div class="book_img">책 이미지</div>
-						<div class="book_title">책 제목</div>
-						<div class="book_writer">책 저자</div>
-					</div>
-					<!-- div.book_book_container -->
+					<c:forEach items="${bookList}" var="BookBean">
+						<div class="book_book_container">
+							<div class="book_img">
+								<img src="/Proj_Quill_Pen/images/test/${BookBean.fileName}"
+									alt="${BookBean.title}">
+							</div>
+							<div class="book_title">${BookBean.title}</div>
+							<div class="book_writer">${BookBean.writer}</div>
+							<div class="book_hidden">
+								<input type="hidden" class="no" value="${BookBean.bookNo}">
+								<input type="hidden" class="fileName" value="${BookBean.fileName}">
+								<input type="hidden" class="subTitle" value="${BookBean.subTitle}">
+								<input type="hidden" class="imageName" value="${BookBean.imageName}">
+								<input type="hidden" class="link" value="${BookBean.link}">
+							</div>
+						</div>
+						<!-- div.book_book_container -->
 
+					</c:forEach>
 					<!-- ///////////////////// 반복 영역 끝 ///////////////////// -->
 				</div>
 				<!-- div#book_slide_container -->
 
-				<div id="book_slide_nav">슬라이드 네비게이션 부분</div>
+				<div id="book_slide_nav" class="dFlex">
+					<div id="left">&lt;</div>
+					<div id="right">&gt;</div>
+				</div>
 			</section>
 			<!-- section#book_slide : 책 리스트 슬라이드 영역 끝 -->
 
@@ -45,31 +60,31 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 				<div id="info_left">
 					<div id="book_info_container">
 						<div id="book_info_title">책 제목 출력</div>
+						<input type="hidden" id="book_info_no" name="bookNo">
 						<!-- div#book_info_title -->
 						<div id="book_info_content" class="dFlex">
 							<div id="book_info_content_left">
-								<div id="book_info_content_intro">책 소개글 구역</div>
+								<div id="book_info_content_intro">
+									<div id="content_img">
+										<img src="/Proj_Quill_Pen/images/test/imageName_1.PNG" alt="한줄평">
+									</div>
+									<div id="content_subTitle">한줄평</div>
+								</div>
 								<div id="book_info_content_btn">
 									<button type="button">책 구매하기</button>
+									<input type="hidden">
 								</div>
 							</div>
 							<!-- div#book_info_content_left -->
-							<div id="book_info_content_img">책 이미지</div>
+							<div id="book_info_content_img">
+								<img src="/Proj_Quill_Pen/images/test/5398915.jpeg" alt="책이미지">
+							</div>
 						</div>
 						<!-- div#book_info_content -->
 					</div>
 					<!-- div#book_info_container -->
 				</div>
 				<!-- div#info_left -->
-				<div id="info_right">
-					<div id="writer_img">작가 이미지</div>
-					<div id="writer_name">작가이름</div>
-					<div id="writer_content">작가 소개멘트</div>
-					<div id="writer_subBtn">
-						<button type="button">구독하기</button>
-					</div>
-				</div>
-				<!-- div#info_right -->
 			</section>
 			<!-- section#book_info : 책 세부 정보 출력 영역 끝 -->
 

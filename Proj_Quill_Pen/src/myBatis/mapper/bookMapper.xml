@@ -10,7 +10,7 @@
 		where uId = #{uId}
 	</select>
 	
-	<select id="selectBookList" resultType="arraylist">
+	<select id="selectBookList" resultType="BookBean">
 		Select * from introBook
 		order by bookNo DESC
 	</select>

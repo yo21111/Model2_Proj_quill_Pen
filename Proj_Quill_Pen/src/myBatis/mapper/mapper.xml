@@ -5,7 +5,7 @@
 
 <mapper namespace="myBatis.mapper.mapper">
 
-	<select id="selectBookList" resultType="arraylist">
+	<select id="selectBookList" resultType="BookBean">
 		Select bookNo, fileName, title, subTitle 
 		from introBook order by bookNo DESC Limit 10
 	</select>

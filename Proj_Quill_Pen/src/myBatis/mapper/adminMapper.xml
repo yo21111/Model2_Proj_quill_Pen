@@ -11,7 +11,7 @@
 	</select>
 
 	<select id="selectNoticeList" parameterType="int"
-		resultType="arraylist">
+		resultType="NoticeBean">
 		Select * from notice
 		order by writeDate DESC Limit
 		#{pageNo}, 5
@@ -49,7 +49,7 @@
 	</delete>
 
 	<select id="selectDeclList" parameterType="int"
-		resultType="arraylist">
+		resultType="DeclBean">
 		Select * From report
 		Order by writeDate DESC Limit
 		#{pageNo}, 5
@@ -116,7 +116,7 @@
 		where bookNo = #{bookNo}
 	</delete>
 	
-	<select id="selectBookList" parameterType="int" resultType="arraylist">
+	<select id="selectBookList" parameterType="int" resultType="BookBean">
 		Select * from introBook order by bookNo DESC Limit #{pageNo}, 5
 	</select>
 </mapper>

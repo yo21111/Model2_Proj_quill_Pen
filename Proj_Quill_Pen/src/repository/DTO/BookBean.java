@@ -2,6 +2,7 @@ package repository.DTO;
 
 public class BookBean {
 	private int bookNo;
+	private String writer;
 	private String fileName;
 	private String fileOName;
 	private String title;
@@ -18,6 +19,13 @@ public class BookBean {
 	}
 	public void setBookNo(int bookNo) {
 		this.bookNo = bookNo;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getFileName() {
 		return fileName;
