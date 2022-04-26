@@ -13,8 +13,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원가입 페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
+<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_register.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/register.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -26,68 +27,103 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 				<section id="register">
 					<div id="register_title">회원가입 제목 출력</div>
 					<!-- div#register_title -->
+					
 					<div id="register_id" class="dFlex">
-						<span>아이디 입력</span><input type="text">
-						<button type="button">중복검사</button>
+						<span>아이디 입력</span>
+						<input type="text" name="uId" maxlength="20">
+						<button type="button" id="idChkBtn">중복검사</button>
 					</div>
 					<!-- div#register_id -->
-					<div id="register_idValid">아이디 유효성 검사</div>
+					<div id="register_idValid">아이디는 3~20글자, 영문,숫자만 입력 가능합니다.</div>
 					<!-- div#register_idValid -->
+					
 					<div id="register_writer" class="dFlex">
-						<span>작가명 입력</span><input type="text">
-						<button type="button">중복검사</button>
+						<span>작가명 입력</span>
+						<input type="text" name="writer" maxlength="10">
+						<button type="button" id="writerChkBtn">중복검사</button>
 					</div>
 					<!-- div#register_writer -->
-					<div id="register_idValid">작가명 유효성 검사</div>
-					<!-- div#register_idValid -->
+					<div id="register_writerValid">작가명은 2~10글자, 한글만 입력 가능합니다.</div>
+					<!-- div#register_writerValid -->
+					
 					<div id="register_pw" class="dFlex">
-						<span>비밀번호 입력</span><input type="text">
+						<span>비밀번호 입력</span>
+						<input type="password" name="uPw" maxlength="20">
 					</div>
 					<!-- div#register_pw -->
-					<div id="register_pwValid">비밀번호 유효성 검사</div>
+					<div id="register_pwValid">비밀번호는 6~20글자, 영어, 숫자, 특수문자만 입력 가능합니다.</div>
 					<!-- div#register_pwValid -->
 					<div id="register_pwCheck" class="dFlex">
-						<span>비밀번호 확인</span><input type="text">
+						<span>비밀번호 확인</span>
+						<input type="password" maxlength="20">
 					</div>
 					<!-- div#register_pwCheck -->
-					<div id="register_pwCheckValid">비밀번호 확인 유효성 검사</div>
+					<div id="register_pwCheckValid">입력한 비밀번호와 동일한 값을 입력해 주세요.</div>
 					<!-- div#register_pwCheckValid -->
+					
 					<div id="register_name" class="dFlex">
-						<span>이름</span><input type="text">
+						<span>이름</span>
+						<input type="text" name="uName">
 					</div>
 					<!-- div#register_name -->
+					<div id="register_nameValid">이름을 입력해 주세요.</div>
+					<!-- div#register_nameValid -->
+					
 					<div id="register_email" class="dFlex">
-						<span>이메일</span><input type="text"> @ <input type="text">
+						<span>이메일</span>
+						<input type="text" id="uEmail_01" maxlength="20" size="7">
+						<span>@</span>
+						<input type="text" id="uEmail_02" maxlength="40" size="10">
+	   					<select id="emailDomain">
+							<option value="">직접입력</option>
+							<option>naver.com</option>
+							<option>daum.net</option>
+							<option>google.com</option>
+						</select>
 					</div>
 					<!-- div#register_email -->
+					<div id="register_emailValid">이메일을 입력해 주세요</div>
+					<!-- div#register_emailValid -->
+					
 					<div id="register_phone" class="dFlex">
-						<span>휴대폰 번호</span><input type="text"><input type="text"><input
-							type="text">
+						<span>휴대폰 번호</span>
+						<input type="text" name="uPhone" maxlength="11">
 					</div>
 					<!-- div#register_phone -->
+					<div id="register_phoneValid">휴대폰 번호를 입력해 주세요.</div>
+					<!-- div#register_phoneValid -->
+					
 					<div id="register_birth" class="dFlex">
-						<span>생년월일</span><input type="text">
+						<span>생년월일</span>
+						<input type="text" name="uBirth" maxlength="8">
 					</div>
 					<!-- div#register_birth -->
+					<div id="register_birthValid">생년월일을 입력해 주세요.</div>
+					<!-- div#register_birthValid -->
+					
 				</section>
 				<!-- section#register : 회원가입 영역 끝 -->
 
 				<!-- section#agreement : 이용약관 동의 시작 -->
 				<section id="agreement">
-					<div id="agreement_content" class="dFlex">이용약관 동의 내용</div>
+					<div id="agreement_content" class="dFlex">
+						<iframe src="/Proj_Quill_Pen/viewPage/joinAgreement.jsp" id="blogAgreeFrame"></iframe>
+					</div>
 				</section>
 				<!-- section#agreement : 이용약관 동의 끝 -->
 
 				<!-- section#registerBtn : 회원가입 버튼 시작 -->
 				<section id="registerBtn">
 					<div id="registerBtnArea">
-						<button type="button">회원가입</button>
+						<button type="button" id="registerSubBtn">회원가입</button>
 					</div>
 				</section>
 				<!-- section#registerBtn : 회원가입 버튼 끝 -->
 
 				<!-- section#hidden : hidden input 영역 시작 -->
-				<section id="hidden"></section>
+				<section id="hidden">
+					<input type="hidden" name="uEmail" id="uEmail">
+				</section>
 				<!-- section#hidden : hidden input 영역 끝 -->
 			</form>
 			<!-- //////////////// 회원가입 폼 끝 //////////////// -->

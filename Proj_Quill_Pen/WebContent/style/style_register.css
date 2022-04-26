@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/*#############################  */
+/*##########이용약관 동의 시작##########  */
+/*#############################  */
+
+iframe#blogAgree {
+	width: 100%;
+}
+
+div#agreement_content>iframe#blogAgreeFrame {
+	width: 100%;
+}
