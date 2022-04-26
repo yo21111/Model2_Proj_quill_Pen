@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import repository.DTO.BookBean;
+import repository.DTO.NoticeBean;
+import repository.DTO.WriterBean;
 import service.HomeService;
 import service.HomeServiceImpl;
 
@@ -16,9 +18,13 @@ public class HomeController implements CommandHandler {
 		//1. 슬라이드 이미지 영역 데이터리스트 가져오기
 		HomeService hs = new HomeServiceImpl();
 		List<BookBean> bookList = hs.getBookList(req, resp);
+		List<NoticeBean> noticeList = hs.getNoticeList();
+		List<WriterBean> writerList = hs.getWriterList();
 		
 		//2. req에 setAttribute로 담기
 		req.setAttribute("bookList", bookList);
+		req.setAttribute("noticeList", noticeList);
+		req.setAttribute("writerList", writerList);
 		
 		return "/index.jsp";
 	}

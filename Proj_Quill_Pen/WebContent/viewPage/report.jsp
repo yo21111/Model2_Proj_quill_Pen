@@ -20,39 +20,51 @@
 			<!-- form 영역 시작 -->
 			<form id="report_Frm" method="post" action="">
 				<section id="report">
-					<div id="report_title">페이지 제목 출력</div>
-					<!-- div#report_title -->
-					<div id="report_category">
-						<select>
-							<option>욕설</option>
-							<option>폭력성</option>
-							<option>선정적</option>
-						</select>
+					<div id="report_title">
+						<h2>신고하기</h2>
 					</div>
-					<!-- div#report_category -->
+					<!-- div#report_title -->
+
+					<div id="report">
+						홍보, 영리목적 <input type="radio" name="report" value="promote">
+						욕설, 비방, 차별, 혐오 <input type="radio" name="report" value="curse">
+						폭력성 <input type="radio" name="report" value="violence">
+						음란, 청소년 유해 <input type="radio" name="report" value="sexuality">
+						기타 <input type="radio" name="report" value="etc">
+					
+						<br>
+					
+
+						불법촬영물 유통 신고<input type="radio" name="report" value="illegal_filming">
+						<p>
+							불법촬영물등 유통 신고는 전기통신 사업법 시행령에 따라, 신고인의 개인정보 수집 이용 동의와 신고 사유 등 신고서
+							제출이 필요합니다. <br> 음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게 조치됩니다.
+						</p>
+						권리침해 신고<input type="radio" name="report"
+							value="violate_right">
+						<p>권리침해 신고는 먼저 침해한 게시물을 신고후 '깃펜 권리 침해 신고 사이트'에서 침해 증빙 서류를 다운
+							받아 내용을 작성하여 고객센터로 온라인 접수하면 처리됩니다.</p>
+					</div>
+
 					<div id="report_content">
-						<textarea cols="30" rows="5" placeholder="신고사유를 입력해 주세요"></textarea>
+						<textarea name="report_content" cols="66" rows="5"
+							placeholder="신고사유를 입력해 주세요"></textarea>
 					</div>
 					<!-- div#report_content -->
-					<div id="report_agreement">
-						<p>약관내용</p>
-						<input type="checkbox">동의하시겠습니까?
-						<p>약관내용</p>
-						<input type="checkbox">동의하시겠습니까?
-					</div>
 
 					<!-- div#report_agreement -->
 					<div id="report_btn">
-							<button type="button">신고하기</button>
+						<button id="reset_Btn" type="reset">취소</button>
+						<button id="report_Btn" type="submit">신고</button>
 					</div>
-		
-			<!-- div#report_btn -->
-			</section>
-			<!-- section#report : 신고하기 페이지 끝 -->
 
-			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
-			<!-- section#hidden : hidden input 영역 끝 -->
+					<!-- div#report_btn -->
+				</section>
+				<!-- section#report : 신고하기 페이지 끝 -->
+
+				<!-- section#hidden : hidden input 영역 시작 -->
+				<section id="hidden"></section>
+				<!-- section#hidden : hidden input 영역 끝 -->
 			</form>
 			<!-- form 영역 끝 -->
 		</main>

@@ -49,8 +49,8 @@
 				<!-- div#book_slide_container -->
 
 				<div id="book_slide_nav" class="dFlex">
-					<div id="left">&lt;</div>
-					<div id="right">&gt;</div>
+					<div id="left">&#10094;</div>
+					<div id="right">&#10095;</div>
 				</div>
 			</section>
 			<!-- section#book_slide : 책 리스트 슬라이드 영역 끝 -->

@@ -6,8 +6,19 @@
 <mapper namespace="myBatis.mapper.mapper">
 
 	<select id="selectBookList" resultType="BookBean">
-		Select bookNo, fileName, title, subTitle 
-		from introBook order by bookNo DESC Limit 10
+		Select bookNo, fileName,
+		title, subTitle, writer, link
+		from introBook order by bookNo DESC Limit
+		10
 	</select>
 
+	<select id="selectNoticeList" resultType="NoticeBean">
+		Select * from notice
+		Limit 10
+	</select>
+
+	<select id="selectWriterList" resultType="WriterBean">
+		Select * from writer
+		Limit 10
+	</select>
 </mapper>

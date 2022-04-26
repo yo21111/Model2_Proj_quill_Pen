@@ -7,15 +7,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import repository.DAO.HomeDao;
 import repository.DTO.BookBean;
+import repository.DTO.NoticeBean;
+import repository.DTO.WriterBean;
 
 public class HomeServiceImpl implements HomeService {
+	HomeDao hDao = new HomeDao();
 
 	@Override
 	public List<BookBean> getBookList(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		HomeDao hDao = new HomeDao();
 		List<BookBean> bookList = hDao.selectBookList();
 		
 		return bookList;
 	}
+
+	@Override
+	public List<NoticeBean> getNoticeList() throws Exception {
+		List<NoticeBean> noticeList = hDao.selectNoticeList();
+		return noticeList;
+	}
+
+	@Override
+	public List<WriterBean> getWriterList() throws Exception {
+		List<WriterBean> writerList = hDao.selectWriterList();
+		return writerList;
+	}
+	
+	
 
 }
