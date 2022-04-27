@@ -13,6 +13,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>설정 페이지(개인정보수정)</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
+<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_profile.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
@@ -24,7 +25,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 		<form id="profile_Frm" method = "post" action="">
 			<!-- section#profile : 개인정보 수정 페이지 시작 -->
 			<section id="profile">
-				<div id="profile_title">페이지 제목 출력</div>
+				<div id="profile_title">
+					<h1>My Quill Pen</h1>
+				</div>
 				<!-- div#profile_title -->
 				<div id="profile_infoUpdate">
 					<table>
@@ -36,7 +39,6 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 							<tr>
 								<td>작가명</td>
 								<td>test</td>
-								<td><button type="button">변경하기</button></td>
 							</tr>
 							<tr>
 								<td>이름</td>
@@ -63,13 +65,13 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<table>
 						<thead>
 							<tr>
-								<td>이름</td>
-								<td>프로필사진</td>
+								<td id="writerName">작가명</td>
+								<td><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필 이미지"></td>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="2"><textarea cols="30" rows="2"
+								<td colspan="2" id="introArea"><textarea cols="30" rows="4"
 										placeholder="소개글을 입력해주세요"></textarea></td>
 							</tr>
 						</tbody>
@@ -81,11 +83,11 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 						<tbody>
 							<tr>
 								<td>비밀번호 변경</td>
-								<td><input type="text"></td>
+								<td><input type="text" placeholder="새로 사용할 비밀번호를 입력해 주세요"></td>
 							</tr>
 							<tr>
 								<td>비밀번호 변경 확인</td>
-								<td><input type="text"></td>
+								<td><input type="text" placeholder="새로 사용할 비밀번호를 입력해 주세요"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -94,6 +96,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 				
 				
 				<div id="profile_withdraw">
+					<button type="button">수정하기</button>
 					<button type="button">탈퇴하기</button>
 				</div>
 				<!-- div#profile_withdraw -->

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+
+/* 테이블 공통사항 시작 */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table td:first-child {
+	width: 160px;
+	text-align: right;
+	padding: 5px 10px 5px 0px;
+}
+
+
+
+
+div#profile_title h1 {
+	padding: 10px 0;
+}
+
+div#profile_profileUpdate img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;	
+	float: right;
+	margin: 10px;
+}
+
+div#profile_profileUpdate table td:first-child {
+	text-align: center;
+}
+
+div#profile_profileUpdate table td#writerName {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+div#profile_profileUpdate table td#introArea {
+	padding: 0;
+}
+
+div#profile_profileUpdate table td#introArea textarea {
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	border: none;
+	resize: none;
+	outline: none;
+}
+
+div#profile_pwUpdate td {
+	padding: 10px 5px;
+}
+
+div#profile_pwUpdate input {
+	outline: none;
+	width: 250px;
+	height: 30px;
+}
+
+div#profile_withdraw button {
+	font-size: 20px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	padding: 5px;
+	margin: 10px;
+}
+
+div#profile_withdraw button:hover {
+	cursor: pointer;
+}

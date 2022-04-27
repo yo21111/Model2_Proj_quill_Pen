@@ -505,11 +505,10 @@ div#info_right div#writer_subBtn {
 /* ///////////////////// 개인정보 수정 페이지 위치 잡기 시작 ///////////////////// */
 section#profile {
     width: 500px;
-    height: 550px;
     margin: 0 auto;
 }
 
-section#profile div#profile_title {
+/* section#profile div#profile_title {
     height: 70px;
 }
 
@@ -526,8 +525,8 @@ section#profile div#profile_pwUpdate {
 }
 
 section#profile div#profile_withdraw {
-    height: 80px;
-}
+    height: 80px; 
+}*/
 /* ///////////////////// 개인정보 수정 페이지 위치 잡기 끝 ///////////////////// */
 
 /* ///////////////////// 신고하기 페이지 위치 잡기 시작 ///////////////////// */
