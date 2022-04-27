@@ -62,6 +62,7 @@
 				<!-- section#hidden : hidden input 영역 시작 -->
 				<section id="hidden">
 					<input type="hidden" id="rememId" value="${rememId}">
+					<input type="hidden" id="updateComp" value="${updateComp}">
 				</section>
 				<!-- section#hidden : hidden input 영역 끝 -->
 			</form>

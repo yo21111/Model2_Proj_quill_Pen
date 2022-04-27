@@ -25,7 +25,6 @@ public class ControllerUsingURI extends HttpServlet {
 		Properties prop = new Properties();
 		String configFilePath = getServletContext().getRealPath(configFile);
 		
-		System.out.println("init() 실행됨");
 		
 		try (FileReader objFR = new FileReader(configFilePath)) {
 			prop.load(objFR);
@@ -61,7 +60,6 @@ public class ControllerUsingURI extends HttpServlet {
 	}
 
 	private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("process() 실행됨");
 		String command = req.getRequestURI();
 		
 		if (command.indexOf(req.getContextPath()) == 0) {
@@ -87,7 +85,6 @@ public class ControllerUsingURI extends HttpServlet {
 				
 			} else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
-				System.out.println("viewPage : " + viewPage);
 				dispatcher.forward(req, resp);
 			}
 		}

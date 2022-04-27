@@ -62,10 +62,10 @@
 		where uId = #{uId} and uPhone = #{uPhone}
 	</select>
 
-	<update id="updatePw" parameterType="map">
+	<update id="updatePw" parameterType="MemberBean">
 		Update member
 		Set
-		uPw = #{uPw},
+		uPw = #{uPw}
 		Where uId = #{uId}
 	</update>
 </mapper>

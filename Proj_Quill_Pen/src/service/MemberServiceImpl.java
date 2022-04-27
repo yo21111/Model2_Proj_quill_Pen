@@ -56,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean findPw(String uId, String uPhone) throws Exception {
 		int isMem = mDao.isMember(uId, uPhone);
-		return isMem == 1? true : false;
+		return isMem == 1 ? true : false;
 	}
 
 	@Override

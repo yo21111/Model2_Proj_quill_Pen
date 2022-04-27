@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+* {
+	border: none;
+}
+
+section#findinfo {
+	width: 400px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	box-shadow: 1px 5px 5px #aaa;
+	padding: 10px;
+	padding-bottom: 30px;
+}
+
+div#findinfo_title {
+	line-height: 60px;
+}
+
+div#findinfo_error {
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	color: red;
+	font-weight: bold;
+}
+
+div.findinfo_input input {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+div#findinfo_result {
+	padding: 10px 0;
+	color: #aaa;
+}
+
+div#findinfo_result span {
+	font-weight: bold;
+	color: #333;
+}
+
+div#findinfo_findBtn button, div#findinfo_loginBtn button {
+	width: 90%;
+	height: 90%;
+	background-color: #fee500;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div#findinfo_loginBtn button {
+	background-color: #e7e7e7;
+}
+
+div#findinfo_findinfoBtn button {
+	background-color: #f6f6f6;
+	width: 90%;
+	height: 90%;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}

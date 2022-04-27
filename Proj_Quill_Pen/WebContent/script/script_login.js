@@ -54,5 +54,10 @@ $(function() {
 			$("div#login_util input").attr("checked", "checked");
 		}
 		
+		let updateComp = $("input#updateComp").val();
+		
+		if (updateComp == "true") {
+			alert("비밀번호 변경이 완료되었습니다.");
+		}		
 	});
 });
