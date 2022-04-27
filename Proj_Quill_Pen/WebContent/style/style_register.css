@@ -1,11 +1,175 @@
 @charset "UTF-8";
 
+* {
+	border: none;
+}
+
+/* 공통사항 */
+div input {
+	width: 300px;
+	outline: none;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+div span.field {
+	width: 150px;
+	padding: 10px 0;
+	padding-right: 5px;
+	text-align: right;
+	/* border: 1px solid #000 */;
+}
+
+div button {
+	border: none;
+	background-color: #000;
+	color: #fff;
+}
+
+div button:hover {
+	cursor: pointer;
+}
+
+/* 공통사항 */
+
+section#register {
+	border: 2px solid #000;
+	border-bottom: none;
+}
+
+div#register_title {
+	padding: 20px 0;
+	border-bottom: 1px solid #000;
+}
+
+div#register_title h1 {
+	border: none;
+}
+
+div#register_id {
+	border-bottom: 1px solid #000;
+}
+
+div#register_id button#idChkBtn {
+	width: 150px;
+}
+
+div#register_idValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_writer {
+	border-bottom: 1px solid #000;
+}
+
+div#register_writer button#writerChkBtn {
+	width: 150px;
+}
+
+div#register_writerValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_pw {
+	border-bottom: 1px solid #000;
+}
+
+div#register_pwValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_pwCheck {
+	border-bottom: 1px solid #000;
+}
+
+div#register_pwCheckValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_name {
+	border-bottom: 1px solid #000;
+}
+
+div#register_nameValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_email {
+	border-bottom: 1px solid #000;
+}
+
+div#register_email input {
+	width: 142px;
+}
+
+div#register_email span#sepTxt {
+	transform: translateY(7px);
+}
+
+div#register_email select {
+	outline: none;
+	width: 150px;
+}
+
+div#register_emailValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_phone {
+	border-bottom: 1px solid #000;
+}
+
+div#register_phone button#confirmBtn {
+	width: 150px;
+}
+
+div#register_phoneValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#register_birth {
+	border-bottom: 1px solid #000;
+}
+
+div#register_birthValid {
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+}
+
+div#registerBtnArea button#registerSubBtn {
+	margin: 10px;
+	font-size: 20px;
+	padding: 10px;
+}
+
+
 /*#############################  */
 /*##########이용약관 동의 시작##########  */
 /*#############################  */
 
+section#agreement {
+	border: 2px solid #000;
+	border-top: none;
+}
+
 iframe#blogAgree {
 	width: 100%;
+	border: 1px solid #000;
 }
 
 div#agreement_content>iframe#blogAgreeFrame {

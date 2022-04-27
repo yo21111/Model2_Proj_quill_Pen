@@ -25,36 +25,38 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<form id="register_Frm" method="post" action="">
 				<!-- section#register : 회원가입 영역 시작 -->
 				<section id="register">
-					<div id="register_title">회원가입 제목 출력</div>
+					<div id="register_title">
+						<h1>Quill Pen 회원가입</h1>
+					</div>
 					<!-- div#register_title -->
 					
 					<div id="register_id" class="dFlex">
-						<span>아이디 입력</span>
+						<span class="field">아이디</span>
 						<input type="text" name="uId" maxlength="20">
-						<button type="button" id="idChkBtn">중복검사</button>
+						<button type="button" id="idChkBtn">아이디 중복 확인</button>
 					</div>
 					<!-- div#register_id -->
 					<div id="register_idValid">아이디는 3~20글자, 영문,숫자만 입력 가능합니다.</div>
 					<!-- div#register_idValid -->
 					
 					<div id="register_writer" class="dFlex">
-						<span>작가명 입력</span>
+						<span class="field">작가명</span>
 						<input type="text" name="writer" maxlength="10">
-						<button type="button" id="writerChkBtn">중복검사</button>
+						<button type="button" id="writerChkBtn">작가명 중복 확인</button>
 					</div>
 					<!-- div#register_writer -->
 					<div id="register_writerValid">작가명은 2~10글자, 한글만 입력 가능합니다.</div>
 					<!-- div#register_writerValid -->
 					
 					<div id="register_pw" class="dFlex">
-						<span>비밀번호 입력</span>
+						<span class="field">비밀번호</span>
 						<input type="password" name="uPw" maxlength="20">
 					</div>
 					<!-- div#register_pw -->
 					<div id="register_pwValid">비밀번호는 6~20글자, 영어, 숫자, 특수문자만 입력 가능합니다.</div>
 					<!-- div#register_pwValid -->
 					<div id="register_pwCheck" class="dFlex">
-						<span>비밀번호 확인</span>
+						<span class="field">비밀번호 확인</span>
 						<input type="password" maxlength="20">
 					</div>
 					<!-- div#register_pwCheck -->
@@ -62,7 +64,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<!-- div#register_pwCheckValid -->
 					
 					<div id="register_name" class="dFlex">
-						<span>이름</span>
+						<span class="field">이름</span>
 						<input type="text" name="uName">
 					</div>
 					<!-- div#register_name -->
@@ -70,9 +72,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<!-- div#register_nameValid -->
 					
 					<div id="register_email" class="dFlex">
-						<span>이메일</span>
+						<span class="field">이메일</span>
 						<input type="text" id="uEmail_01" maxlength="20" size="7">
-						<span>@</span>
+						<span id="sepTxt">@</span>
 						<input type="text" id="uEmail_02" maxlength="40" size="10">
 	   					<select id="emailDomain">
 							<option value="">직접입력</option>
@@ -86,15 +88,16 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<!-- div#register_emailValid -->
 					
 					<div id="register_phone" class="dFlex">
-						<span>휴대폰 번호</span>
+						<span class="field">휴대폰 번호</span>
 						<input type="text" name="uPhone" maxlength="11">
+						<button type=button id="confirmBtn">인증하기</button>
 					</div>
 					<!-- div#register_phone -->
 					<div id="register_phoneValid">휴대폰 번호를 입력해 주세요.</div>
 					<!-- div#register_phoneValid -->
 					
 					<div id="register_birth" class="dFlex">
-						<span>생년월일</span>
+						<span class="field">생년월일</span>
 						<input type="text" name="uBirth" maxlength="8">
 					</div>
 					<!-- div#register_birth -->

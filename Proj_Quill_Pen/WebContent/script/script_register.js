@@ -177,11 +177,11 @@ $(function(){
 			let regExp2 = /[^가-힣]/g;
 			let rExpRes2 = regExp2.test(name);
 		
-			if (writer == "") {
-			$("#register_writerValid").text("이름을 입력해 주세요.");
-			$("#register_writerValid").css("color", "red");
+			if (name == "") {
+			$("#register_nameValid").text("이름을 입력해 주세요.");
+			$("#register_nameValid").css("color", "red");
 				
-			} else if (writer.length < 1) {    // 글자수 체크
+			} else if (name.length < 1) {    // 글자수 체크
 		
 			$("#register_nameValid").text("이름은 최소 1글자 이상입니다.");
 			$("#register_nameValid").css("color", "red");
@@ -198,7 +198,8 @@ $(function(){
 			
 			} else {
 				
-			$("#register_nameValid").text("");
+			$("#register_nameValid").text("이름을 입력해 주세요");
+			$("#register_nameValid").css("color", "black");
 				
 			}
 		
@@ -215,7 +216,8 @@ $(function(){
 			
 			if(phone == "") {
 				
-			$("#register_phoneValid").text("휴대폰 번호를 입력해 주세요.");					
+			$("#register_phoneValid").text("휴대폰 번호를 입력해 주세요.");	
+			$("#register_phoneValid").css("color", "red");				
 				
 			} else if (phone.length != 11) {    // 글자수 체크
 		
@@ -235,9 +237,49 @@ $(function(){
 			}
 		
 		});
+		
+		
+		$("#register_phone>button").click(function(){
+			let phone = $("#register_phone>input").val().trim();
+			$("#register_phone>input").val(phone);
+			
+			let regExp = /[^0-9]/g;
+			let rExpRes = regExp.test(phone);
+			
+			if(phone == "") {
+				
+			$("#register_phoneValid").text("휴대폰 번호를 입력해 주세요.");
+			$("#register_phoneValid").css("color", "red");			
+			$("#register_phone>input").focus();
+								
+			} else if (phone.length != 11) {    // 글자수 체크
+			
+			$("#register_phoneValid").text("휴대폰 번호를 올바르게 입력해 주세요.");
+			$("#register_phoneValid").css("color", "red");
+			$("#register_phone>input").focus();
+			
+			} else if (rExpRes) {    // 정규표현식 체크
+			
+			$("#register_phoneValid").text("휴대폰 번호는 숫자만 입력 가능합니다.");
+			$("#register_phoneValid").css("color", "red");
+			$("#register_phone>input").focus();
+			
+			} else {
+				
+			$("#register_phoneValid").text("인증이 완료되었습니다.");
+			$("#register_phoneValid").css("color", "green");
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
 
 
-			//휴대폰 번호 유효성 검사
+			//생년월일 유효성 검사
 		$("#register_birth>input").keyup(function(){
 			let birth = $(this).val().trim();
 			$(this).val(birth);

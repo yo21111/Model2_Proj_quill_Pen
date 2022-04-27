@@ -591,9 +591,9 @@ section#register {
     margin: 0 auto;
 }
 
-section#register div {
+/* section#register div {
     height: 70px;
-}
+} */
 
 section#agreement {
     width: 600px;
