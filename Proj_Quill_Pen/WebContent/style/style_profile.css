@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+section#profile {
+	border: 1px solid #000;
+}
+
 
 /* 테이블 공통사항 시작 */
 table {
@@ -14,10 +18,22 @@ table td:first-child {
 }
 
 
-
+div#profile_title {
+	border-bottom: 1px solid #000;
+}
 
 div#profile_title h1 {
 	padding: 10px 0;
+}
+
+div#profile_infoUpdate table td {
+	border-bottom: 1px solid #000;
+	padding: 10px 0;
+}
+
+div#profile_infoUpdate table td:first-child {
+	border-right: 1px solid #000;
+	padding-right: 10px;
 }
 
 div#profile_profileUpdate img {
@@ -26,6 +42,10 @@ div#profile_profileUpdate img {
 	border-radius: 50px;	
 	float: right;
 	margin: 10px;
+}
+
+div#profile_profileUpdate table td {
+	border-bottom: 1px solid #000;
 }
 
 div#profile_profileUpdate table td:first-child {
@@ -52,6 +72,12 @@ div#profile_profileUpdate table td#introArea textarea {
 
 div#profile_pwUpdate td {
 	padding: 10px 5px;
+	border-bottom: 1px solid #000;
+}
+
+div#profile_pwUpdate td:first-child {
+	border-right: 1px solid #000;
+	padding-right: 10px;
 }
 
 div#profile_pwUpdate input {
