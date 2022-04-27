@@ -140,17 +140,21 @@ section#bbs div#bbs_container {
 /* ///////////////////// 공지사항 게시판 위치 잡기 시작 ///////////////////// */
 section#noticeBBS {
     width: 900px;
-    height: 450px;
     margin: 0 auto;
 }
 
-section#noticeBBS div#noticeBBS_title {
+section#noticeBBS_profile {
+	width: 900px;
+	margin: 0 auto;
+}
+
+/* section#noticeBBS div#noticeBBS_title {
     height: 100px;
 }
 
 section#noticeBBS div#noticeBBS_container {
     height: 350px;
-}
+} */
 /* ///////////////////// 공지사항 게시판 위치 잡기 끝 ///////////////////// */
 
 /* ///////////////////// 작가 페이지 위치 잡기 시작 ///////////////////// */
