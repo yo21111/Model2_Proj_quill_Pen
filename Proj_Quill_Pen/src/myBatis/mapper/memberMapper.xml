@@ -8,7 +8,7 @@
 	<select id="idCheck" parameterType="string" resultType="int">
 		Select
 		count(*) from member
-		where uId = #{uId}
+		where uId = "${uId}"
 	</select>
 
 	<select id="writerCheck" parameterType="string" resultType="int">

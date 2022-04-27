@@ -23,7 +23,7 @@ public class MemberDao {
 		try {
 			// 결과가 1이면 true 아니면 false
 			int result = sqlSession.selectOne(namespace + "idCheck", uId);
-			check = result == 1 ? true : false;
+			check = result == 0 ? true : false;
 
 			return check;
 		} finally {
@@ -41,7 +41,7 @@ public class MemberDao {
 		try {
 			// 결과가 1이면 true 아니면 false
 			int result = sqlSession.selectOne(namespace + "writerCheck", writer);
-			check = result == 1 ? true : false;
+			check = result == 0 ? true : false;
 
 			return check;
 		} finally {

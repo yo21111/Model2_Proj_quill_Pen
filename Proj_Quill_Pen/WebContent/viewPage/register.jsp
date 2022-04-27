@@ -32,7 +32,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					
 					<div id="register_id" class="dFlex">
 						<span class="field">아이디</span>
-						<input type="text" name="uId" maxlength="20">
+						<input type="text" id="idChkInput" name="uId" maxlength="20">
 						<button type="button" id="idChkBtn">아이디 중복 확인</button>
 					</div>
 					<!-- div#register_id -->
@@ -41,7 +41,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					
 					<div id="register_writer" class="dFlex">
 						<span class="field">작가명</span>
-						<input type="text" name="writer" maxlength="10">
+						<input type="text" id="writerChkInput" name="writer" maxlength="10">
 						<button type="button" id="writerChkBtn">작가명 중복 확인</button>
 					</div>
 					<!-- div#register_writer -->
@@ -126,6 +126,8 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 				<!-- section#hidden : hidden input 영역 시작 -->
 				<section id="hidden">
 					<input type="hidden" name="uEmail" id="uEmail">
+					<input type="hidden" id="idChk" value="false">
+					<input type="hidden" id="writerChk" value="false">
 				</section>
 				<!-- section#hidden : hidden input 영역 끝 -->
 			</form>

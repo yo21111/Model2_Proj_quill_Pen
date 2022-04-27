@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>푸터 템플릿</title>
     <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_ind.css" />
-    <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-    <script src="/Proj_Quill_Pen/script/script.js"></script>
   </head>
   <body>
 	<div id="wrap">
