@@ -1,5 +1,6 @@
 package controller.member;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,7 +18,15 @@ public class LoginController implements CommandHandler {
 		String uPw = (String) req.getParameter("uPw");
 		String uName = (String) req.getParameter("uName");
 		String uPhone = (String) req.getParameter("uPhone");
-
+		String rememId = req.getParameter("rememId");
+		
+		if (rememId == null) {
+			req.setAttribute("rememId", "false");
+		} else {
+			req.setAttribute("rememId", "true");
+		}
+		
+		
 		// GET방식인지 POST방식인지 확인
 		String method = req.getMethod();
 		// 아이디 비밀번호 찾기 페이지에서 ?check=id 또는 ?check=pw 보내기
@@ -66,7 +75,19 @@ public class LoginController implements CommandHandler {
 				return "/viewPage/login.jsp";					
 			}
 		}
-
+		
+		// 쿠키에 저장되어있는 정보가 있는지
+		Cookie[] cookies = req.getCookies();
+		String cId = "";
+		
+		if(cookies != null) {
+			for (int i = 0; i < cookies.length; i++) {
+				if(cookies[i].getName().trim().equals("cId")) {
+					cId = cookies[i].getValue();
+				}
+			}
+		}
+		
 		// 아직 로그인 버튼 안눌러서 아이디, 비밀번호가 리퀘스트에 없는 경우
 		if (uId == null && uPw == null) {
 			// 1. 원래 가려했던 페이지가 있는지 확인한다.
@@ -86,11 +107,26 @@ public class LoginController implements CommandHandler {
 				req.setAttribute("errorMsg", "아이디 또는 비밀번호를 확인해주세요.");
 				return "/viewPage/login.jsp";
 			}
-
+			
 			// 세션에 아이디 값 넣기
 			HttpSession session = req.getSession();
 			session.setAttribute("uId_Session", uId);
+			
+			
+			// 아이디 기억하기 체크시 -> on
 
+			Cookie cookie = null;
+			
+			if (rememId != null && rememId.trim().equals("on")) {
+				cookie = new Cookie("cId", uId);
+				cookie.setMaxAge(60*60*24); // 1일을 유효기간으로
+				resp.addCookie(cookie);
+			} else {
+				cookie = new Cookie("cId", null);
+				cookie.setMaxAge(0); // 쿠키 없애기
+				resp.addCookie(cookie);				
+			}
+			
 			// 원래 가려던 페이지가 있는지 확인하기
 			String to = (String) req.getParameter("to");
 

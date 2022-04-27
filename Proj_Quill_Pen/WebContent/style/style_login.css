@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+* {
+	border: none;
+}
+
+section#login {
+	width: 400px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	box-shadow: 1px 5px 5px #aaa;
+	padding: 10px;
+	padding-bottom: 30px;
+}
+
+div#login_title h2 {
+	height: 70px;
+	line-height: 60px;
+}
+
+div#login_error {
+	font-weight: bold;
+	color: red;
+}
+
+div#login_idInput input {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+div#login_pwInput input {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	padding: 5px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+div#login_util {
+	justify-content: space-between;
+	padding: 0 18px;
+	font-size: 12px;
+	align-items: center;
+	color: #999;
+}
+
+div#login_util div {
+	height: 20px;
+}
+
+div#login_util input {
+	transform: translate(-1px, 1px);
+	cursor: pointer;
+}
+
+div#findInfo {
+	align-content: center;
+}
+
+div#findInfo div:hover {
+	color: #555;
+}
+
+div#login_loginBtn button {
+	width: 90%;
+	height: 90%;
+	background-color: #fee500;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div#login_registerBtn button {
+	margin: 10px 0;
+	background-color: #f6f6f6;
+	width: 90%;
+	height: 90%;
+	line-height: 57px;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}

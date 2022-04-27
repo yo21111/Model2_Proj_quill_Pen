@@ -1,0 +1,149 @@
+@charset "UTF-8";
+@import url(../source/style_Reset.css);
+
+div#wrap{
+    width: 1900px;
+    border: 1px solid #aaa;
+    border-radius: 1px;
+    padding: 0 auto ;
+    margin: 0  auto;
+    padding: 0;
+
+  
+}
+
+h1{
+	font-size: 47px;
+}
+h3{
+	font-size: 33px;
+	color: #ccc;
+}
+
+
+div#board_header_util{
+margin-top: 10px;
+ padding-right: 300px;
+ justify-content: end;
+}
+
+i{
+font-size: 16px;
+}
+
+
+div#board_header_title,div#board_header_subTitle{
+ text-align: center;
+}
+div#board_header_info{
+ text-align: left;
+
+ padding-left: 260px;
+}
+div#board_header_info>input{
+    width: 132px;
+    outline: none;
+    border: none;
+     font-size: 20px;
+}
+
+div#board_content{
+    text-align: center;
+    
+}
+div#board_content>textArea#content{
+    text-align: left;
+    width: 1500px;
+    height: 900px;
+    padding: 30px;
+    font-size: 19px;
+}
+
+section#board_btn{
+    justify-content: center;
+    padding-left: 1200px;
+    margin-bottom: 30px;
+}
+section#board_btn button{
+	font-size: 20px;
+	width: 75px;
+
+}
+div#board_comment_info{
+    text-align: center;
+    padding-right: 600px;
+}
+div#commenticon{
+    text-align: center;
+    padding-left: 830px; 
+}
+div#commenticon i{
+	font-size: 20px;
+}
+
+button#icon{
+width: 100px;
+height: 30px;
+background-color: #fff;
+font-size: 21px;
+border: 1px solid #aaa;
+border-radius: 15px;
+cursor: pointer;
+
+}
+div.comment_read{
+    height: 150px;
+    padding: 5px;
+    justify-content: center;
+    
+}
+div.comment_content_info{
+	width: 570px;
+}
+
+
+div.comment_img{
+    border: 1px solid #000;
+    border-right: none;
+    padding: 3px;
+
+}
+div.comment_container{
+    border: 1px solid #000;
+    padding: 2px;
+}
+div.comment_btn{
+    text-align: right;
+    margin: 3px;
+}
+div.comment_write{
+    height: 150px;
+    padding: 5px;
+    justify-content: center;
+    margin-top: 50px;
+}
+div.comment_input{
+    padding: 5px;
+    border: 1px solid #000; 
+    width: 580px;
+}
+div.comment_Btn{
+     text-align: right;
+     position: relative;
+     top: 80px;
+     left: -20px;
+}
+
+div#writer_container{
+   border: 1px solid #aaa;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    height: 150px;
+    padding-top: 20px;
+    background-color: #eee;
+}
+
+section#bbs{
+    margin: 20px;
+    text-align: center;
+}
