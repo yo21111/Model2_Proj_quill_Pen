@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import repository.DTO.BookBean;
 import repository.DTO.NoticeBean;
@@ -25,6 +26,12 @@ public class HomeController implements CommandHandler {
 		req.setAttribute("bookList", bookList);
 		req.setAttribute("noticeList", noticeList);
 		req.setAttribute("writerList", writerList);
+		
+		HttpSession session = req.getSession();
+		String uId = (String)session.getAttribute("uId_Session");
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
 		
 		return "/index.jsp";
 	}

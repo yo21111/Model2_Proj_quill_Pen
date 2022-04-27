@@ -26,6 +26,10 @@ public class Modify implements CommandHandler {
 		String uId = (String)session.getAttribute("uId");
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		if (method.equals("GET")) {
 			req.setAttribute("do", "update");
 			return "/viewPage/board.jsp";

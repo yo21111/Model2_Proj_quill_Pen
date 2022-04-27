@@ -47,7 +47,9 @@ public class MyPageController implements CommandHandler {
 		// 없는 경우는 마이페이지 인 경우임
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
-		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
 
 		if (!ms.isLogin(uId)) {
 			return "redirect:/Proj_Quill_Pen/main";

@@ -6,6 +6,7 @@
 	margin: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+	border: none;
 }
 
 a:link { /* a요소에서 href속성이 적용된 텍스트의 색상 */
@@ -32,17 +33,14 @@ a:active { /* :hover 상태에서 마우스왼쪽 버튼을 누르는 순간 적
 /*헤더 템플릿*/
 div#wrap {
 	width: 1900px;
-	border: 1px solid #aaa;
 	margin: 0 auto;
 }
 
 header#header {
-	border: 1px solid #000;
 	width: 100%;
 }
 
 header#header div#imgArea {
-	border: 1px solid #000;
 	margin: 0 auto;
 	width: 80%;
 	height: 100%;
@@ -54,15 +52,118 @@ header#header div#imgArea div#imgArea_left {
 	align-items: center;
 }
 
+div#lnbBtn {
+	width: 70px;
+	height: 50px;
+	cursor: pointer;
+	margin-left: 100px;
+}
+
+header#header div#imgArea div#imgArea_left img#list {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+header#header div#imgArea div#imgArea_left img#Logo {
+	display: inline-block;
+}
+
+header#header div#imgArea div#imgArea_right i {
+	width: 60px;
+	height: 60px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+div#imgArea_right {
+	align-items: center;
+}
+
+div#imgArea_right input {
+	width: 230px;
+	height: 50px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	font-size: 16px;
+	transform: translateY(-12px);
+}
+
 header#header img#Logo {
 	margin-left: 15px;
 }
 
+header#header nav#lnb {
+	display: none;
+	position: absolute;
+	z-index: 0;
+	top: 120px;
+	left: 250px;
+}
+
+header#header nav#lnb div#lnb_top {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+}
+
+header#header nav#lnb div#lnb_top div#lnb_top_Logo {
+	background-color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 50%;
+	margin: 10px auto;
+	width: 140px;
+	height: 140px;
+	justify-content: center;
+	align-items: center;
+}
+
+div#lnb_top_Logo img {
+	display: inline-block;
+	width: 70%;
+	height: 70%;
+}
+
+header#header nav#lnb div#lnb_top div#lnb_top_register button {
+	margin: 15px auto;
+	width: 110px;
+	background-color: #fff;
+	color: #00c3bd;
+	border: 1px solid #00c3bd;
+	font-weight: bold;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+div#lnb_top_register button:hover {
+	color: #00a49f;
+	border: 1px solid #00a49f;
+}
 
 header#header nav#lnb ul#LNBul {
 	width: 210px;
-	height: 970px;
-	border: 1px solid #000;
+	height: 600px;
+	border: 1px solid #ddd;
+	list-style: none;
+	background-color: #fff;
+}
+
+header#header nav#lnb ul#LNBul li {
+	margin: 20px 0;
+	font-weight: bold;
+}
+
+header#header nav#lnb ul#LNBul li a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+header#header nav#lnb ul#LNBul li:hover {
+	cursor: pointer;
+	color: #00c3bd;
 }
 
 /*푸터 템플릿*/
@@ -71,7 +172,7 @@ div#footer {
 	width: 1900px;
 	height: 350px;
 	background-color: #101010;
-	color: #ccc;
+	color: #fff;
 }
 
 div#footerContent {
@@ -116,7 +217,10 @@ table#footerTbl {
 table#footerTbl td {
 	height: 30px;
 	padding: 5px 0;
-	color: #aaa;
+}
+
+table#footerTbl td a {
+	color: #fcfcfc;
 }
 
 div#footerCopyright {

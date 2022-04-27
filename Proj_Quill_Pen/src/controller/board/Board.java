@@ -19,6 +19,10 @@ public class Board implements CommandHandler {
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId");
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		if(bs.isLogin(uId, bno)) {
 			req.setAttribute("login", "true");
 		} else {

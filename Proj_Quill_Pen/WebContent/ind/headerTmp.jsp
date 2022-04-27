@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,31 +18,56 @@
 
 			<div id="headerMenu" class="dFlex">
 
-				<!-- <nav id="lnb">
+				<nav id="lnb">
+					<div id="lnb_top">
+						<div id="lnb_top_Logo" class="dFlex">
+							<img id="list" src="/Proj_Quill_Pen/images/header/LNB_Logo.png"
+								alt="LNB로고">
+						</div>
 
-					<ul id="LNBul">
-
-						lNB a요소 
-						<li class="lnbMenu">이동하기<a href=""></a></li>
-						<li class="lnbMenu">이동하기<a href=""></a></li>
-						<li class="lnbMenu">이동하기<a href=""></a></li>
-					</ul>
-
-				</nav> -->
+						<div id="lnb_top_register">
+							<button type="button">
+								quill pen<br>시작하기
+							</button>
+						</div>
+					</div>
+					<div id="lnb_bot">
+						<ul id="LNBul">
+							<c:if test="${isLogin ne 'true'}">
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/login">로그인</a></li>
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/book">quill pen 책방</a></li>
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/bbs">quill pen 게시판</a></li>
+							</c:if>
+							<c:if test="${isLogin eq 'true'}">
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/logout">로그아웃</a></li>
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/myPage">마이 페이지</a></li>
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/book">quill pen 책방</a></li>
+								<li class="lnbMenu"><a href="/Proj_Quill_Pen/bbs">quill pen 게시판</a></li>
+							</c:if>
+						</ul>
+					</div>
+				</nav>
 
 
 				<div id="imgArea" class="dFlex">
 					<!-- 로고 부분  -->
 					<div id="imgArea_left" class="dFlex">
-						<img id="list" src="/Proj_Quill_Pen/images/header/list.png"
-							alt="목록로고"> <img id="Logo"
+						<div id="lnbBtn">
+							<img id="list" src="/Proj_Quill_Pen/images/header/list.png"
+								alt="목록로고">
+						</div>
+						<a href="/Proj_Quill_Pen/main"><img id="Logo"
 							src="/Proj_Quill_Pen/images/header/mainLogo.png" alt="헤더로고">
-					</div>
-					<div id="imgArea_right">
-						<i class="fa-solid fa-magnifying-glass" style="font-size: 36px;"></i>
-						<i class="fa-solid fa-user" style="font-size: 36px;"></i>
+						</a>
 					</div>
 
+					<div id="imgArea_right" class="dFlex">
+						<input id="searchInput" type="text" placeholder="검색어를 입력해주세요." name="search">
+						<i id="search" class="fa-solid fa-magnifying-glass"></i>
+						<c:if test="${isLogin eq 'true'}">
+							<a href="/Proj_Quill_Pen/myPage"><i class="fa-solid fa-user"></i></a>
+						</c:if>
+					</div>
 
 				</div>
 
@@ -53,6 +79,7 @@
 		<!-- <nav>LNB메뉴자리(LNB버튼,로고,회원가입,검색)</nav> -->
 	</div>
 	<!-- div#wrap -->
-
+	<script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
+	<script src="/Proj_Quill_Pen/script/script_ind.js"></script>
 </body>
 </html>

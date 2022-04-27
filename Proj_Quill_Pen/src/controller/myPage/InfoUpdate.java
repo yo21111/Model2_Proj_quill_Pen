@@ -17,7 +17,9 @@ public class InfoUpdate implements CommandHandler {
 		MyPageService ms = new MyPageServiceImpl();
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
-		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
 		String method = req.getMethod();
 				
 		if (method.equals("GET")) {

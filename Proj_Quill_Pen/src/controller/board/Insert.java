@@ -25,6 +25,10 @@ public class Insert implements CommandHandler {
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId");
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		if (method.equals("GET")) {
 			req.setAttribute("do", "insert");
 			return "/viewPage/board.jsp";

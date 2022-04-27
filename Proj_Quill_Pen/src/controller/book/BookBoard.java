@@ -29,7 +29,6 @@ public class BookBoard implements CommandHandler  {
 		// 관리자인지 확인하기
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
-	
 		// 어떤 요청인지 확인하기
 		String method = req.getMethod();
 		String type = req.getParameter("do");

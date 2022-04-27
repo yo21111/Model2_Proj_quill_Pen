@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.CommandHandler;
 import repository.DTO.BoardBean;
@@ -16,6 +17,12 @@ public class BbsController implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		BbsService bs = new BbsServiceImpl();
+		
+		HttpSession session = req.getSession();
+		String uId = (String)session.getAttribute("uId_Session");
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
 		
 		String search = req.getParameter("search");
 		String category = req.getParameter("category");

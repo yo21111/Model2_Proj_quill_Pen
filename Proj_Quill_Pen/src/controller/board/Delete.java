@@ -18,6 +18,10 @@ public class Delete  implements CommandHandler {
 		String uId = (String)session.getAttribute("uId");
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		if (uId == null && !bs.isLogin(uId, bno)) {
 			req.setAttribute("errorMsg", "로그인 후 사용하실 수 있습니다.");
 			req.setAttribute("do", "select");
