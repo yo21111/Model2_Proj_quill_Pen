@@ -80,6 +80,7 @@ public class MemberDao {
 			return sqlSession.insert(namespace + "registerMember", bean);
 
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

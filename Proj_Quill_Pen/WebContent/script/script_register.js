@@ -365,17 +365,17 @@ $(function() {
 
 	/* 회원가입 버튼 전송 실행 */
 	$("#registerSubBtn").click(function() {
-		let uId = $.trim($("#uId").val());
+		let uId = $("#uId").val();
 		$("#uId").val(uId);
-		let uPw = $.trim($("#uPw").val());
+		let uPw = $("#uPw").val();
 		$("#uPw").val(uPw);
-		let uPw_Re = $.trim($("#uPw_Re").val());
-		let uName = $.trim($("#uName").val());
+		let uPw_Re = $("#uPw_Re").val();
+		let uName = $("#uName").val();
 		$("#uName").val(uName);
-		let uEmail_01 = $.trim($("#uEmail_01").val());
-		let uEmail_02 = $.trim($("#uEmail_02").val());
+		let uEmail_01 = $("#uEmail_01").val();
+		let uEmail_02 = $("#uEmail_02").val();
 		$("#uEmail").val(uEmail_01 + "@" + uEmail_02);
-		let uBirthday = $.trim($("#uBirthday").val());
+		let uBirthday = $("#uBirthday").val();
 
 		if (uId == "") {
 			alert("아이디를 입력해주세요.");
@@ -401,16 +401,16 @@ $(function() {
 			alert("이메일 주소를 입력해주세요.");
 			$("#uEmail_02").focus();
 			return;
-		} else if (uBirthday != "" && isNaN(uBirthday)) {
+		} else if (uBirthday != "" && !isNaN(Number(uBirthday))) {
 			// 생년월일 숫자유효성 검사
 			alert("생년월일은 숫자만 입력할 수 있습니다.");
 			$("#uBirthday").val("").focus();
 			return;
 		} else {
-			if ($("idChk").val() != "true") {
+			if ($("input#idChk").val() != "true") {
 				alert("아이디 중복 여부를 확인하세요.");
 				return;
-			} else if ($("writerChk").val() != "true") {
+			} else if ($("input#writerChk").val() != "true") {
 				alert("작가명 중복 여부를 확인하세요.");
 				return;
 			}
@@ -418,7 +418,7 @@ $(function() {
 
 			let chkSbmTF = confirm("회원가입하시겠습니까?");
 			if (chkSbmTF) {
-				$("#register_Frm").attr("action", "/register");
+				$("#register_Frm").attr("action", "/Proj_Quill_Pen/register");
 				$("#register_Frm").submit();
 			}
 		}

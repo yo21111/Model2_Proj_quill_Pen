@@ -35,9 +35,6 @@
 		)
 		Values
 		(#{uId}, #{uPw}, #{uName}, #{uPhone},
-		<if test="writer==null">
-			#{uId},
-		</if>
 		<if test="writer!=null">
 			#{writer},
 		</if>
