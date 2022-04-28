@@ -124,7 +124,11 @@ div#lnb_top_Logo img {
 	height: 70%;
 }
 
-header#header nav#lnb div#lnb_top div#lnb_top_register button {
+div#lnb_top_register {
+	text-align: center;
+}
+
+div#lnb_top_register button {
 	margin: 15px auto;
 	width: 110px;
 	background-color: #fff;
