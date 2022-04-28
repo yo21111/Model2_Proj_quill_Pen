@@ -9,18 +9,18 @@
 		where uId = #{uId}
 	</select>
 	
-	<select id="selectBbsList" resultType="arraylist">
+	<select id="selectBbsList" resultType="BoardBean">
 		Select * from board
 		order by bno DESC
 	</select>
 	
-	<select id="selectBbsCategory" parameterType="int" resultType="arraylist">
+	<select id="selectBbsCategory" parameterType="int" resultType="BoardBean">
 		Select * from board
 		Where category = #{category}
 		order by bno DESC
 	</select>	
 	
-	<select id="selectBbsSearch" parameterType="string" resultType="arraylist">
+	<select id="selectBbsSearch" parameterType="string" resultType="BoardBean">
 		Select * from board
 		Where
 		title like concat("%", #{search}, "%") 

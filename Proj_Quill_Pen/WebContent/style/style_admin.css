@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+* {
+
+    text-align: center;
+}
+
+.dFlex {
+    display: flex;
+}
+
+div#wrap {
+    margin: 0 auto;
+
+}
+
+main {
+    width: 1900px;
+    margin: 40px auto;
+
+}
+
+div#noticeList_title{
+    margin-bottom: 70px;
+}
+
+div#noticeList_container{
+ width: 100%;
+ padding-left: 480px;
+margin: 20px;
+
+}
+
+div#noticeList_container>table{
+    border-collapse: collapse;
+    width: 50%;
+}
+
+div#noticeList_container>table thead{
+    border: none;    
+    border-bottom: 1px solid #000;
+
+}
+div#noticeList_container>table td{
+   width: 20%; 
+   padding: 15px;
+}
+
+div#noticeList_container>table td>input{
+  position: relative;
+  left: -60px;
+  top: 3px;
+  zoom: 1.4;
+}
+
+form#admin_notice_frm{
+  margin: 30px;
+  padding-right: 210px;
+
+}
+button.notice_Btn{
+    cursor: pointer;
+}
+div#reportList_title{
+    margin-top: 240px;
+   text-align: center;
+ 
+}
+
+
+div#reportList_container{
+    width: 100%;
+    padding-left: 480px;
+   margin: 20px; ;
+   
+}
+
+div#reportList_container>table{
+    border-collapse: collapse;
+    width: 50%;
+}
+
+div#reportList_container>table>thead{
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+div#reportList_container>table td{
+    width: 20%; 
+    padding: 15px;
+ }
+
+ div#reportList_container>table td>input{
+    position: relative;
+    left: -60px;
+    top: 3px;
+    zoom: 1.4;
+  }
+
+
+ form#adminReport_Frm{
+     margin: 30px;
+     padding-right: 100px;
+ }
+ 
+ div#bookList_title{
+    margin-top: 240px;
+ }
+
+
+
+ div#bookList_container{
+    width: 100%;
+    padding-left: 480px;
+   margin: 20px; 
+}
+div#bookList_container>table{
+    border-collapse: collapse;
+    width: 50%;
+}
+
+div#bookList_container>table>thead{
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+
+  div#bookList_container>table td{
+    width: 20%; 
+    padding: 15px;
+ }
+
+ div#bookList_container>table td>input{
+    position: relative;
+    left: -60px;
+    top: 3px;
+    zoom: 1.4;
+  }
+ 
+form#bookfrm{
+    margin: 50px;
+    padding-right: 120px;
+
+  }

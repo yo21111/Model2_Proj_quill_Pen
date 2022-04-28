@@ -1,54 +1,121 @@
 @charset "UTF-8";
 
-
-
 div#wrap {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 .dFlex {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
-
 
 main {
-    border: 1px solid #000;
-    width: 1900px;
-    margin: 40px auto;
-    text-align: center;
-}
-div#ContentDiv{
-    margin-left: 600px;
-    width: 740px;
-    height: 140px;
-/*     border: 1px solid #000; */
-    text-align: left;
-}
-div#divFile{
-/*     border: 1px solid #000; */
-    width: 150px;
-    padding: 5px;
-}
-div#divtitle{
-    flex: 1;
-}
-div#btn_bbs{
-    margin: 7px;
-    text-align:right;
-    margin-right: 570px;
-   
-}
-div#divtitle>h1:hover{
-    text-decoration: underline;
-}
-div#divtitle>div#divContent,div#writer_writeDate{
-    line-height:32px;
+	width: 1900px;
+	margin: 40px auto;
+	text-align: center;
 }
 
-div#divtitle,div#divFile{
-    cursor: pointer;
+div#bbs_title_container {
+	width: 950px;
+	margin: 5px auto;
+	padding: 5px;
+	border-bottom: 1px solid #aaa;
 }
-h1#title_bbs{
-    margin: 5px;
+
+div#bbs_container {
+	width: 950px;
+	margin: 0 auto;
+}
+
+div#bbs_container div>div {
+	padding: 5px 0;
+}
+
+div#bbs_container div>div:nth-child(1) {
+	width: 50px;
+}
+
+div#bbs_container div>div:nth-child(2) {
+	width: 200px;
+}
+
+div#bbs_container div>div:nth-child(3) {
+	flex: 1;
+}
+
+div#bbs_container div>div:nth-child(4) {
+	width: 130px;
+}
+
+div#bbs_container div>div:nth-child(5) {
+	width: 170px;
+}
+
+div#bbs_container div>div:nth-child(6) {
+	width: 60px;
+}
+
+div#bbs_title {
+	border-bottom: 2px solid #bbb;
+}
+
+div#content_null {
+	height: 50px;
+	padding: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 2px solid #bbb;
+}
+
+div.ContentDiv {
+	width: 950px;
+	height: 55px;
+	padding: 0 20px;
+	margin: 0 auto;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	cursor: pointer;
+	align-items: center;
+}
+
+div.ContentDiv div:nth-child(2) {
+	padding: 0 20px;
+	font-weight: bold;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+div.ContentDiv div:nth-child(3) {
+	padding: 0 20px;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+div.ContentDiv:hover {
+	color: #269d9a;
+}
+
+div.ContentDiv:last-child {
+	border-bottom: 1px solid #bbb;
+}
+
+div#btn_bbs {
+	width: 950px;
+	margin: 10px auto;
+	text-align: right;
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+div#btn_bbs button {
+	width: 100px;
+	height: 40px;
+	background-color: #fee500;
+	border: 1px solid #c4b000;
+	border-radius: 6px;
+	font-weight: bold;
+	cursor: pointer;
 }

@@ -91,12 +91,12 @@
 				</div>
 				<div id="category_container">
 					<ul class="dFlex">
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리1</a></li>
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리2</a></li>
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리3</a></li>
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리4</a></li>
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리5</a></li>
-						<li><a href="/Proj_Quill_Pen/bbs">카테고리6</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=1">카테고리1</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=2">카테고리2</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=3">카테고리3</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=4">카테고리4</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=5">카테고리5</a></li>
+						<li><a href="/Proj_Quill_Pen/bbs?category=6">카테고리6</a></li>
 					</ul>
 				</div>
 			</section>

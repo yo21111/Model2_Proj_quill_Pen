@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+div#wrap {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+div#withdraw_title h1 {
+    text-align: center;
+    font-size: 28px;
+}
+div#withdraw_info {
+margin-top: 40px;
+text-align: center;
+}
+div#withdraw_info p {
+font-size: 14px;
+line-height: 5px;
+}
+div#withdraw_info span{
+    color: #ff4220;
+    
+}
+
+div#withdraw_content {
+    border: 1px solid #aaa;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+div#withdraw_content >ul> li.withdrawLi {
+    font-size: 12px;
+    text-align: left;
+    line-height: 18px;
+}
+
+div#withdraw_agreement span{
+    font-size: 14px;
+    padding-left: 60px;
+    text-align: center;
+}
+
+div#withdraw_btn {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -7,6 +7,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 
 %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,18 +15,18 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>관리자 페이지</title>
-<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
+<link rel="stylesheet" href="/style/style_admin.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
 <body>
-	<jsp:include page="/ind/headerTmp.jsp" />
+	<!-- <jsp:include page="/ind/headerTmp.jsp" /> -->
 	<div id="wrap">
 		<main>
         <!-- section#noticeList : 공지사항 영역 시작 -->
         <section id="noticeList">
           <div id="noticeList_title">공지사항 영역 제목</div>
-          <div id="noticeList_container">공지사항 목록 출력
+          <div id="noticeList_container">
 
               <table>
                 <thead>
@@ -38,23 +39,24 @@ String uId_Session = (String) session.getAttribute("uId_Session");
                 </thead>
                 <tbody>
                   <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                    <td><input type="checkbox" value="${bno}">${bno}</td>
+                    <td>${title}</td>
+                    <td>${mid}</td>
+                    <td>${writeDate}</td>
                   </tr>
                 </tbody>
                 <tfoot>
-                  <tr>
-                    <td colspan="4">
-                    
-                      <button id = "notice_Btn" type="button" >작성하기</button>
-                      
-                    </td>
-                  </tr>
+ 
                 </tfoot>
               </table>
 
+              <form id="admin_notice_frm">
+
+                <button class = "notice_Btn" type="button" >작성하기</button>
+                <button class = "notice_Btn" type="button" >수정하기</button>
+                <button class = "notice_Btn" type="button" >삭제하기</button>
+                
+                   </form>
           </div>
         </section>
         <!-- section#noticeList : 공지사항 영역 끝 -->
@@ -62,7 +64,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
         <!-- section#reportList : 신고목록 영역 시작 -->
         <section id="reportList">
           <div id="reportList_title">신고 영역 제목</div>
-          <div id="reportList_container">신고 접수 목록 출력
+          <div id="reportList_container">
 
             <table>
               <thead>
@@ -75,23 +77,18 @@ String uId_Session = (String) session.getAttribute("uId_Session");
               </thead>
               <tbody>
                 <tr>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
-                  <td>test</td>
+                  <td><input type="checkbox" value="${bno}">${bno}</td>
+                  <td>게시글${title}</td>
+                  <td>${writer}</td>
+                  <td>${writeDate}</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="4">
-                  <form id = "adminReport_Frm" method="" action="">
-                    <button type="button">작성하기</button>
-                   </form>
-                  </td>
-                </tr>
-              </tfoot>
+        
             </table>
 
+            <form id = "adminReport_Frm" method="" action="">
+              <button type="button">삭제하기</button>
+             </form>
           </div>
         </section>
         <!-- section#reportList : 신고목록 영역 끝 -->
@@ -99,11 +96,47 @@ String uId_Session = (String) session.getAttribute("uId_Session");
         <!-- section#bookList : 책소개 영역 시작 -->
         <section id="bookList">
           <div id="bookList_title">책소개 영역 제목</div>
-          <div id="bookList_container">책소개 목록 출력</div>
+          <div id="bookList_container">
+            
+            <table>
+              <thead>
+
+                <tr>
+               
+                  <td>제목</td>
+                  <td>소개글</td>
+                  <td>작성자</td>
+                  <td>카테고리</td>
+
+           
+          
+                </tr>
+                
+              </thead>
+
+                <tbody>
+                <tr>
+                
+                  <td><input type="checkbox" value="${bookNo}">${title}</td>
+                  <td>${subTitle}</td>
+                  <td>${title}</td>
+                  <td>${category}</td>
+
+                </tr>
+              </tbody>
+            </table>
+
+          <form  id="bookfrm">
+            <button id="bookBtn" type="button">삭제하기</button>
+            <button id="bookBtn" type="button">등록하기</button>
+          </form>
+            
+            
+          </div>
         </section>
         <!-- section#bookList : 책소개 영역 끝 -->
       </main>
 	</div>
-	<jsp:include page="/ind/footerTmp.jsp" />	
+	<!-- <jsp:include page="/ind/footerTmp.jsp" />	 -->
 </body>
 </html>
