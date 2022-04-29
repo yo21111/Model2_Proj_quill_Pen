@@ -46,7 +46,9 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 							<tr>
 								<td id="admin_name"><a href="#"><c:out value= "${noticeBean.mId}" /></a></td>
 								<td rowspan="2">
-									<a href="#"><img src="/Proj_Quill_Pen/images/profile/admin_profile.jpg" alt="관리자 프로필"></a>
+									<a href="#" id="adminImg">
+										<img src="/Proj_Quill_Pen/images/profile/admin_profile.jpg" alt="관리자 프로필">
+									</a>
 								</td>
 							</tr>
 							<tr>
@@ -73,7 +75,9 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			</section>
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input type="hidden" id="adminId"  name="adminId" value="${noticeBean.mId}">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 

@@ -27,7 +27,14 @@ $(function(){
 		let url = "/Proj_Quill_Pen/NoticeContent?bno=" + bno;
 		location.href = url;
 	});
-
+	
+	
+	// 관리자 프로필 선택시
+	$("#adminImg").click(function(){
+		let mId = $("#adminId").val();
+		let url = "/Proj_Quill_Pen/adminProfile?mId=" + mId;
+	});
+	
 	
 	
 });
