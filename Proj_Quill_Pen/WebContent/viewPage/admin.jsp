@@ -86,7 +86,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
         
             </table>
 
-            <form id = "adminReport_Frm" method="" action="">
+            <form id = "adminReport_Frm" method="get" action="">
               <button type="button">삭제하기</button>
              </form>
           </div>
