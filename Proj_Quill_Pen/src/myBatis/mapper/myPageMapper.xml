@@ -112,7 +112,7 @@
 	</select>
 
 	<select id="selectMyBoardList" parameterType="string"
-		resultType="arraylist">
+		resultType="BoardBean">
 		Select * from board
 		where writer = #{writer}
 		order by bno

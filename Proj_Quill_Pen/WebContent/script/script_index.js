@@ -44,9 +44,17 @@ $(function() {
 		});
 	});
 	
-	$("div.writer_Content").click(function(){
+	// 공지사항 선택시
+	$(".notice_Content").click(function() {
+		let bno = $(this).children().eq(0).val();
+		let url = "/Proj_Quill_Pen/NoticeContent?bno=" + bno;
+		location.href = url;
+	});
+
+
+	$("div.writer_Content").click(function() {
 		let writer = $(this).children().children().attr("alt");
-		let url = "/Proj_Quill_Pen/myPage?writer="+writer ;
+		let url = "/Proj_Quill_Pen/myPage?writer=" + writer;
 		location.href = url;
 	});
 

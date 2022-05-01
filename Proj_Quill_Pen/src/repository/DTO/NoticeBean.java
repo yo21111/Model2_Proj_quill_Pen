@@ -6,7 +6,12 @@ public class NoticeBean {
 	private String title;
 	private String content;
 	private String writeDate;
+	private String writer;
 	
+
+
+
+
 	public NoticeBean(int bno, String mId, String title, String content) {
 		this.bno = bno;
 		this.mId = mId;
@@ -37,6 +42,12 @@ public class NoticeBean {
 	}
 	public String getWriteDate() {
 		return writeDate;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	
 }

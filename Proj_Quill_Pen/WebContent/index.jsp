@@ -33,8 +33,8 @@
 					<!-- ///////////////////// 반복 영역 시작 ///////////////////// -->
 					<c:forEach items="${noticeList}" var="NoticeBean">
 						<div class="notice_Content">
-							<input type="hidden" name="bno" value="${NoticeBean.bno}">
-							<a href="/Proj_Quill_Pen/Notice"> <span>Notice</span>${NoticeBean.title}
+							<input type="hidden" class="noticeBno" name="bno" value="${NoticeBean.bno}">
+							<a href="#" class="noticeLink"> <span>Notice</span>${NoticeBean.title}
 							</a>
 						</div>
 						<!-- div.notice_Content -->

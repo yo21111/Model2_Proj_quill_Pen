@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 request.setCharacterEncoding("UTF-8");
-String uId_Session = (String) session.getAttribute("uId_Session");
+String uId_Session = (String)session.getAttribute("uId_Session");
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,7 +16,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_notice.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/script_notice.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -26,20 +26,15 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<!-- section#bbs_title : 게시판 제목 영역 시작 -->
 			<section id="noticeBBS">
 				<div id="noticeBBS_title">
-					<h1>[공지 사항]게시글 제목</h1>
+					<h1><c:out value= "${noticeBean.title}" /></h1>
 				</div>
 				
 				<div id="notice_header_info">
-					<span><a href="#">admin</a></span>
-					<span>2022-04-27</span>
+					<span><a href="#">${noticeBean.mId}</a></span>
+					<span>${noticeBean.writeDate}</span>
 				</div>
 				<div id="noticeBBS_container">
-					게시판 내용 출력Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor et corrupti quibusdam aspernatur tempora sunt totam ea soluta minus consectetur quas error eum numquam doloribus optio ullam sequi aperiam dolore.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum recusandae ex laboriosam debitis totam et veritatis sint labore ipsam mollitia modi iure culpa magnam fuga ea! Minima nemo voluptate et.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nostrum eligendi laboriosam consectetur animi voluptate non ad porro vitae inventore voluptatibus velit ipsam architecto voluptas ducimus! Iure quibusdam temporibus porro.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum recusandae ex laboriosam debitis totam et veritatis sint labore ipsam mollitia modi iure culpa magnam fuga ea! Minima nemo voluptate et.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum recusandae ex laboriosam debitis totam et veritatis sint labore ipsam mollitia modi iure culpa magnam fuga ea! Minima nemo voluptate et.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum recusandae ex laboriosam debitis totam et veritatis sint labore ipsam mollitia modi iure culpa magnam fuga ea! Minima nemo voluptate et.
+					<c:out value= "${noticeBean.title}" />
 				</div>
 			</section>
 			<!-- section#bbs_title : 게시판 제목 영역 끝 -->
@@ -50,9 +45,11 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<table>
 						<tbody>
 							<tr>
-								<td id="admin_name"><a href="#">관리자명</a></td>
+								<td id="admin_name"><a href="#"><c:out value= "${noticeBean.mId}" /></a></td>
 								<td rowspan="2">
-									<a href="#"><img src="/Proj_Quill_Pen/images/profile/admin_profile.jpg" alt="관리자 프로필"></a>
+									<a href="#" id="adminImg">
+										<img src="/Proj_Quill_Pen/images/profile/admin_profile.jpg" alt="관리자 프로필">
+									</a>
 								</td>
 							</tr>
 							<tr>
@@ -70,10 +67,18 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 						</tbody>
 					</table>
 				</div>
+				<div id="btnArea">
+					<c:if test="${isAdmin eq 'true'}">
+						<button type="button" id=writeNotice class=noticeBtn>글쓰기</button>
+					</c:if>
+					<button type="button" id="noticeList" class=noticeBtn>목록으로</button>
+				</div>
 			</section>
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input type="hidden" id="writerProfile"  name="writerProfile" value="${noticeBean.writer}">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 

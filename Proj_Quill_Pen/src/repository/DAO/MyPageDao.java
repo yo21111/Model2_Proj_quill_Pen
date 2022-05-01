@@ -191,7 +191,6 @@ public class MyPageDao {
 	// 내가 쓴 게시물
 	public List<BoardBean> selectMyBoardList(String writer) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();	
-		
 		try {
 			return sqlSession.selectList(namespace+"selectMyBoardList", writer);
 		} finally {

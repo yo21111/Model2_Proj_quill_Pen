@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 import controller.CommandHandler;
 import repository.DTO.BoardBean;
 import repository.DTO.WriterBean;
+import service.AdminService;
+import service.AdminServiceImpl;
+import service.BbsService;
+import service.BbsServiceImpl;
 import service.MyPageService;
 import service.MyPageServiceImpl;
 
@@ -19,12 +23,19 @@ public class MyPageController implements CommandHandler {
 		// 작가 리스트에서 작가를 클릭했을 경우 파라미터로 전달하므로 null이 아님
 		String writerName = req.getParameter("writer");
 		MyPageService ms = new MyPageServiceImpl();
+		AdminService as = new AdminServiceImpl();
+		
 		
 		if (writerName != null) {
 		// 해당 작가의 작가페이지 보여주기	
 			String uId = ms.findId(writerName);
 			
 			WriterBean bean = ms.findWriter(uId);
+			
+			// 관리자일 경우
+			if(as.isAdmin(uId)) {
+				req.setAttribute("isAdmin", "true");
+			}
 			
 			String title = bean.getTitle();
 			String content = bean.getContent();
@@ -40,7 +51,7 @@ public class MyPageController implements CommandHandler {
 			req.setAttribute("fileName", fileName);
 			req.setAttribute("subCnt", subCnt);
 			req.setAttribute("LikeCnt", LikeCnt);
-			
+		
 			return "/viewPage/blog.jsp";
 			
 		} else {

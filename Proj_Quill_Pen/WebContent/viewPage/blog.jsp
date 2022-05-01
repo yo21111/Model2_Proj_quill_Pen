@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <%
 request.setCharacterEncoding("UTF-8");
 String uId_Session = (String) session.getAttribute("uId_Session");
-
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,13 +29,13 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<table id=profileTbl>
 						<thead>
 							<tr>
-								<th>이름</th>
+								<th>${writer}</th>
 								<th rowspan="2">
-									<div id="profileImg"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필이미지"></div>
+									<div id="profileImg"><img src="/Proj_Quill_Pen/images/profile/${fileName }" alt="${fileName }"></div>
 								</th>
 							</tr>
 							<tr>
-								<th id=introMent>도서출판경제21c 칼럼니스트</th>
+								<th id=introMent>${title}</th>
 							</tr>
 						</thead>
 					</table>
@@ -49,16 +51,18 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 							<tr>
 								<td id="cntArea">
 									<div>
-										<a href="#">구독자<span>123</span></a>
+										<a href="#">구독자<span>${subCnt}</span></a>
 									</div>
 									<div>
-										<a href="#">관심작가<span>123</span></a>
+										<a href="#">관심작가<span>${LikeCnt}</span></a>
 									</div>
 								</td>
 								<!-- <form id = "blog_Frm" method="" action=""> -->
 								<td>
 									<button id="subscribe_Btn" type="button">구독하기</button>
-									<button id = "report_Btn" type="button">신고하기</button>
+									<c:if test="${isAdmin ne 'true'}">
+										<button id = "report_Btn" type="button">신고하기</button>
+									</c:if>
 								</td>
 								<!-- </form> -->
 							</tr>
@@ -79,33 +83,42 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					</div>
 					<div id="info_intro">
 						<h1>소개</h1>
-						<p>도서출판 경제21c 대표. 강의 및 교육 문의 test@naver.com</p>
+						<p>${content}</p>
 					</div>
 					<div id="info_writing">
-						<table>
-							<tbody>
-								<tr>
-									<td colspan="2" id="writeTitle">
-										<a href="#">글번호.글제목</a>
-									</td>
-									<td rowspan="3">
-										<a href=""><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="썸네일"></a>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2" id="writeSubTitle">
-										<span>[부제목]</span>글내용Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quisquam rerum praesentium tenetur vero dicta. Maiores tempore ut maxime architecto ex nam magni cumque iste accusantium quisquam reiciendis ab quis?
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2" id="etcArea">
-											<div>댓글0</div>
-											<div>2022-04-26</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<hr id="sepLine">
+						<c:choose>
+							<c:when test="${myArticle eq null}">
+								<div id="nullTbl">게시글이 아직 없습니다.</div>
+							</c:when>
+							<c:when test="${myArticle ne null}">
+								<c:forEach var="BoardBean" items="${myArticle}">
+									<table>
+										<tbody>
+											<tr>
+												<td colspan="2" id="writeTitle">
+													<a href="#">${BoardBean.title}</a>
+												</td>
+												<td rowspan="3">
+													<a href="#"><img src="/Proj_Quill_Pen/images/profile/${BoardBean.fileName }" alt="썸네일"></a>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" id="writeSubTitle">
+													<span>${BoardBean.subTitle }</span>${BoardBean.content }
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2" id="etcArea">
+														<div>댓글0</div>
+														<div>${BoardBean.modifyDate }</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<hr class="sepLine">
+								</c:forEach>
+							</c:when>
+						</c:choose>
 						
 					</div>
 				</div>
