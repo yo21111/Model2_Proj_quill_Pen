@@ -65,6 +65,19 @@ public class BoardDao {
 	}
 	//////////////////////////// 해당 아이디 작가명 찾기 끝////////////////////////////////
 	
+	// 작가명 찾기 (select)
+	public WriterBean getWriter(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.selectOne(namespace + "getWriter", writer);
+
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	
 	//////////////////////////// 게시글 관련 CRUD 시작 //////////////////////////////
 	// 글 정보 가져오기
 	public BoardBean selectBoard(int bno) throws Exception {
@@ -84,6 +97,7 @@ public class BoardDao {
 		try {
 			return sqlSession.insert(namespace+"insertBoard", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -91,10 +105,10 @@ public class BoardDao {
 	// 글 수정하기
 	public int updateBoard(BoardBean bean) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-
 		try {
 			return sqlSession.update(namespace+"updateBoard", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -106,6 +120,7 @@ public class BoardDao {
 		try {
 			return sqlSession.delete(namespace+"deleteBoard", bno);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -126,6 +141,17 @@ public class BoardDao {
 	//////////////////////////// 신고하기 끝 //////////////////////////////
 	
 	//////////////////////////// 댓글 관련 CRUD 시작 //////////////////////////////
+	// 댓글 갯수 가져오기
+	public int getCmntCnt(int bno) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			return sqlSession.selectOne(namespace+"getCmntCnt", bno);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	// 해당 댓글의 cOrder 찾기 (답글 쓸 때 cOrder)
 	public int findcOrder(int cno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -260,12 +286,12 @@ public class BoardDao {
 
 	//////////////////////////// 추천하기 시작 //////////////////////////////
 	// 추천 여부 확인
-	public boolean isLike(String uId, String writer) throws Exception {
+	public boolean isLike(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 			
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
+		map.put("bno", bno);
 		
 		boolean check = false;
 
@@ -281,31 +307,33 @@ public class BoardDao {
 	}
 
 	// 추천하기
-	public int like(String uId, String writer) throws Exception {
+	public int like(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
+		map.put("bno", bno);
 		
 		try {
 			return sqlSession.insert(namespace+"like", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
 	
 	// 추천취소 하기
-	public int unLike(String uId, String writer) throws Exception {
+	public int unLike(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
+		map.put("bno", bno);
 		
 		try {
 			return sqlSession.delete(namespace+"unLike", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

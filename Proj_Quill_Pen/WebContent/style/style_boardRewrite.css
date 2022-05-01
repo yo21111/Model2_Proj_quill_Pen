@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+section#board_header div {
+	background-color: #fff;
+}
+
+section#board_header input, section#board_header textarea {
+	color: #000;
+	outline: none;
+	border-bottom: 2px solid #ccc;
+}
+
+div#board_header_info input#writer {
+	outline: none;
+	border: none;
+}
+
+div#board_header_info input#fileInput {
+	flex: .8;
+	outline: none;
+	border: none;
+	
+}
+

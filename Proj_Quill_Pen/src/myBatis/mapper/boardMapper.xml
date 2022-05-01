@@ -20,6 +20,13 @@
 		where uId = #{uId}
 	</select>
 	
+	
+	<select id="getWriter" parameterType="string" resultType="WriterBean">
+		Select * from writer
+		where writer = #{writer}
+	</select>
+	
+	
 	<select id="selectBoard" parameterType="int"
 		resultType="BoardBean">
 		Select * From board
@@ -78,6 +85,15 @@
 		(#{category}, #{content}, #{writer}, now(), #{bno})
 	</insert>
 
+	
+
+	<select id="getCmntCnt" parameterType="int" resultType="int">
+		Select
+		count(*) from commentTbl
+		where bno=#{bno}
+	</select>
+
+
 	<select id="findcOrder" parameterType="int" resultType="int">
 		Select
 		cOrder from commentTbl
@@ -115,7 +131,7 @@
 		where cno = #{cno}
 	</delete>
 	
-	<select id="selectCmntList" parameterType="int" resultType="arraylist">
+	<select id="selectCmntList" parameterType="int" resultType="CmntBean">
 		Select * from commentTbl
 		where bno = #{bno}
 		order by cno, cOrder
@@ -138,17 +154,17 @@
 	
 		<select id="isLike" parameterType="map" resultType="int">
 		Select count(*) from recommend
-		where uId = #{uId} and writer= #{writer}
+		where uId = #{uId} and bno= #{bno}
 	</select>
 	
 	<insert id="like" parameterType="map">
 		Insert into recommend
-		Values(#{uId}, #{writer})
+		Values(#{uId}, #{bno})
 	</insert>
 	
 	<delete id="unLike" parameterType="map">
 		Delete from recommend
-		where uId = #{uId} and writer = #{writer}
+		where uId = #{uId} and bno = #{bno}
 	</delete>
 	
 	<select id="selectWriterList" parameterType="string" resultType="arraylist">

@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("UTF-8");
-String uId_Session = (String) session.getAttribute("uId_Session");
-
-%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="BoardBean" value="${boardBean}" />
+<c:set var="WriterBean" value="${writerBean}" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,7 +13,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_board.css">
 <script src="https://kit.fontawesome.com/e223fa8a5e.js"></script>
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/script_board.js"></script>
 
 </head>
 
@@ -27,21 +24,34 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<!-- section#board_title : 게시글 상단 영역 시작 -->
 			<section id="board_header">
 				<div id="board_header_util" class="dFlex">
-					<button id="recomend_Btn" type="button"><i class="fa-regular fa-thumbs-up"></i></button>
-					<button id="comment_Btn" type="button"><i class="fa-regular fa-comment"></i></button>
-					<button id ="report_Btn" type="button"><i class="fa-solid fa-bullhorn"></i></button>
+					<button id="recomend_Btn" type="button">
+						<i class="fa-regular fa-thumbs-up"></i>
+					</button>
+					<button id="comment_Btn" type="button">
+						<i class="fa-regular fa-comment"></i>
+					</button>
+					<button id="report_Btn" type="button">
+						<i class="fa-solid fa-bullhorn"></i>
+					</button>
 				</div>
-				<div id="board_header_title">
-					<h1>${title}게시글 제목</h1>
+
 				
+				<div id="board_header">
+					<div id="board_header_title">
+						<input type="hidden" id="fileImg" value="${BoardBean.fileName}">
+						<input type="text" name="title" value="${BoardBean.title}"
+							${readonly}>
+					</div>
+					<div id="board_header_subTitle">
+						<input type="text" name="subTitle" value="${BoardBean.subTitle}"
+							${readonly}>
+					</div>
 				</div>
-				<div id="board_header_subTitle">		
-					<h3>${subTitle}게시글 소제목</h3>
 				
-				</div>
-				<div id="board_header_info"> 	
-				   <input type="text" name="writer" value="${writer}작가명 ">
-				<input type="text" value="${writeDate}작성일자 ">
+				<div id="board_header_info" class="dFlex">
+					작가명 : <input type="text" id="writer" name="writer" value="${BoardBean.writer}"
+						readonly> 작성일자 : <input type="text"
+						value="${BoardBean.writeDate}" readonly>
 				</div>
 			</section>
 			<!-- section#board_title : 게시글 상단 영역 끝 -->
@@ -49,9 +59,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<!-- section#board_content : 게시글 내용 영역 시작 -->
 			<section id="board_content">
 				<div id="board_content">
-				
-				<textarea name="content" id="content" >${content}게시글 내용 출력 공간</textarea>
-				
+
+					<textarea name="content" id="content" ${readonly}>${BoardBean.content}</textarea>
+
 				</div>
 				<!-- div#board_content-->
 			</section>
@@ -59,99 +69,99 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 
 			<!-- ///////////////////////////////////////////////////////////////////////////// -->
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 버튼 출력 영역  /////////////////// -->
-			<section id="board_btn" class="dFlex">
-				<div id="board_btnArea">
-					<button id="confirm_Btn" type="button">등록</button>
-					<button id = "modify_Btn" type="button">수정</button>
-					<button id = "delete_Btn" type="button">삭제</button>
+			<section id="board_btn">
+				<div id="board_btnArea" class="dFlex">
+					<button id="bbs_Btn" type="button">목록</button>
+					<button id="modify_Btn" type="button">수정</button>
+					<button id="delete_Btn" type="button">삭제</button>
 				</div>
 			</section>
-			
-			<div id="commenticon">
 
-				<button id="icon">댓글 <i class="fa-solid fa-comment"></i></button>
-			</div>
-			
+
+
 			<!-- ///////////////// 게시글 수정, 글쓰기 시 여기까지만 출력 /////////////////// -->
 			<!-- ///////////////////////////////////////////////////////////////////////////// -->
 
 			<!-- section#board_comment : 게시글 댓글 영역 시작 -->
 			<section id="board_comment">
 				<div id="board_comment_info">
-					댓글 : <span id="comment_cnt">숫자
-					${bno}</span>
+					댓글 갯수 : <span id="comment_cnt">${commentCnt}</span>
 				</div>
-
 				<!-- div#board_comment_info -->
 				<div id="board_comment_List">
 					<!-- ///////////////// 댓글 있을 시 반복 구역 시작 ///////////////// -->
-					<div class="comment_read dFlex">
-						<div class="comment_img">프로필이미지${fileName}</div>
-						<div class="comment_container">
+					<c:choose>
+						<c:when test="${commentCnt eq 0}">
+							<div id="comment_Null">아직 작성된 댓글이 없습니다.</div>
+						</c:when>
+						<c:when test="${commentCnt ne 0}">
+							<c:forEach items="${cmntList}" var="CmntBean">
+								<div class="comment_read dFlex">
+									<div class="comment_img dFlex">
+										<div class="imgDiv">
+											<%-- <img src="/Proj_Quill_Pen/images/test/${WriterBean.fileName}"
+										alt="${CmntBean.writer}"> --%>
+										</div>
+									</div>
+									<div class="comment_container">
+										<div class="comment_content_info">
+											작성자 : <span class="writer">${CmntBean.writer}</span> 작성일자 :
+											${CmntBean.modifyDate}
+										</div>
 
-							<div class="comment_content_info">
-
-								<div class="comment_btn">
-									<button id = "report_Btn" type="button">신고</button>
-									<button id = "modify_Btn" type="button">수정</button>
-									<button id = "delete_Btn" type="button">삭제</button>
+										<div class="comment_content dFlex">
+											<input type="text" name="cmtContent" class="comment_input"
+												value="${CmntBean.content}" ${readonly}>
+											<div class="comment_btn" class="dFlex">
+												<button id="report_Btn" type="button">신고</button>
+												<button id="modify_Btn" type="button">수정</button>
+												<button id="delete_Btn" type="button">삭제</button>
+											</div>
+										</div>
+										<input type="hidden" class="hiddenValue"
+											value="${CmntBean.cno} ">
+									</div>
+									<!-- div.comment_container -->
 								</div>
-								<span class="writer">작성자${writer}</span> 작성일자${writeDate}
-								(수정버튼이 있기에 수정 날짜도 필요해 보임)
-							</div>
-
-							<div class="comment_content">댓글 출력부분${content}</div>
-						</div>
-						<input type="hidden" class="hiddenValue" value="hidden input 작성 공간${cnt} ">
-	
-						<!-- div.comment_container -->
-					</div>
-					<!-- div.comment_read -->
+								<!-- div.comment_read -->
+							</c:forEach>
+						</c:when>
+					</c:choose>
 					<!-- ///////////////// 댓글 있을 시 반복 구역 끝 ///////////////// -->
 				</div>
 				<!-- div#board_comment_List -->
-
-				<div id="board_comment_container">
-					<div class="comment_write dFlex">
-						<div class="comment_img">프로필이미지${fileName}</div>
-						<div class="comment_input"> 댓글 작성 공간${content}
-
-							
-							<div class="comment_Btn">
-								<button id= "comment_btn" type="button">댓글 등록</button>
-							</div>
-
-
-						</div>
-					</div>
-				
-					<!-- div.comment_write -->
-				</div>
-				<!-- div#board_comment_container-->
 			</section>
 			<!-- section#board_comment : 게시글 댓글 영역 끝 -->
+
+			<div id="commenticon">
+				<button id="icon">
+					댓글 <i class="fa-solid fa-comment"></i>
+				</button>
+			</div>
 
 			<!-- section#board_writer : 게시글 작가 정보 영역 시작 -->
 			<section id="board_writer">
 				<div id="writer_container" class="dFlex">
-					<div id="writer_info">
-						<div id="writer_name">*작가테이블 ${writer}작가이름</div>
-						<div id="writer_title">*작가테이블 ${title}작가 소개멘트</div>
+					<div id="writer_img" class="dFlex">
+						<div class="imgDiv">
+							<img src="/Proj_Quill_Pen/images/test/${WriterBean.fileName}"
+								alt="${WriterBean.writer}">
+						</div>
 					</div>
-					<div id="writer_img">*${fileName} 프로필이미지</div>
+					<div id="writer_info">
+						<div id="writer_name">${WriterBean.writer}</div>
+						<div id="writer_title">${WriterBean.content}</div>
+					</div>
 				</div>
 			</section>
 			<!-- section#board_writer : 게시글 작가 정보 영역 끝 -->
 
-			<!-- section#bbs : 작가의 게시판 목록 영역 시작 -->
-			<!-- ////// bbs에서 가져온 것으로 해당 부분에 css코드 있음 ////// -->
-			<section id="bbs">
-				<div id="bbs_container"> 게시글 영역 출력</div>
-			</section>
-			<!-- section#bbs : 작가의 게시판 목록 영역 끝 -->
-
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input type="hidden" id="bno" name="bno" value="${BoardBean.bno}">
+				<input type="hidden" id="isLogin" name="isLogin" value="${isLogin}">
+				<input type="hidden" id="myPost" name="myPost" value="${myPost}">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>
