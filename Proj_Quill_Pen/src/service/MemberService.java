@@ -19,6 +19,9 @@ public interface MemberService {
 	// 회원가입 완료
 	public boolean newMem (MemberBean bean) throws Exception;
 	
+	// 작가 테이블 기본 정보 입력
+	public boolean defaultWriter (MemberBean bean) throws Exception;
+	
 	// 아이디 찾기 -> 이름과 휴대폰번호를 받아서 해당 아이디 값 돌려주기
 	public String findId(String uName, String uPhone) throws Exception;
 	

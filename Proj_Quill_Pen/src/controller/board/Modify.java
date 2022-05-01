@@ -42,7 +42,7 @@ public class Modify implements CommandHandler {
 			
 			
 			
-			String saveDir = req.getRealPath("/fileUpload");
+			String saveDir = req.getRealPath("/images/test");
 			int maxSize = 10 * 1024 * 1024;
 			String encoding = "UTF-8";
 
@@ -64,6 +64,7 @@ public class Modify implements CommandHandler {
 				writer = bs.findWriter(uId);
 			}
 			BoardBean bBean = new BoardBean();
+			bBean.setBno(bno);
 			
 			String title = mReq.getParameter("title");
 			String subTitle = mReq.getParameter("subTitle");
@@ -104,16 +105,18 @@ public class Modify implements CommandHandler {
 			}
 			
 			boolean result = bs.update(bBean);
+			req.setAttribute("bBean", bBean);
 			
+			System.out.println("실행???");
 			
 			if (!result) {
+				System.out.println("오류??");
 				req.setAttribute("errorMsg", "오류가 발생하였습니다. 다시 실행해주세요.");
-				req.setAttribute("bBean", bBean);
 				return "redirect:/Proj_Quill_Pen/boardRead?bno="+bno;
 			}
 			
-			int pageNo = Integer.parseInt(req.getParameter("pageNo"));
-			req.setAttribute("pageNo", pageNo);
+//			int pageNo = Integer.parseInt(req.getParameter("pageNo"));
+//			req.setAttribute("pageNo", pageNo);
 			
 			return "redirect:/Proj_Quill_Pen/bbs";
 		}

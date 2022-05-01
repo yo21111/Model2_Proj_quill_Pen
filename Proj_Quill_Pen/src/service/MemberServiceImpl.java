@@ -2,6 +2,7 @@ package service;
 
 import repository.DAO.MemberDao;
 import repository.DTO.MemberBean;
+import repository.DTO.WriterBean;
 
 public class MemberServiceImpl implements MemberService {
 	MemberDao mDao = new MemberDao();
@@ -44,6 +45,24 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean newMem(MemberBean bean) throws Exception {
 		int result = mDao.registerMember(bean);
+		return result == 1? true : false;
+	}
+	
+	
+	@Override
+	public boolean defaultWriter(MemberBean bean) throws Exception {
+		WriterBean wBean = new WriterBean(); 
+		
+		String writer = bean.getWriter();
+		String title = writer + " 작가님의 작가 소개멘트입니다.";
+		String content = writer + " 작가님의 소개글입니다.";
+		
+		wBean.setuId(bean.getuId());
+		wBean.setWriter(writer);
+		wBean.setTitle(title);
+		wBean.setContent(content);
+		
+		int result = mDao.createWriter(wBean);
 		return result == 1? true : false;
 	}
 

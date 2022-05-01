@@ -187,10 +187,10 @@ div.comment_img {
 }
 
 div.imgDiv {
-	border: 1px solid #000;
 	width: 60px;
 	height: 60px;
-	border-radius: 50%;
+	background-color: #aaa;	
+	border-radius: 10px;
 }
 
 div.imgDiv img {

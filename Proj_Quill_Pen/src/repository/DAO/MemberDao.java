@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import myBatis.MyBatis;
 import repository.DTO.MemberBean;
+import repository.DTO.WriterBean;
 
 public class MemberDao {
 	private static String namespace = "myBatis.mapper.memberMapper.";
@@ -78,6 +79,18 @@ public class MemberDao {
 
 		try {
 			return sqlSession.insert(namespace + "registerMember", bean);
+
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+	
+	public int createWriter(WriterBean bean) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.insert(namespace + "createWriter", bean);
 
 		} finally {
 			sqlSession.commit();

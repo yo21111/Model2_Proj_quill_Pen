@@ -1,12 +1,8 @@
 package controller.member;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.servlet.http.HttpSession;
 
 import controller.CommandHandler;
 import repository.DTO.MemberBean;
@@ -20,7 +16,11 @@ public class RegisterController implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		// 어떤 method로 왔는지 확인하기
 		String method = req.getMethod();
-
+		
+		// 혹시 로그인 되어있다면 로그아웃 시키기
+		HttpSession session = req.getSession();
+		session.invalidate();
+		
 		if (method.equals("GET")) {
 			// 만약 get 방식으로 왔다면
 			// 폼으로 이동시키기
@@ -35,7 +35,7 @@ public class RegisterController implements CommandHandler {
 			String uEmail = (String) req.getParameter("uEmail");
 			String uBirth = (String) req.getParameter("uBirth");
 			String uPhone = (String) req.getParameter("uPhone");
-			MemberBean bean = new MemberBean(uId, uPw, writer, uName, uEmail, uBirth, uPhone);
+			MemberBean bean = new MemberBean(uId, writer, uPw, uName, uEmail, uBirth, uPhone);
 
 			boolean result = false;
 
@@ -48,6 +48,7 @@ public class RegisterController implements CommandHandler {
 
 			// 회원 가입 유효성 검사에 통과했다면?
 			result = ms.newMem(bean);
+			result = ms.defaultWriter(bean);
 
 			// DAO 또는 DB에서 오류 발생 시
 			if (!result) {

@@ -35,6 +35,9 @@ public interface BoardService {
 	public BoardBean read (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public BoardBean read (int bno, String category, int viewCnt) throws Exception;
 
+	// 조회수 증가
+	public void incrViewCnt (int bno) throws Exception;
+	
 	// 해당 게시글 댓글 갯수 가져오기
 	public int getCmntCnt(int bno) throws Exception;
 	

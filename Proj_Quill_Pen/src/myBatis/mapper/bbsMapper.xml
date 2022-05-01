@@ -14,7 +14,7 @@
 		order by bno DESC
 	</select>
 	
-	<select id="selectBbsCategory" parameterType="int" resultType="BoardBean">
+	<select id="selectBbsCategory" parameterType="string" resultType="BoardBean">
 		Select * from board
 		Where category = #{category}
 		order by bno DESC

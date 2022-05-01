@@ -59,6 +59,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public boolean update(BoardBean bBean) throws Exception {
 		int result = bDao.updateBoard(bBean);
+		System.out.println("result : "+result);
 		return result == 1 ? true : false;
 	}
 
@@ -84,6 +85,12 @@ public class BoardServiceImpl implements BoardService {
 		
 		BoardBean bBean = bDao.selectBoard(bno);
 		return bBean;
+	}
+	
+	
+	@Override
+	public void incrViewCnt(int bno) throws Exception {
+		bDao.increViewCnt(bno);
 	}
 
 	@Override

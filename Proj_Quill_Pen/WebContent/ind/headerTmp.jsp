@@ -24,12 +24,13 @@
 							<img id="list" src="/Proj_Quill_Pen/images/header/LNB_Logo.png"
 								alt="LNB로고">
 						</div>
-
-						<div id="lnb_top_register">
-							<button type="button">
-								quill pen<br>시작하기
-							</button>
-						</div>
+						<c:if test="${isLogin ne 'true'}">
+							<div id="lnb_top_register">
+								<button type="button">
+									quill pen<br>시작하기
+								</button>
+							</div>
+						</c:if>
 					</div>
 					<div id="lnb_bot">
 						<ul id="LNBul">

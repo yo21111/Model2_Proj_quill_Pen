@@ -51,7 +51,7 @@ public class Insert implements CommandHandler {
 			}
 			
 			
-			String saveDir = req.getRealPath("/fileUpload");
+			String saveDir = req.getRealPath("/images/test");
 			int maxSize = 10 * 1024 * 1024;
 			String encoding = "UTF-8";
 

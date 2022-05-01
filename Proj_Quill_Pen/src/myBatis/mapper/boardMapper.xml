@@ -78,6 +78,12 @@
 		bno = #{bno}
 	</delete>
 
+	<update id="increViewCnt" parameterType="int">
+		Update board
+		Set viewCnt = viewCnt+1
+		where bno = #{bno}
+	</update>
+	
 	<insert id="insertDecl" parameterType="DeclBean">
 		insert into report
 		(category, content, writer, writeDate, bno)

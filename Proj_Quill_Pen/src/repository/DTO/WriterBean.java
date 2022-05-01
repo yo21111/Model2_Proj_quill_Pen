@@ -1,12 +1,20 @@
 package repository.DTO;
 
 public class WriterBean {
+	private String uId;
 	private String writer;
 	private String title;
 	private String content;
 	private String fileName;
 	private String fileOName;
 	
+	
+	public String getuId() {
+		return uId;
+	}
+	public void setuId(String uId) {
+		this.uId = uId;
+	}
 	public String getWriter() {
 		return writer;
 	}

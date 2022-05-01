@@ -53,7 +53,7 @@ public class Board implements CommandHandler {
 		List<CmntBean> cmntList = bs.selectCmntList(bno);
 		req.setAttribute("cmntList", cmntList);
 		
-		
+		bs.incrViewCnt(bno);
 		
 		return "/viewPage/board.jsp";
 	}
