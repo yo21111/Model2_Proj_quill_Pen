@@ -42,9 +42,6 @@ public class AjaxController extends HttpServlet {
 		String key = map.get("key");
 		String value = map.get("value");
 		
-		System.out.println(key);
-		System.out.println(value);
-		
 		MemberService ms = new MemberServiceImpl();
 		if (key.equals("id")) {
 			boolean result = false;

@@ -15,22 +15,21 @@ public class Delete  implements CommandHandler {
 		BoardService bs = new BoardServiceImpl();
 		
 		HttpSession session = req.getSession();
-		String uId = (String)session.getAttribute("uId");
+		String uId = (String)session.getAttribute("uId_Session");
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		
 		if(uId != null) {
 			req.setAttribute("isLogin", "true");
 		}
 		
-		if (uId == null && !bs.isLogin(uId, bno)) {
+		
+		if (uId == null || !bs.isLogin(uId, bno)) {
 			req.setAttribute("errorMsg", "로그인 후 사용하실 수 있습니다.");
-			req.setAttribute("do", "select");
-			req.setAttribute("login", "false");
-			return "/viewPage/board.jsp";				
+			req.setAttribute("isLogin", "false");
+			return "redirect:/Proj_Quill_Pen/boardRead?bno="+bno;				
 		}
 		
 		bs.delete(uId, bno);
-		
-		return "/viewPage/bbs.jsp";
+		return "redirect:/Proj_Quill_Pen/bbs";
 	}
 }

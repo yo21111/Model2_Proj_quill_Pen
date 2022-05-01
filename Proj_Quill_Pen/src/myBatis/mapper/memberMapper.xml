@@ -24,8 +24,7 @@
 
 	<insert id="registerMember" parameterType="MemberBean">
 		Insert into member
-		(uId, uPw, uName, uPhone,
-		writer,
+		(uId, writer, uPw, uName, uPhone,
 		<if test="uEmail != null">
 			uEmail,
 		</if>
@@ -34,10 +33,7 @@
 		</if>
 		)
 		Values
-		(#{uId}, #{uPw}, #{uName}, #{uPhone},
-		<if test="writer!=null">
-			#{writer},
-		</if>
+		(#{uId},#{writer}, #{uPw}, #{uName}, #{uPhone},
 		<if test="uEmail != null">
 			#{uEmail},
 		</if>
@@ -46,7 +42,15 @@
 		</if>
 		)
 	</insert>
-
+	
+	<insert id="createWriter" parameterType="WriterBean">
+		Insert into writer
+		(uId, writer, title, content, fileName, fileOName)
+		Values
+		(#{uId},#{writer}, #{title}, #{content}, #{fileName}, #{fileOName})
+	</insert>
+	
+	
 	<select id="findId" parameterType="map" resultType="string">
 		Select uId
 		from member

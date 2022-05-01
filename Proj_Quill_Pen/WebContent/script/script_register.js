@@ -93,7 +93,9 @@ $(function() {
 	$("#register_id>input").keyup(function() {
 		let uId = $(this).val().trim();
 		$(this).val(uId);
-
+		
+		$("input#idChk").val("false");
+		
 		let regExp = /[^a-z|A-Z|0-9]/g;
 		let rExpRes = regExp.test(uId);
 
@@ -127,7 +129,9 @@ $(function() {
 	$("#register_writer>input").keyup(function() {
 		let writer = $(this).val().trim();
 		$(this).val(writer);
-
+		
+		$("input#writerChk").val("false");
+		
 		let regExp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
 		let rExpRes = regExp.test(writer);
 		let regExp2 = /[^가-힣]/g;

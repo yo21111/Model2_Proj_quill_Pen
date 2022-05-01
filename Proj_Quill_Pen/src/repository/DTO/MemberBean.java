@@ -15,7 +15,11 @@ public class MemberBean {
 	
 	public MemberBean(String uId, String writer, String uPw, String uName, String uEmail, String uBirth, String uPhone) {
 		this.uId = uId;
-		this.writer = writer;
+		if(writer == null) {
+			this.writer = uId;
+		} else {
+			this.writer = writer;
+		}
 		this.uPw = uPw;
 		this.uName = uName;
 		this.uEmail = uEmail;

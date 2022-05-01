@@ -35,7 +35,7 @@ public class BoardDao {
 			sqlSession.close();
 		}
 	}
-	
+
 	// 본인 글 여부 확인하기 (select)
 	public String idCheck(int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -64,14 +64,26 @@ public class BoardDao {
 		}
 	}
 	//////////////////////////// 해당 아이디 작가명 찾기 끝////////////////////////////////
-	
+
+	// 작가명 찾기 (select)
+	public WriterBean getWriter(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.selectOne(namespace + "getWriter", writer);
+
+		} finally {
+			sqlSession.close();
+		}
+	}
+
 	//////////////////////////// 게시글 관련 CRUD 시작 //////////////////////////////
 	// 글 정보 가져오기
 	public BoardBean selectBoard(int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.selectOne(namespace+"selectBoard", bno);
+			return sqlSession.selectOne(namespace + "selectBoard", bno);
 		} finally {
 			sqlSession.close();
 		}
@@ -82,8 +94,9 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.insert(namespace+"insertBoard", bean);
+			return sqlSession.insert(namespace + "insertBoard", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -91,10 +104,10 @@ public class BoardDao {
 	// 글 수정하기
 	public int updateBoard(BoardBean bean) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-
 		try {
-			return sqlSession.update(namespace+"updateBoard", bean);
+			return sqlSession.update(namespace + "updateBoard", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -104,8 +117,21 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.delete(namespace+"deleteBoard", bno);
+			return sqlSession.delete(namespace + "deleteBoard", bno);
 		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+
+	// 조회수 증가
+	public int increViewCnt(int bno) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.update(namespace + "increViewCnt", bno);
+		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -118,31 +144,42 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.insert(namespace+"insertDecl", dBean);
+			return sqlSession.insert(namespace + "insertDecl", dBean);
 		} finally {
 			sqlSession.close();
 		}
 	}
 	//////////////////////////// 신고하기 끝 //////////////////////////////
-	
+
 	//////////////////////////// 댓글 관련 CRUD 시작 //////////////////////////////
-	// 해당 댓글의 cOrder 찾기 (답글 쓸 때 cOrder)
-	public int findcOrder(int cno) throws Exception {
+	// 댓글 갯수 가져오기
+	public int getCmntCnt(int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		try {
-			return sqlSession.selectOne(namespace+"findcOrder", cno);
+			return sqlSession.selectOne(namespace + "getCmntCnt", bno);
 		} finally {
 			sqlSession.close();
 		}
 	}
-	
+
+	// 해당 댓글의 cOrder 찾기 (답글 쓸 때 cOrder)
+	public int findcOrder(int cno) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		try {
+			return sqlSession.selectOne(namespace + "findcOrder", cno);
+		} finally {
+			sqlSession.close();
+		}
+	}
+
 	// 게시글 댓글중 가장 큰 cOrder찾기 (기본 댓글 쓸 때 cOrder)
 	public int findMaxcOrder(int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		try {
-			return sqlSession.selectOne(namespace+"findMaxcOrder", bno);
+			return sqlSession.selectOne(namespace + "findMaxcOrder", bno);
 		} finally {
 			sqlSession.close();
 		}
@@ -151,16 +188,15 @@ public class BoardDao {
 	// 댓글 쓰기
 	public int insertCmnt(int bno, int cOrder, String writer, String content) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("bno", bno);
 		map.put("cOrder", cOrder);
 		map.put("writer", writer);
 		map.put("content", content);
-		
-		
+
 		try {
-			return sqlSession.insert(namespace+"insertCmnt", map);
+			return sqlSession.insert(namespace + "insertCmnt", map);
 		} finally {
 			sqlSession.close();
 		}
@@ -169,14 +205,14 @@ public class BoardDao {
 	// 댓글 수정하기
 	public int updateCmnt(int cno, String writer, String content) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("cno", cno);
 		map.put("writer", writer);
 		map.put("content", content);
-		
+
 		try {
-			return sqlSession.update(namespace+"updateCmnt", map);
+			return sqlSession.update(namespace + "updateCmnt", map);
 		} finally {
 			sqlSession.close();
 		}
@@ -187,7 +223,7 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.delete(namespace+"deleteCmnt", cno);
+			return sqlSession.delete(namespace + "deleteCmnt", cno);
 		} finally {
 			sqlSession.close();
 		}
@@ -198,7 +234,7 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.selectList(namespace+"selectCmntList", bno);
+			return sqlSession.selectList(namespace + "selectCmntList", bno);
 		} finally {
 			sqlSession.close();
 		}
@@ -209,11 +245,11 @@ public class BoardDao {
 	// 구독 여부 확인
 	public boolean isSubs(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
 		map.put("bno", bno);
-		
+
 		boolean check = false;
 
 		try {
@@ -230,28 +266,28 @@ public class BoardDao {
 	// 구독하기
 	public int subscribe(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
 		map.put("bno", bno);
-		
+
 		try {
-			return sqlSession.insert(namespace+"subscribe", map);
+			return sqlSession.insert(namespace + "subscribe", map);
 		} finally {
 			sqlSession.close();
 		}
 	}
-	
+
 	// 구독취소 하기
 	public int unSubscribe(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
 		map.put("bno", bno);
-		
+
 		try {
-			return sqlSession.delete(namespace+"unSubscribe", map);
+			return sqlSession.delete(namespace + "unSubscribe", map);
 		} finally {
 			sqlSession.close();
 		}
@@ -260,13 +296,13 @@ public class BoardDao {
 
 	//////////////////////////// 추천하기 시작 //////////////////////////////
 	// 추천 여부 확인
-	public boolean isLike(String uId, String writer) throws Exception {
+	public boolean isLike(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-			
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
-		
+		map.put("bno", bno);
+
 		boolean check = false;
 
 		try {
@@ -281,31 +317,33 @@ public class BoardDao {
 	}
 
 	// 추천하기
-	public int like(String uId, String writer) throws Exception {
+	public int like(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
-		
+		map.put("bno", bno);
+
 		try {
-			return sqlSession.insert(namespace+"like", map);
+			return sqlSession.insert(namespace + "like", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
-	
+
 	// 추천취소 하기
-	public int unLike(String uId, String writer) throws Exception {
+	public int unLike(String uId, int bno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("uId", uId);
-		map.put("writer", writer);
-		
+		map.put("bno", bno);
+
 		try {
-			return sqlSession.delete(namespace+"unLike", map);
+			return sqlSession.delete(namespace + "unLike", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -316,7 +354,7 @@ public class BoardDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			return sqlSession.selectList(namespace+"selectWriterList", writer);
+			return sqlSession.selectList(namespace + "selectWriterList", writer);
 		} finally {
 			sqlSession.close();
 		}

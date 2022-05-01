@@ -66,6 +66,7 @@ public class MyPageController implements CommandHandler {
 			return "redirect:/Proj_Quill_Pen/main";
 		}
 		
+		System.out.println("uId : "+uId);
 		WriterBean bean = ms.findWriter(uId);
 		
 		String writer = bean.getWriter();

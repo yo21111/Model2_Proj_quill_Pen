@@ -23,62 +23,75 @@ public class Modify implements CommandHandler {
 		BoardService bs = new BoardServiceImpl();
 		String method = req.getMethod();
 		HttpSession session = req.getSession();
-		String uId = (String)session.getAttribute("uId");
-		int bno = Integer.parseInt(req.getParameter("bno"));
+		String uId = (String)session.getAttribute("uId_Session");
 		
 		if(uId != null) {
 			req.setAttribute("isLogin", "true");
 		}
 		
 		if (method.equals("GET")) {
-			req.setAttribute("do", "update");
-			return "/viewPage/board.jsp";
+			int bno = Integer.parseInt(req.getParameter("bno"));
+			BoardBean boardBean = bs.read(req, resp);
+			req.setAttribute("boardBean", boardBean);
+			req.setAttribute("nowPage", "update");
+			return "/viewPage/boardRewrite.jsp";
 			
 		} else {
 			String writer = null;
 			
-			if (uId == null && !bs.isLogin(uId, bno)) {
-				req.setAttribute("errorMsg", "로그인 후 사용하실 수 있습니다.");
-				req.setAttribute("do", "select");
-				req.setAttribute("login", "false");
-				return "/viewPage/bbs.jsp";				
-			} else {
-				req.setAttribute("login", "true");
-				writer = bs.findWriter(uId);
-			}
 			
 			
 			
-			String saveDir = req.getSession().getServletContext().getRealPath("/upload");
+			String saveDir = req.getRealPath("/images/test");
 			int maxSize = 10 * 1024 * 1024;
 			String encoding = "UTF-8";
 
 			MultipartRequest mReq = null;
 
-			ServletContext context = req.getServletContext();
 
 			try {
 				mReq = new MultipartRequest(req, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+			int bno = Integer.parseInt(mReq.getParameter("bno"));
+			if (uId == null && !bs.isLogin(uId, bno)) {
+				req.setAttribute("errorMsg", "로그인 후 사용하실 수 있습니다.");
+				req.setAttribute("isLogin", "false");
+				return "/viewPage/bbs.jsp";				
+			} else {
+				req.setAttribute("isLogin", "true");
+				writer = bs.findWriter(uId);
+			}
 			BoardBean bBean = new BoardBean();
+			bBean.setBno(bno);
 			
 			String title = mReq.getParameter("title");
 			String subTitle = mReq.getParameter("subTitle");
 			String content = mReq.getParameter("content");
-			String category = mReq.getParameter("category"); 
-
+			
+			// #category로 태그를 붙힌 내용을 찾음
+			int categoryIndex =  0;
+			String category = "default";
+			categoryIndex = content.indexOf("#");
+			
+			if(content != null && categoryIndex != -1 && content.length() > 11) {
+				category = content.substring(categoryIndex+1, categoryIndex+11); 
+			} else {
+				category = "not select";
+			}
+			
+			
 			bBean.setTitle(title);
 			bBean.setSubTitle(subTitle);
+			bBean.setContent(content);
 			bBean.setWriter(writer);
 			bBean.setCategory(category);
 			
 			/* 파일관련 정보 출력 세팅 시작 */
 			Enumeration files = mReq.getFileNames();
-			String fileName = null;
-			String fileOName = null;
+			String fileName = mReq.getFilesystemName("fileName");
+			String fileOName = mReq.getOriginalFileName("fileName");
 			
 			while(files.hasMoreElements()) {
 				String name = (String)files.nextElement();
@@ -92,19 +105,20 @@ public class Modify implements CommandHandler {
 			}
 			
 			boolean result = bs.update(bBean);
+			req.setAttribute("bBean", bBean);
 			
+			System.out.println("실행???");
 			
 			if (!result) {
+				System.out.println("오류??");
 				req.setAttribute("errorMsg", "오류가 발생하였습니다. 다시 실행해주세요.");
-				req.setAttribute("bBean", bBean);
-				req.setAttribute("do", "update");
-				return "/viewPage/board.jsp";
+				return "redirect:/Proj_Quill_Pen/boardRead?bno="+bno;
 			}
 			
-			int pageNo = Integer.parseInt(req.getParameter("pageNo"));
-			req.setAttribute("pageNo", pageNo);
+//			int pageNo = Integer.parseInt(req.getParameter("pageNo"));
+//			req.setAttribute("pageNo", pageNo);
 			
-			return "/viewPage/bbs.jsp";
+			return "redirect:/Proj_Quill_Pen/bbs";
 		}
 	}
 }

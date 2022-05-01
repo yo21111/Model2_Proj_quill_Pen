@@ -10,7 +10,7 @@
 <title>게시판 글 목록 출력 페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_bbs.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/script_bbs.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -63,7 +63,9 @@
 			<!-- section#bbs : 게시판 목록 영역 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input name="isLogin" id="isLogin" type="hidden" value="${isLogin}">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 

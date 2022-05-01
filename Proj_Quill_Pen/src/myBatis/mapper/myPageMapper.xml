@@ -120,19 +120,19 @@
 	</select>
 
 	<select id="selectSubWriterList" parameterType="string"
-		resultType="arraylist">
+		resultType="SubsBean">
 		Select * from subscribe
 		where uId = #{uId}
 	</select>
 
 	<select id="selectLikeBoardList" parameterType="string"
-		resultType="arraylist">
+		resultType="LikeBean">
 		Select * from recommend
 		where uId = #{uId}
 	</select>
 
 	<select id="selectMyCmntList" parameterType="string"
-		resultType="arraylist">
+		resultType="CmntBean">
 		Select * from commentTbl
 		where writer = #{uId}
 	</select>
