@@ -1,0 +1,32 @@
+@charset "UTF-8";
+@import url(/source/style_Reset.css);
+
+
+section#subList h1 {
+	margin-bottom: 40px;
+}
+
+div.subsTbl table {
+	border-bottom: 1px solid #000;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	width: 600px;
+	
+}
+
+div.subsTbl table td.subBtn>button {
+	font-size: 15px;
+	border: none;
+	background-color: #000;
+	border-radius: 50px;
+	color: #fff;
+	padding: 10px;
+}
+
+div.subsTbl table td.prof img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;	
+	margin: 10px;
+	border: 1px solid #000;
+}

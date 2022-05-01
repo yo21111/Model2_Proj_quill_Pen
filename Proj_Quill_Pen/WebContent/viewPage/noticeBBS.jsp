@@ -12,7 +12,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판 글목록 출력 페이지</title>
+<title>게시판 내용 출력 페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_notice.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
@@ -60,9 +60,11 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 							</tr>
 							<tr>
 								<td id="subCnt">
-									<span>구독자 150</span>
+									<a href="/Proj_Quill_Pen/subscribe"><button type="button">구독자${subCnt }</button></a>
 								</td>
-								<td id="subBtn"><button type="button">구독하기</button></td>
+								<td id="subBtn">
+									<button type="button">구독하기</button>
+								</td>
 							</tr>
 						</tbody>
 					</table>

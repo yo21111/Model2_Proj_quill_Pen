@@ -28,7 +28,7 @@ public class Subscribe implements CommandHandler {
 		List<WriterBean> subsList = ms.subWriter(req, resp);
 		req.setAttribute("subsList", subsList);
 		
-		return "/viewPage/blogList.jsp";
+		return "/viewPage/subList.jsp";
 	}
 	
 }

@@ -78,7 +78,8 @@ div#admin_profile table td img {
 	margin: 10px;
 }
 
-div#admin_profile table td#subCnt span {
+div#admin_profile table td#subCnt button {
+	background-color: #fff;
 	border: 1px solid #000;
 	display: inline-block;
 	border-radius: 50px;
