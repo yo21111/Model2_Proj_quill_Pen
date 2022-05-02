@@ -58,9 +58,7 @@ div#blog_subs_container table#subArea td:nth-child(2) {
 }
 
 div#blog_subs_container table#subArea td#cntArea div {
-	border: 1px solid #000;
 	display: inline-block;
-	border-radius: 50px;
 	font-size: 15px;
 	padding: 5px;
 }

@@ -56,16 +56,17 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public List<WriterBean> subWriter(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		HttpSession session = req.getSession();
-		String uId = (String) session.getAttribute("uId_Session");
+//	public List<WriterBean> subWriter(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public List<WriterBean> subWriter(String writer) throws Exception {
+//		HttpSession session = req.getSession();
+//		String uId = (String) session.getAttribute("uId_Session");
 
-		List<SubsBean> list = mDao.selectSubWriterList(uId);
+		List<SubsBean> list = mDao.selectSubWriterList(writer);
 		List<WriterBean> returnList = new ArrayList<>();
 		for (int i = 0; i < list.size(); i++) {
 			SubsBean bean = list.get(i);
-			String writerId = mDao.findId(bean.getWriter());
-			WriterBean wBean = mDao.findWBean(writerId);
+			String subWriter = mDao.findWriter(bean.getuId());
+			WriterBean wBean = mDao.findWBean(subWriter);
 
 			returnList.add(wBean);
 		}
@@ -109,13 +110,25 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	@Override
-	public int getSubCnt(String Writer) throws Exception {
-		return mDao.getSubCnt(Writer);
+	public int getSubCnt(String writer) throws Exception {
+		return mDao.getSubCnt(writer);
 	}
 
 	@Override
 	public int getLikeCnt(String uId) throws Exception {
 		return mDao.getLikeCnt(uId);
+	}
+	
+	@Override
+	public boolean selectSubWriter(String uId, String writer) throws Exception {
+		SubsBean subsBean = new SubsBean();
+		
+		subsBean.setuId(uId);
+		subsBean.setWriter(writer);
+		
+		int result = mDao.selectSubWriter(subsBean);
+		return result ==1 ? true : false;
+		
 	}
 	
 	@Override
@@ -128,7 +141,17 @@ public class MyPageServiceImpl implements MyPageService {
 		int result = mDao.insertSubWriter(subsBean);
 		
 		return result ==1 ? true : false;
+	}
+	
+	@Override
+	public boolean deleteSub (String uId, String writer) throws Exception {
+		SubsBean subsBean = new SubsBean();
 		
+		subsBean.setuId(uId);
+		subsBean.setWriter(writer);
+		
+		int result = mDao.deleteSub(subsBean);
+		return result == 1 ? true : false;
 	}
 
 }

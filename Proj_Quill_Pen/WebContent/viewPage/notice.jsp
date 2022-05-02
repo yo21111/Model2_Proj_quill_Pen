@@ -30,9 +30,11 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			</section>
 			<!-- section#bbs_title : 게시판 제목 영역 끝 -->
 
-			<div id="btn_bbs">
-				<button id="write_Btn" type="button">글쓰기</button>
-			</div>
+			<c:if test="${isAdmin eq 'true' }">
+				<div id="btn_bbs">
+					<button id="write_Btn" type="button">글쓰기</button>
+				</div>
+			</c:if>
 
 			<!-- section#bbs : 게시판 목록 영역 시작 -->
 			<section id="bbs">

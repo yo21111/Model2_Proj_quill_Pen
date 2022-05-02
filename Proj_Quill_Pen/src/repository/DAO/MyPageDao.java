@@ -172,6 +172,30 @@ public class MyPageDao {
 			return sqlSession.insert(namespace + "insertSubWriter", subsBean);
 			
 		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+	
+	// 구독취소
+	public int deleteSub(SubsBean subsBean) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.delete(namespace + "deleteSub", subsBean);
+		} finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+	}
+	
+	// 구독 중복확인
+	public int selectSubWriter(SubsBean subsBean) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			return sqlSession.selectOne(namespace + "selectSubWriter", subsBean);
+			
+		} finally {
 			sqlSession.close();
 		}
 	}
@@ -211,11 +235,11 @@ public class MyPageDao {
 	}
 	
 	// 구독한 작가 목록
-	public List<SubsBean> selectSubWriterList(String uId) throws Exception {
+	public List<SubsBean> selectSubWriterList(String writer) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();	
 		
 		try {
-			return sqlSession.selectList(namespace+"selectSubWriterList", uId);
+			return sqlSession.selectList(namespace+"selectSubWriterList", writer);
 		} finally {
 			sqlSession.close();
 		}
@@ -254,4 +278,5 @@ public class MyPageDao {
 		}
 	}
 	//////////////////////////// 목록 관련 끝 ////////////////////////////////////
+
 }

@@ -25,14 +25,16 @@ public class MyPageController implements CommandHandler {
 		MyPageService ms = new MyPageServiceImpl();
 		AdminService as = new AdminServiceImpl();
 		
-		
 		if (writerName != null) {
-		// 해당 작가의 작가페이지 보여주기	
+		// 해당 작가의 작가페이지 보여주기
+			
+			HttpSession session = req.getSession();
+			String myId = (String)session.getAttribute("uId_Session");
 			String uId = ms.findId(writerName);
 			
 			WriterBean bean = ms.findWriter(uId);
 			
-			// 관리자일 경우
+			// 관리자일 경우(신고버튼 감춤용)
 			if(as.isAdmin(uId)) {
 				req.setAttribute("isAdmin", "true");
 			}
@@ -43,6 +45,10 @@ public class MyPageController implements CommandHandler {
 			int subCnt = ms.getSubCnt(writerName);
 			int LikeCnt = ms.getLikeCnt(uId);
 			List<BoardBean> myArticle = ms.myArticle(writerName);
+			boolean selectResult = ms.selectSubWriter(myId, writerName);
+			if(selectResult) {
+				req.setAttribute("alreadySub", "true");
+			}
 			
 			req.setAttribute("myArticle", myArticle);
 			req.setAttribute("writer", writerName);
@@ -51,6 +57,8 @@ public class MyPageController implements CommandHandler {
 			req.setAttribute("fileName", fileName);
 			req.setAttribute("subCnt", subCnt);
 			req.setAttribute("LikeCnt", LikeCnt);
+			req.setAttribute("myId", myId);
+			req.setAttribute("uId", uId);
 		
 			return "/viewPage/blog.jsp";
 			

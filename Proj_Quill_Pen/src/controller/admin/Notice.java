@@ -32,6 +32,11 @@ public class Notice implements CommandHandler {
 			/* return "redirect:/Proj_Quill_Pen/main"; */
 		}
 		
+		// 관리자일 경우
+		if(as.isAdmin(uId)) {
+			req.setAttribute("isAdmin", "true");
+		}
+		
 		List<NoticeBean> noticeList = as.noticeList(req, resp);
 		req.setAttribute("noticeList", noticeList);
 		

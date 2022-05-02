@@ -23,20 +23,29 @@ public class NoticeContent  implements CommandHandler {
 		String uId = (String)session.getAttribute("uId_Session");
 		
 		// 관리자일 경우
-		if(as.isAdmin(uId)) {
+		if(uId == null) {
+			req.setAttribute("isAdmin", "false");
+		} else if (as.isAdmin(uId)) {
 			req.setAttribute("isAdmin", "true");
+		} else {
+			req.setAttribute("isAdmin", "false");
+		}
+		
+		NoticeBean nBean = as.getNotice(req, resp);
+//		String mid = nBean.getmId();
+		String writer = nBean.getWriter();
+		
+		int subCnt = ms.getSubCnt(writer);
+		boolean selectResult = ms.selectSubWriter(uId, writer);
+		if(selectResult) {
+			req.setAttribute("alreadySub", "true");
 		}
 		
 		
-		NoticeBean nBean = as.getNotice(req, resp);
-		String mid = nBean.getmId();
-		WriterBean wbean = ms.findWriter(mid);
-		
-		String writer = wbean.getWriter();
-		int subCnt = ms.getSubCnt(writer);
 		
 		req.setAttribute("noticeBean", nBean);
 		req.setAttribute("subCnt", subCnt);
+		req.setAttribute("myId", uId);
 		
 		return "/viewPage/noticeBBS.jsp";
 	}

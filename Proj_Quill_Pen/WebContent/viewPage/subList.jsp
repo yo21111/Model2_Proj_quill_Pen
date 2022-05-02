@@ -26,6 +26,9 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<!-- section#subList 구독자 목록 영역 시작 -->
 			<section id="subList">
 				<h1>해당 작가를 구독하는 ${subCnt }명</h1>
+				<c:if test="${subCnt eq 0}">
+					<a href="/Proj_Quill_Pen/main"><button type="button" id="mainBtn">메인으로</button></a>
+				</c:if>
 				<hr class="sepLine">
 				<c:forEach var="WriterBean" items="${subsList }">
 				<div class="subsTbl">
@@ -53,6 +56,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden">
 				<input type="hidden" id="subMsg" value="${subMsg}">
+				<input type="hidden" id="subCntList" value="${subCnt }">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

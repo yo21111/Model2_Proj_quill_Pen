@@ -60,10 +60,18 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 							</tr>
 							<tr>
 								<td id="subCnt">
-									<a href="/Proj_Quill_Pen/subscribe"><button type="button">구독자${subCnt }</button></a>
+									<button type="button">구독자${subCnt }</button>
 								</td>
 								<td id="subBtn">
-									<button type="button">구독하기</button>
+									<c:choose>
+										<c:when test="${isAdmin eq 'true'}"></c:when>
+										<c:when test="${alreadySub eq 'true' }">
+											<button id="subcancle_Btn" type="button">구독해제</button>
+										</c:when>
+										<c:when test="${alreadySub ne 'true' }">
+											<button id="subscribe_Btn" type="button">구독하기</button>
+										</c:when>
+									</c:choose>
 								</td>
 							</tr>
 						</tbody>
@@ -80,6 +88,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden">
 				<input type="hidden" id="writerProfile"  name="writerProfile" value="${noticeBean.writer}">
+				<input type="hidden" id="myId" value="${myId}">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

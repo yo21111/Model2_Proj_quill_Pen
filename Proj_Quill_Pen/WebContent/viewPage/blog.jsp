@@ -51,15 +51,23 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 							<tr>
 								<td id="cntArea">
 									<div>
-										<a href="#">구독자<span>${subCnt}</span></a>
+										<button type="button" id="subCntBtn">구독자${subCnt }</button>
 									</div>
 									<div>
-										<a href="#">관심작가<span>${LikeCnt}</span></a>
+										<button type="button">관심작가${LikeCnt}</button> 
 									</div>
 								</td>
 								<!-- <form id = "blog_Frm" method="" action=""> -->
 								<td>
-									<button id="subscribe_Btn" type="button">구독하기</button>
+									<c:choose>
+										<c:when test="${myId eq uId }"></c:when>
+										<c:when test="${alreadySub eq 'true' }">
+											<button id="subcancle_Btn" type="button">구독해제</button>
+										</c:when>
+										<c:when test="${alreadySub ne 'true' }">
+											<button id="subscribe_Btn" type="button">구독하기</button>
+										</c:when>
+									</c:choose>
 									<c:if test="${isAdmin ne 'true'}">
 										<button id = "report_Btn" type="button">신고하기</button>
 									</c:if>
@@ -128,6 +136,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<!-- section#hidden : hidden input 영역 시작 -->
 			<section id="hidden">
 				<input type="hidden" id="writerSub" name=writer value="${writer }">
+				<input type="hidden" id="myId" value="${myId }">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

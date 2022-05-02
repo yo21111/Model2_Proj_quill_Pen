@@ -87,6 +87,10 @@ div#admin_profile table td#subCnt button {
 	padding: 5px;
 }
 
+div#admin_profile table td#subCnt button:hover {
+	cursor: pointer;
+}
+
 div#admin_profile table td#subBtn {
 	text-align: right;
 	padding-right: 10px;

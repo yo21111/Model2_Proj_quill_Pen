@@ -30,7 +30,8 @@ public interface MyPageService {
 	//public MemberBean myArticle (String uId) throws Exception;
 	
 	// 구독한 작가 목록
-	public List<WriterBean> subWriter (HttpServletRequest req, HttpServletResponse resp) throws Exception;
+	public List<WriterBean> subWriter(String uId) throws Exception;
+//	public List<WriterBean> subWriter (HttpServletRequest req, HttpServletResponse resp) throws Exception;
 	//public SubsBean subWriter (String uId, String writer) throws Exception;
 	
 	// 추천한 글 목록 
@@ -49,12 +50,18 @@ public interface MyPageService {
 	public String findId (String writer) throws Exception;
 	
 	// 구독자수 찾기
-	public int getSubCnt(String Writer) throws Exception;
+	public int getSubCnt(String writer) throws Exception;
 	
 	// 관심 글 수 찾기
 	public int getLikeCnt(String uId) throws Exception;
 	
 	// 구독하기
 	public boolean insertSubWriter(String uId, String writer) throws Exception;
+	
+	// 구독취소
+	public boolean deleteSub (String uId, String writer) throws Exception;
+	
+	// 구독중복확인
+	public boolean selectSubWriter(String uId, String writer) throws Exception;
 	
 }

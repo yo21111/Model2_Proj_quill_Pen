@@ -19,6 +19,7 @@ div#bbs_title_container {
 	width: 950px;
 	margin: 5px auto;
 	padding: 5px;
+	padding-bottom: 25px;
 	border-bottom: 1px solid #aaa;
 }
 

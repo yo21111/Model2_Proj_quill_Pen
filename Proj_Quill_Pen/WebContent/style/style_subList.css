@@ -6,6 +6,15 @@ section#subList h1 {
 	margin-bottom: 40px;
 }
 
+section#subList button#mainBtn {
+	font-size: 15px;
+	border: none;
+	background-color: #000;
+	border-radius: 50px;
+	color: #fff;
+	padding: 10px;	
+}
+
 div.subsTbl table {
 	border-bottom: 1px solid #000;
 	margin: 0 auto;

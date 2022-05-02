@@ -124,11 +124,27 @@
 		values
 		(#{uId}, #{writer})
 	</insert>
+	
+	<delete id="deleteSub" parameterType="SubsBean">
+		delete from subscribe
+		where
+		uId = #{uId} and writer = #{writer}
+	</delete>
+	
+	
+	<select id="selectSubWriter" parameterType="SubsBean"
+		resultType="int">
+		select
+		count(*) from subscribe
+		where uId = #{uId} and writer = #{writer}
+	</select>
+	
+	
 
 	<select id="selectSubWriterList" parameterType="string"
 		resultType="SubsBean">
 		Select * from subscribe
-		where uId = #{uId}
+		where writer = #{writer}
 	</select>
 
 	<select id="selectLikeBoardList" parameterType="string"
