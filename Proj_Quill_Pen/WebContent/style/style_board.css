@@ -12,10 +12,10 @@ div#wrap {
 
 div#board_header div {
 	width: 100%;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
-div#board_header div input{
+div#board_header div input {
 	width: 800px;
 }
 
@@ -86,7 +86,6 @@ div#board_header_info>input {
 	background-color: rgba(255, 255, 255, 0);
 	outline: none;
 }
-
 
 div#board_content {
 	text-align: center;
@@ -189,7 +188,7 @@ div.comment_img {
 div.imgDiv {
 	width: 60px;
 	height: 60px;
-	background-color: #aaa;	
+	background-color: #aaa;
 	border-radius: 10px;
 }
 
@@ -289,4 +288,32 @@ div#comment_Null {
 	text-align: center;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
+}
+
+div#cmntWrite {
+	width: 1300px;
+	margin: 40px auto;
+	display: none;
+	height: 50px; 
+}
+
+div#cmntWrite input {
+	width: 800px;
+	height: 40px;
+	padding : 5px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+}
+
+div#cmntWrite button {
+	font-size: 20px;
+	width: 90px;
+	height: 40px;
+	margin:  0 10px;
+	border-radius: 6px;
+	background-color: #dedede;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	cursor: pointer;
+	transform: translateY(3px);
 }

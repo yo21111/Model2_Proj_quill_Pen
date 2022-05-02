@@ -7,7 +7,21 @@ public class CmntBean {
 	private String writer;
 	private String content;
 	private String writeDate;
+	private String modifyDate;
 	
+	
+	public String getModifyDate() {
+		return modifyDate;
+	}
+	public void setModifyDate(String modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+	public void setBno(int bno) {
+		this.bno = bno;
+	}
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
+	}
 	public int getCno() {
 		return cno;
 	}

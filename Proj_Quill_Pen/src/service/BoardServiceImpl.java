@@ -127,6 +127,13 @@ public class BoardServiceImpl implements BoardService {
 	public void unLike(String uId, int bno) throws Exception {
 		bDao.unLike(uId, bno);
 	}
+
+	@Override
+	public boolean writeCmnt(int bno, String uId, String content) throws Exception {
+		int result = bDao.insertCmnt(bno, uId, content);
+		return result == 1 ? true : false;
+	}
+	
 	
 	
 }

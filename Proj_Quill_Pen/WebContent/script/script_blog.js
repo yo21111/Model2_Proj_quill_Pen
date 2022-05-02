@@ -16,16 +16,16 @@ $(function(){
 	/* 네이게이션 클릭했을때 나타나는 글 전환용 */
 	$("#navInt").click(function(){
 		$(this).css("border-top","1px solid black");
-		$("#info_intro").css("display","block")
+		$("#info_intro").show();
 		$("#navList").css("border-top","none");
-		$("#info_writing").css("display","none")
+		$("#info_writing").hide();
 	});
 	
 	$("#navList").click(function(){
 		$(this).css("border-top","1px solid black");
-		$("#info_writing").css("display","block")
+		$("#info_writing").show();
 		$("#navInt").css("border-top","none");
-		$("#info_intro").css("display","none")
+		$("#info_intro").hide();
 	});
 	
 	

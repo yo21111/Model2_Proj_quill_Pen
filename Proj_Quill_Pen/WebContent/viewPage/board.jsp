@@ -138,7 +138,13 @@
 					댓글 <i class="fa-solid fa-comment"></i>
 				</button>
 			</div>
-
+			
+			<div id="cmntWrite">
+				<input type="text" id="cmntWriteContent" placeholder="댓글을 입력해주세요.">
+				<button id="cmntWriteBtn" type="button">댓글 등록</button>
+			</div>
+			
+			
 			<!-- section#board_writer : 게시글 작가 정보 영역 시작 -->
 			<section id="board_writer">
 				<div id="writer_container" class="dFlex">
