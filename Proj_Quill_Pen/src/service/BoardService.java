@@ -55,4 +55,7 @@ public interface BoardService {
 	
 	// 추천 취소하기
 	public void unLike(String uId, int bno) throws Exception;
+
+	// 댓글 작성하기
+	public boolean writeCmnt(int bno, String uId, String content) throws Exception;
 }

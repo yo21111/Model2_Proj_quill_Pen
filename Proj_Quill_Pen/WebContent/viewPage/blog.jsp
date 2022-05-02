@@ -31,7 +31,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 							<tr>
 								<th>${writer}</th>
 								<th rowspan="2">
-									<div id="profileImg"><img src="/Proj_Quill_Pen/images/profile/${fileName }" alt="${fileName }"></div>
+									<div id="profileImg"><img src="/Proj_Quill_Pen/images/test/${fileName }" alt="${fileName }"></div>
 								</th>
 							</tr>
 							<tr>
@@ -99,7 +99,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 													<a href="#">${BoardBean.title}</a>
 												</td>
 												<td rowspan="3">
-													<a href="#"><img src="/Proj_Quill_Pen/images/profile/${BoardBean.fileName }" alt="썸네일"></a>
+													<a href="#"><img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="썸네일"></a>
 												</td>
 											</tr>
 											<tr>

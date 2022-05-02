@@ -186,18 +186,18 @@ public class BoardDao {
 	}
 
 	// 댓글 쓰기
-	public int insertCmnt(int bno, int cOrder, String writer, String content) throws Exception {
+	public int insertCmnt(int bno, String writer, String content) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("bno", bno);
-		map.put("cOrder", cOrder);
 		map.put("writer", writer);
 		map.put("content", content);
 
 		try {
 			return sqlSession.insert(namespace + "insertCmnt", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
