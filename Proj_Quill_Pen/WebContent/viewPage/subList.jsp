@@ -16,6 +16,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_subList.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
+<script src="/Proj_Quill_Pen/script/script_subList.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -24,7 +25,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 		<main>
 			<!-- section#subList 구독자 목록 영역 시작 -->
 			<section id="subList">
-				<h1>해당 작가를 구독하는 0명</h1>
+				<h1>해당 작가를 구독하는 ${subCnt }명</h1>
 				<hr class="sepLine">
 				<c:forEach var="WriterBean" items="${subsList }">
 				<div class="subsTbl">
@@ -50,7 +51,9 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<!-- section#subList 구독자 목록 영역 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input type="hidden" id="subMsg" value="${subMsg}">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 

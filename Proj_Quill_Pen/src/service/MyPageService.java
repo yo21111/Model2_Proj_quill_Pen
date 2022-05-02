@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import repository.DTO.BoardBean;
 import repository.DTO.CmntBean;
 import repository.DTO.MemberBean;
+import repository.DTO.SubsBean;
 import repository.DTO.WriterBean;
 
 public interface MyPageService {
@@ -52,5 +53,8 @@ public interface MyPageService {
 	
 	// 관심 글 수 찾기
 	public int getLikeCnt(String uId) throws Exception;
+	
+	// 구독하기
+	public boolean insertSubWriter(String uId, String writer) throws Exception;
 	
 }

@@ -1,17 +1,14 @@
 package controller.myPage;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.CommandHandler;
-import repository.DTO.WriterBean;
 import service.MyPageService;
 import service.MyPageServiceImpl;
 
-public class Subscribe implements CommandHandler {
+public class SubscribeInsert implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -22,17 +19,18 @@ public class Subscribe implements CommandHandler {
 			req.setAttribute("isLogin", "true");
 		}
 		if (!ms.isLogin(uId)) {
-			return "redirect:/Proj_Quill_Pen/main";
+			req.setAttribute("errorMsg", "로그인 시 이용할 수 있는 페이지입니다.");
 		}
 		
-		WriterBean bean = ms.findWriter(uId);
-		String writerName = bean.getWriter();
-		int subCnt = ms.getSubCnt(writerName);
-		List<WriterBean> subsList = ms.subWriter(req, resp);
-		req.setAttribute("subsList", subsList);
-		req.setAttribute("subCnt", subCnt);
+		String writer = req.getParameter("writer");
 		
+		boolean result = ms.insertSubWriter(uId, writer);
+		if(!result) {
+			req.setAttribute("subMsg", "오류가 발생했습니다. 다시 시도해주세요.");
+		} else {
+			req.setAttribute("subMsg", "구독하였습니다.");			
+		}
 		return "/viewPage/subList.jsp";
 	}
-	
+
 }

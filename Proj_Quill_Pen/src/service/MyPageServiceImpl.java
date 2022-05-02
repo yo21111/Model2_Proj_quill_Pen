@@ -117,5 +117,18 @@ public class MyPageServiceImpl implements MyPageService {
 	public int getLikeCnt(String uId) throws Exception {
 		return mDao.getLikeCnt(uId);
 	}
+	
+	@Override
+	public boolean insertSubWriter(String uId, String writer) throws Exception {
+		SubsBean subsBean = new SubsBean();
+		
+		subsBean.setuId(uId);
+		subsBean.setWriter(writer);
+		
+		int result = mDao.insertSubWriter(subsBean);
+		
+		return result ==1 ? true : false;
+		
+	}
 
 }

@@ -126,7 +126,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<!-- section#blog_info : 작가 세부 정보 영역 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden"></section>
+			<section id="hidden">
+				<input type="hidden" id="writerSub" name=writer value="${writer }">
+			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
 	</div>

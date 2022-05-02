@@ -164,6 +164,18 @@ public class MyPageDao {
 		}
 	}
 	//////////////////////////// 프로필 관련 끝 //////////////////////////////////
+	// 구독하기
+	public int insertSubWriter(SubsBean subsBean) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			return sqlSession.insert(namespace + "insertSubWriter", subsBean);
+			
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	// 구독자 수 가져오기
 	public int getSubCnt(String writer) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();	

@@ -28,6 +28,14 @@ $(function(){
 		$("#info_intro").css("display","none")
 	});
 	
+	// 구독 버튼 선택시
+	$("#subscribe_Btn").click(function(){
+		let writer = $("#writerSub").val();
+		alert(writer);
+		let url = "/Proj_Quill_Pen/subscribeInsert?writer=" + writer;
+		location.href = url; 
+	});
+	
 	
 	
 	

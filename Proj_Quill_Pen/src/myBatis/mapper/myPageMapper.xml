@@ -118,6 +118,12 @@
 		order by bno
 		DESC
 	</select>
+	
+	<insert id="insertSubWriter" parameterType="SubsBean">
+		Insert into subscribe
+		values
+		(#{uId}, #{writer})
+	</insert>
 
 	<select id="selectSubWriterList" parameterType="string"
 		resultType="SubsBean">
