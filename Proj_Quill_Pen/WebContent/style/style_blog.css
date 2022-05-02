@@ -132,24 +132,21 @@ div#blog_infos_container div#info_writing table td:first-child {
 	width: 80%;
 }
 
-div#blog_infos_container div#info_writing table td#writeTitle {
+div#blog_infos_container div#info_writing table td.writeTitle {
 	font-weight: bold;
 	font-size: 22px;
 }
 
-div#blog_infos_container div#info_writing:hover {
-	cursor: pointer;
-}
 
-div#blog_infos_container div#info_writing table td#writeSubTitle {
+div#blog_infos_container div#info_writing table td.writeSubTitle {
 	color: #b5b5b5;
 }
 
-div#blog_infos_container div#info_writing table td#writeSubTitle span {
+div#blog_infos_container div#info_writing table td.writeSubTitle span {
 	color: #898989;
 }
 
-div#blog_infos_container div#info_writing table td#etcArea div {
+div#blog_infos_container div#info_writing table td.etcArea div {
 	display: inline-block;
 	color: #898989;
 	font-size: 13px;

@@ -94,49 +94,94 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 						<p>${content}</p>
 					</div>
 					<div id="info_writing">
-						<c:choose>
-							<c:when test="${myArticle eq null}">
-								<div id="nullTbl">게시글이 아직 없습니다.</div>
-							</c:when>
-							<c:when test="${myArticle ne null}">
-								<c:forEach var="BoardBean" items="${myArticle}">
-									<table>
-										<tbody>
-											<tr>
-												<td colspan="2" id="writeTitle">
-													<a href="#">${BoardBean.title}</a>
-												</td>
-												<td rowspan="3">
-													<a href="#"><img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="썸네일"></a>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2" id="writeSubTitle">
-													<span>${BoardBean.subTitle }</span>${BoardBean.content }
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2" id="etcArea">
-														<div>댓글0</div>
-														<div>${BoardBean.modifyDate }</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-									<hr class="sepLine">
-								</c:forEach>
-							</c:when>
-						</c:choose>
 						
+						
+							<!-- 관리자일 경우 -->
+							<c:if test="${isAdmin eq 'true'}">
+								<c:choose>
+									<c:when test="${myNotice eq null}">
+										<div id="nullTbl">게시글이 아직 없습니다.</div>
+									</c:when>
+									<c:when test="${myArticle ne null}">
+										<c:forEach var="NoticeBean" items="${myNotice}">
+											<table class="articleListTbl">
+												<tbody>
+													<tr>
+														<td colspan="2" class="writeTitle">
+															<input type="hidden" value="${NoticeBean.bno }">
+															<a href="#">${NoticeBean.title}</a>
+														</td>
+														<td rowspan="3">
+															<a href="#"><img src="/Proj_Quill_Pen/images/test/admin_profile.jpg" alt="썸네일"></a>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="writeSubTitle">
+															<div>${NoticeBean.content }</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="etcArea">
+																<div>${NoticeBean.writeDate }</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<hr class="sepLine">
+										</c:forEach>
+									</c:when>
+								</c:choose>					
+							</c:if>
+							
+							
+							<!-- 유저일 경우 -->
+							<c:if test="${isAdmin ne 'true'}">
+								<c:choose>
+									<c:when test="${myArticle eq '[]'}">
+										<div id="nullTbl">게시글이 아직 없습니다.</div>
+									</c:when>
+									<c:when test="${myArticle ne '[]'}">
+										<c:forEach var="BoardBean" items="${myArticle}">
+											<table class="articleListTbl">
+												<tbody>
+													<tr>
+														<td colspan="2" class="writeTitle">
+															<input type="hidden" value="${BoardBean.bno }">
+															<a href="#">${BoardBean.title}</a>
+														</td>
+														<td rowspan="3">
+															<a href="#"><img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="썸네일"></a>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="writeSubTitle">
+															<span>${BoardBean.subTitle }</span>${BoardBean.content }
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2" class="etcArea">
+																<div>댓글0</div>
+																<div>${BoardBean.modifyDate }</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<hr class="sepLine">
+										</c:forEach>
+									</c:when>
+								</c:choose>					
+							</c:if>			
 					</div>
 				</div>
 			</section>
 			<!-- section#blog_info : 작가 세부 정보 영역 끝 -->
 
 			<!-- section#hidden : hidden input 영역 시작 -->
-			<section id="hidden">
+			<section id="hidden">				
+				<input type="hidden" id="adminConfirm" value="${isAdmin eq 'true'}">
 				<input type="hidden" id="writerSub" name=writer value="${writer }">
 				<input type="hidden" id="myId" value="${myId }">
+				
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

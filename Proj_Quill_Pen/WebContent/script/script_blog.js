@@ -6,10 +6,22 @@
 $(function(){
 	
 	/* 마우스 올렸을 때 제목 밑줄 효과 */
-	$("#info_writing").hover(function(){
-		$("#writeTitle").css("text-decoration", "underline");
+	$(".articleListTbl").hover(function(){
+		$(this).css("cursor", "pointer");
+		$(this).children().children().children().first().css("text-decoration", "underline");
 	}, function(){
-		$("#writeTitle").css("text-decoration", "none");
+		$(".writeTitle").css("text-decoration", "none");
+	});
+	
+	// 게시글 선택시 이동 
+	$(".articleListTbl").click(function(){
+		let bno = $(this).children().children().children().children().first().val();
+		let result = $("#adminConfirm").val();
+		if(result) {
+			let url = "/Proj_Quill_Pen/NoticeContent?bno=" + bno;
+			location.href = url;			
+		}
+
 	});
 	
 	

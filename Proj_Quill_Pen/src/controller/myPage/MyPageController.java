@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.CommandHandler;
 import repository.DTO.BoardBean;
+import repository.DTO.NoticeBean;
 import repository.DTO.WriterBean;
 import service.AdminService;
 import service.AdminServiceImpl;
@@ -34,6 +35,7 @@ public class MyPageController implements CommandHandler {
 			
 			WriterBean bean = ms.findWriter(uId);
 			
+			
 			// 관리자일 경우(신고버튼 감춤용)
 			if(as.isAdmin(uId)) {
 				req.setAttribute("isAdmin", "true");
@@ -44,6 +46,7 @@ public class MyPageController implements CommandHandler {
 			String fileName = bean.getFileName();
 			int subCnt = ms.getSubCnt(writerName);
 			int LikeCnt = ms.getLikeCnt(uId);
+			List<NoticeBean> myNotice = ms.myNotice(writerName);
 			List<BoardBean> myArticle = ms.myArticle(writerName);
 			boolean selectResult = ms.selectSubWriter(myId, writerName);
 			if(selectResult) {
@@ -51,6 +54,7 @@ public class MyPageController implements CommandHandler {
 			}
 			
 			req.setAttribute("myArticle", myArticle);
+			req.setAttribute("myNotice", myNotice);
 			req.setAttribute("writer", writerName);
 			req.setAttribute("title", title);
 			req.setAttribute("content", content);

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import repository.DTO.BoardBean;
 import repository.DTO.CmntBean;
 import repository.DTO.MemberBean;
+import repository.DTO.NoticeBean;
 import repository.DTO.SubsBean;
 import repository.DTO.WriterBean;
 
@@ -28,6 +29,9 @@ public interface MyPageService {
 	// 작가의 게시물
 	public List<BoardBean> myArticle (String writer) throws Exception;
 	//public MemberBean myArticle (String uId) throws Exception;
+	
+	// 관리자의 게시물
+	public List<NoticeBean> myNotice (String writer) throws Exception;
 	
 	// 구독한 작가 목록
 	public List<WriterBean> subWriter(String uId) throws Exception;

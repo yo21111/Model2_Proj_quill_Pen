@@ -11,6 +11,7 @@ import repository.DAO.MyPageDao;
 import repository.DTO.BoardBean;
 import repository.DTO.LikeBean;
 import repository.DTO.MemberBean;
+import repository.DTO.NoticeBean;
 import repository.DTO.SubsBean;
 import repository.DTO.WriterBean;
 
@@ -52,6 +53,12 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public List<BoardBean> myArticle(String writer) throws Exception {
 		List<BoardBean> list = mDao.selectMyBoardList(writer);
+		return list;
+	}
+	
+	@Override
+	public List<NoticeBean> myNotice (String writer) throws Exception {
+		List<NoticeBean> list = mDao.selectMyNoticeList(writer);
 		return list;
 	}
 

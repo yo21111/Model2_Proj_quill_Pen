@@ -119,6 +119,15 @@
 		DESC
 	</select>
 	
+	<select id="selectMyNoticeList" parameterType="string"
+		resultType="NoticeBean">
+		Select * from notice
+		where writer = #{writer}
+		order by bno
+		DESC
+	</select>
+	
+	
 	<insert id="insertSubWriter" parameterType="SubsBean">
 		Insert into subscribe
 		values

@@ -10,6 +10,7 @@ import repository.DTO.BoardBean;
 import repository.DTO.CmntBean;
 import repository.DTO.LikeBean;
 import repository.DTO.MemberBean;
+import repository.DTO.NoticeBean;
 import repository.DTO.SubsBean;
 import repository.DTO.WriterBean;
 
@@ -229,6 +230,16 @@ public class MyPageDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();	
 		try {
 			return sqlSession.selectList(namespace+"selectMyBoardList", writer);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	// 관리자가 쓴 게시물
+	public List<NoticeBean> selectMyNoticeList(String writer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();	
+		try {
+			return sqlSession.selectList(namespace+"selectMyNoticeList", writer);
 		} finally {
 			sqlSession.close();
 		}
