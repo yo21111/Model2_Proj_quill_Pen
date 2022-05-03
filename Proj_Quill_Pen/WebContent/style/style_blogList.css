@@ -30,6 +30,21 @@ div#blogList_content_container div.writer {
 	border-bottom: 1px solid #eee; */
 }
 
+div#blogList_content_container div.writer button#subMain {
+	border: 1px solid #000;
+	border-radius: 50px;
+	display: inline-block;
+	background-color: #000;
+	color: #fff;
+	font-size: 15px;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+div#blogList_content_container div.writer button#subMain:hover {
+	cursor: pointer;
+}
+
 div#blogList_content_container div.writer table {
 	border: 1px solid #eee;
 	border-collapse: collapse;

@@ -15,7 +15,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_blogList.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/script_blog.js"></script>
 </head>
 <body>
 	<jsp:include page="/ind/headerTmp.jsp" />
@@ -31,26 +31,35 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 			<section id="blogList_content">
 				<div id="blogList_content_container" class="dFlex">
 					<div class="writer">
-						<c:forEach var="BoardBean" items="${likeList }">
-							<table>
-								<tbody>
-									<tr>
-										<td class="writer_name">${BoardBean.writer }</td>
-										<td class="writer_img" rowspan="3">
-											<img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="프로필이미지">
-										</td>
-									</tr>
-									<tr>
-										<td class="writer_title">${BoardBean.title }</td>
-									</tr>
-									<tr>
-										<td class="writer_content">
-											<div>구독자 수${BoardBean.viewCnt}</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</c:forEach>
+						<c:choose>
+							<c:when test="${likeList eq '[]' }">
+								<div id="nullNotice">관심 게시글이 없습니다.</div>
+								<button type="button" id="subMain">메인으로</button>
+							</c:when>
+							<c:when test="${likeList ne '[]'}">
+								<c:forEach var="BoardBean" items="${likeList }">
+									<table class="likeArticle">
+										<tbody>
+											<tr>
+												<td class="writer_name">${BoardBean.writer }</td>
+												<td class="writer_img" rowspan="3">
+													<img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="프로필이미지">
+												</td>
+											</tr>
+											<tr>
+												<td class="writer_title">${BoardBean.title }</td>
+											</tr>
+											<tr>
+												<td class="writer_content">
+													<div>구독자 수${BoardBean.viewCnt}</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</c:forEach>							
+							</c:when>
+						</c:choose>
+						
 					</div>
 					<!-- div.writer -->
 				</div>

@@ -24,11 +24,27 @@ $(function(){
 
 	});
 	
+	// 관심글 클릭시
 	$("#likeWriter").click(function(){
-		let uId = $("#myId").val();
+		let uId = $("#submitId").val();
 		let url = "/Proj_Quill_Pen/likePost?uId=" + uId;
 		location.href = url; 
 	});
+	
+	// 관심글 마우스 올릴시
+	$(".likeArticle").hover(function(){
+		$(this).css("cursor", "pointer");
+		$(this).children().children().children().first().css("text-decoration", "underline");
+	}, function(){
+		$(".writer_name").css("text-decoration", "none");
+	});
+	
+	// 메인으로 버튼(blogList.jsp)
+	$("#subMain").click(function(){
+		let url = "/Proj_Quill_Pen/main";
+		location.href=url;
+	});
+	
 	
 	
 	/* 네이게이션 클릭했을때 나타나는 글 전환용 */

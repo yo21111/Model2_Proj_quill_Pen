@@ -83,8 +83,10 @@ public class MyPageServiceImpl implements MyPageService {
 
 	@Override
 	public List<BoardBean> likeArticle(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		HttpSession session = req.getSession();
-		String uId = (String) session.getAttribute("uId_Session");
+//		HttpSession session = req.getSession();
+//		String uId = (String) session.getAttribute("uId_Session");
+		
+		String uId = req.getParameter("uId");
 
 		List<LikeBean> list = mDao.selectLikeBoardList(uId);
 		List<BoardBean> returnList = new ArrayList<>();

@@ -16,14 +16,17 @@ public class LikePost implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		MyPageService ms = new MyPageServiceImpl();
-		HttpSession session = req.getSession();
-		String uId = (String)session.getAttribute("uId_Session");
-		if(uId != null) {
-			req.setAttribute("isLogin", "true");
-		}
-		if (!ms.isLogin(uId)) {
-			return "redirect:/Proj_Quill_Pen/main";
-		}
+		
+		
+//		HttpSession session = req.getSession();
+//		String uId = (String)session.getAttribute("uId_Session");
+//		if(uId != null) {
+//			req.setAttribute("isLogin", "true");
+//		}
+//		if (!ms.isLogin(uId)) {
+//			return "redirect:/Proj_Quill_Pen/main";
+//		}
+//		
 		
 		List<BoardBean> likeList = ms.likeArticle(req, resp);
 		req.setAttribute("likeList", likeList);

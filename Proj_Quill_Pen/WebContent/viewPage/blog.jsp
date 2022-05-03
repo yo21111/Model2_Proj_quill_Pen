@@ -54,7 +54,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 										<button type="button" id="subCntBtn">구독자${subCnt }</button>
 									</div>
 									<div>
-										<button type="button" id="likeWriter">관심작가${LikeCnt}</button> 
+										<button type="button" id="likeWriter">관심글${LikeCnt}</button> 
 									</div>
 								</td>
 								<!-- <form id = "blog_Frm" method="" action=""> -->
@@ -181,7 +181,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 				<input type="hidden" id="adminConfirm" value="${isAdmin eq 'true'}">
 				<input type="hidden" id="writerSub" name=writer value="${writer }">
 				<input type="hidden" id="myId" value="${myId }">
-				
+				<input type="hidden" id="submitId" value="${uId}">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
