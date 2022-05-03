@@ -90,6 +90,7 @@ public class AdminDao {
 		try {
 			return sqlSession.delete(namespace + "deleteNotice", bno);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

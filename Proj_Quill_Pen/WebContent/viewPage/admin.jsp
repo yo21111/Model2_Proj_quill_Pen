@@ -16,10 +16,10 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 <title>관리자 페이지</title>
 <link rel="stylesheet" href="/style/style_admin.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
-<script src="/Proj_Quill_Pen/script/script.js"></script>
+<script src="/Proj_Quill_Pen/script/script_admin.js"></script>
 </head>
 <body>
-	<!-- <jsp:include page="/ind/headerTmp.jsp" /> -->
+	<jsp:include page="/ind/headerTmp.jsp" />
 	<div id="wrap">
 		<main>
         <!-- section#noticeList : 공지사항 영역 시작 -->
@@ -39,7 +39,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
                 <c:forEach var="NoticeBean" items="${noticeList }">
 	                <tbody>
 	                  <tr>
-	                    <td><input type="checkbox" value="${NoticeBean.bno}">${NoticeBean.bno}</td>
+	                    <td><input type="checkbox" name="noticeBno[]" value="${NoticeBean.bno}">${NoticeBean.bno}</td>
 	                    <td>${NoticeBean.title}</td>
 	                    <td>${NoticeBean.mId}</td>
 	                    <td>${NoticeBean.writeDate}</td>
@@ -53,9 +53,9 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 
               <form id="admin_notice_frm">
 			  			
-                <button class = "notice_Btn" type="button" >작성하기</button>
-                <button class = "notice_Btn" type="button" >수정하기</button>
-                <button class = "notice_Btn" type="button" >삭제하기</button>
+                <button id="notice_Ins" class = "notice_Btn" type="button" >작성하기</button>
+                <button id="notice_Mod" class = "notice_Btn" type="button" >수정하기</button>
+                <button id="notice_Del" class = "notice_Btn" type="button" >삭제하기</button>
                 
               </form>
           </div>
@@ -89,7 +89,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
             </table>
 
             <form id = "adminReport_Frm" method="get" action="">
-              <button type="button">삭제하기</button>
+              <button id="report_Del" type="button">삭제하기</button>
             </form>
           </div>
         </section>
@@ -130,8 +130,8 @@ String uId_Session = (String) session.getAttribute("uId_Session");
             </table>
 
           <form  id="bookfrm">
-            <button id="bookBtn" type="button">삭제하기</button>
-            <button id="bookBtn" type="button">등록하기</button>
+            <button id="bookBtn_Del" class="bookBtn" type="button">삭제하기</button>
+            <button id="bookBtn_Ins" class="bookBtn" type="button">등록하기</button>
           </form>
             
             
@@ -140,6 +140,6 @@ String uId_Session = (String) session.getAttribute("uId_Session");
         <!-- section#bookList : 책소개 영역 끝 -->
       </main>
 	</div>
-	<!-- <jsp:include page="/ind/footerTmp.jsp" />	 -->
+	<jsp:include page="/ind/footerTmp.jsp" />
 </body>
 </html>
