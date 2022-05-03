@@ -130,6 +130,7 @@ public class AdminDao {
 		try {
 			return sqlSession.delete(namespace + "deleteDecl", bno);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -190,6 +191,7 @@ public class AdminDao {
 		try {
 			return sqlSession.delete(namespace + "deleteBook", bookNo);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

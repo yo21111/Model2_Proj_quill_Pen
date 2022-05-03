@@ -14,28 +14,60 @@ public class AdminDelete implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		AdminService as = new AdminServiceImpl();
 		
-		String[] bno = req.getParameterValues("bno[]");
-		int[] iBno = new int[bno.length];
-		for (int i = 0; i < bno.length; i++) {
-			iBno[i] = Integer.parseInt(bno[i]);
-			System.out.println(iBno[i]);
-		}
-		int dno = Integer.parseInt(req.getParameter("dno"));
-		int bookNo = Integer.parseInt(req.getParameter("bookNo"));
+		// 공지사항 삭제
+		if(req.getParameterValues("bno[]") != null) {
+			String[] bno = req.getParameterValues("bno[]");
+			int[] iBno = new int[bno.length];
+			for (int i = 0; i < bno.length; i++) {
+				iBno[i] = Integer.parseInt(bno[i]);
+			}
 		
-		for (int i = 0; i < iBno.length; i++) {
-			if(iBno[i] != 0) {
-				as.deleteNotice(iBno[i]);			
-			}			
+			for (int i = 0; i < iBno.length; i++) {
+				if(iBno[i] != 0) {
+					as.deleteNotice(iBno[i]);			
+				}			
+			}		
 		}
+	
+		
+		// 신고글 삭제
+		if(req.getParameterValues("dno[]") != null) {
+			String[] dno = req.getParameterValues("dno[]");
+			int[] iDno = new int[dno.length];
+			for(int i = 0; i < dno.length; i++) {
+				iDno[i] = Integer.parseInt(dno[i]);
+			}
+			for (int i = 0; i < iDno.length; i++) {
+				if(iDno[i] != 0) {
+					as.deleteDecl(iDno[i]);			
+				}			
+			}	
+		}
+			
+		
+		
+		// 책소개 삭제
+		if(req.getParameterValues("bookNo[]") != null) {
+			String[] bookNo = req.getParameterValues("bookNo[]");
+			int[] iBookNo = new int[bookNo.length];
+			for (int i = 0; i < iBookNo.length; i++) {
+				iBookNo[i] = Integer.parseInt(bookNo[i]);
+			}
+			for (int i = 0; i < iBookNo.length; i++) {
+				if(iBookNo[i] != 0) {
+					as.deleteBook(iBookNo[i]);
+				}			
+			}	
+		}
+		
 
-		if(dno != 0) {
-			as.deleteDecl(dno);			
-		}
-		if(bookNo != 0) {
-			as.deleteBook(bookNo);
-		}
 		
+		
+
+		
+
+		
+
 
 		String referer = req.getHeader("Referer");
 		return "redirect:" + referer;			
