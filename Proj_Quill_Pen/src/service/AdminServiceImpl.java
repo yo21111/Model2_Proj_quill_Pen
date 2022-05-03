@@ -22,6 +22,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<NoticeBean> noticeList(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		String pageNo = req.getParameter("pageNo");
+
 		int num = 1;
 
 		if (pageNo != null) {

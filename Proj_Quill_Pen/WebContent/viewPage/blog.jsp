@@ -54,7 +54,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 										<button type="button" id="subCntBtn">구독자${subCnt }</button>
 									</div>
 									<div>
-										<button type="button">관심작가${LikeCnt}</button> 
+										<button type="button" id="likeWriter">관심작가${LikeCnt}</button> 
 									</div>
 								</td>
 								<!-- <form id = "blog_Frm" method="" action=""> -->

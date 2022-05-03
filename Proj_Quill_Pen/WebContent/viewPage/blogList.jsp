@@ -2,16 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("UTF-8");
-
-
+String uId_Session = (String) session.getAttribute("uId_Session");
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>작가 조회페이지</title>
+<title>관심글 조회페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_blogList.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
@@ -23,7 +23,7 @@ request.setCharacterEncoding("UTF-8");
 		<main>
 			<!-- section#blogList_title : 작가 게시판 제목 영역 시작 -->
 			<section id="blogList_title">
-				<div id="blogList_title_container">작가 게시판 제목</div>
+				<div id="blogList_title_container"><h1>나의 관심글</h1></div>
 			</section>
 			<!-- section#blogList_title : 작가 게시판 제목 영역 끝 -->
 
@@ -31,88 +31,26 @@ request.setCharacterEncoding("UTF-8");
 			<section id="blogList_content">
 				<div id="blogList_content_container" class="dFlex">
 					<div class="writer">
-						<table>
-							<tbody>
-								<tr>
-									<td class="writer_name"><a href="#">작가명</a></td>
-									<td class="writer_img" rowspan="3">
-										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필이미지"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="writer_title"><a href="#">작가 소개 멘트 veniet fuga doloremque quas praesentium mollitia deserunt nesciunt earum dolorum debitis perferendis quasi.</a></td>
-								</tr>
-								<tr>
-									<td class="writer_content">
-										<div>글 수 180</div>
-										<div>구독자 수 8,615</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="writer">
-						<table>
-							<tbody>
-								<tr>
-									<td class="writer_name"><a href="#">작가명</a></td>
-									<td class="writer_img" rowspan="3">
-										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="writer_title"><a href="#">작가 소개 멘트Lour adi praesentium enim obcaecati dicta?</a></td>
-								</tr>
-								<tr>
-									<td class="writer_content">
-										<div>글 수 0</div>
-										<div>구독자 수 0</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="writer">
-						<table>
-							<tbody>
-								<tr>
-									<td class="writer_name"><a href="#">작가명</a></td>
-									<td class="writer_img" rowspan="3">
-										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필이미지"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="writer_title"><a href="#">작가 소개 멘트 veniet fuga doloremque quas praesentium mollitia deserunt nesciunt earum dolorum debitis perferendis quasi.</a></td>
-								</tr>
-								<tr>
-									<td class="writer_content">
-										<div>글 수 180</div>
-										<div>구독자 수 8,615</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="writer">
-						<table>
-							<tbody>
-								<tr>
-									<td class="writer_name"><a href="#">작가명</a></td>
-									<td class="writer_img" rowspan="3">
-										<a href="#"><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="writer_title"><a href="#">작가 소개 멘트Lour adi praesentium enim obcaecati dicta?</a></td>
-								</tr>
-								<tr>
-									<td class="writer_content">
-										<div>글 수 0</div>
-										<div>구독자 수 0</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<c:forEach var="BoardBean" items="${likeList }">
+							<table>
+								<tbody>
+									<tr>
+										<td class="writer_name">${BoardBean.writer }</td>
+										<td class="writer_img" rowspan="3">
+											<img src="/Proj_Quill_Pen/images/test/${BoardBean.fileName }" alt="프로필이미지">
+										</td>
+									</tr>
+									<tr>
+										<td class="writer_title">${BoardBean.title }</td>
+									</tr>
+									<tr>
+										<td class="writer_content">
+											<div>구독자 수${BoardBean.viewCnt}</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</c:forEach>
 					</div>
 					<!-- div.writer -->
 				</div>

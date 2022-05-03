@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
+
+
 * {
 	border: none;
 }
-
-
 
 main {
 	margin-top: 0;
@@ -12,27 +12,30 @@ main {
 	background-color: #fbfbfb;
 }
 
+div#blogList_title_container h1 {
+	/* border: 1px solid #000; */
+	padding-top: 20px;
+	font-size: 25px;
+}
+
 div#blogList_content_container {
 	/* border: 1px solid #000; */
-	overflow: hidden;
 	padding: 10px 0;
 }
 
 div#blogList_content_container div.writer {
 	/* border: 1px solid #000; */
-	width: 420px;
-	height: 180px;
-	background-color: #fff;
-	padding: 15px 20px;
-	border-left: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	width: 500px;
+/* 	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee; */
 }
 
 div#blogList_content_container div.writer table {
-	/* border: 1px solid #000; */
+	border: 1px solid #eee;
 	border-collapse: collapse;
-	width: 380px;
+	width: 480px;
 	height: 150px;
+	margin-bottom: 10px;
 }
 
 div#blogList_content_container div.writer table td {
@@ -40,8 +43,13 @@ div#blogList_content_container div.writer table td {
 	text-align: left;
 }
 
+div#blogList_content_container div.writer table td {
+	padding-left: 5px;
+}
+
 div#blogList_content_container div.writer table td:first-child {
 	width: 80%;
+	padding-top: 5px;
 }
 
 div#blogList_content_container div.writer table td.writer_name {
@@ -66,11 +74,9 @@ div#blogList_content_container div.writer table td.writer_content div {
 div#blogList_content_container div.writer table td.writer_content div:nth-child(2) {
 	padding-left: 5px;
 }
-
 div#blogList_content_container img {
 	width: 100px;
-	height: 100px;
-	border-radius: 50px;	
+	height: 100px;	
 	float: right;
 	margin: 10px;
 }

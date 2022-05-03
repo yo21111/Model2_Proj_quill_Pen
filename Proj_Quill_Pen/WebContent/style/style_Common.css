@@ -194,7 +194,7 @@ section#blog_info div#info_writing {
 
 /* ///////////////////// 작가 게시판 위치 잡기 시작 ///////////////////// */
 section#blogList_title {
-    width: 900px;
+    width: 1200px;
     height: 100px;
     margin: 0 auto;
 }
@@ -204,10 +204,9 @@ section#blogList_title div#blogList_title_container {
 }
 
 section#blogList_content {
-    width: 900px;
+    width: 1200px;
     margin: 0 auto;
 }
-
 
 section#blogList_content div#blogList_content_container {
     height: 100%;

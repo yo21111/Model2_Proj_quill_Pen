@@ -28,6 +28,6 @@ public class LikePost implements CommandHandler {
 		List<BoardBean> likeList = ms.likeArticle(req, resp);
 		req.setAttribute("likeList", likeList);
 		
-		return "/viewPage/bbs.jsp";
+		return "/viewPage/blogList.jsp";
 	}
 }

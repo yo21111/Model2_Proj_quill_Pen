@@ -40,7 +40,7 @@ public class AdminDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		pageNo = (pageNo - 1) * 5;
-
+		
 		try {
 			return sqlSession.selectList(namespace + "selectNoticeList", pageNo);
 		} finally {

@@ -4,9 +4,8 @@
 <%
 request.setCharacterEncoding("UTF-8");
 String uId_Session = (String) session.getAttribute("uId_Session");
-
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -37,26 +36,28 @@ String uId_Session = (String) session.getAttribute("uId_Session");
                     <td>작성일시</td>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" value="${bno}">${bno}</td>
-                    <td>${title}</td>
-                    <td>${mid}</td>
-                    <td>${writeDate}</td>
-                  </tr>
-                </tbody>
+                <c:forEach var="NoticeBean" items="${noticeList }">
+	                <tbody>
+	                  <tr>
+	                    <td><input type="checkbox" value="${NoticeBean.bno}">${NoticeBean.bno}</td>
+	                    <td>${NoticeBean.title}</td>
+	                    <td>${NoticeBean.mId}</td>
+	                    <td>${NoticeBean.writeDate}</td>
+	                  </tr>
+	                </tbody>
+                </c:forEach>
                 <tfoot>
  
                 </tfoot>
               </table>
 
               <form id="admin_notice_frm">
-
+			  			
                 <button class = "notice_Btn" type="button" >작성하기</button>
                 <button class = "notice_Btn" type="button" >수정하기</button>
                 <button class = "notice_Btn" type="button" >삭제하기</button>
                 
-                   </form>
+              </form>
           </div>
         </section>
         <!-- section#noticeList : 공지사항 영역 끝 -->
@@ -75,20 +76,21 @@ String uId_Session = (String) session.getAttribute("uId_Session");
                   <td>작성일시</td>
                 </tr>
               </thead>
+            <c:forEach var="DeclBean" items="${declList }">
               <tbody>
                 <tr>
-                  <td><input type="checkbox" value="${bno}">${bno}</td>
-                  <td>게시글${title}</td>
-                  <td>${writer}</td>
-                  <td>${writeDate}</td>
+                  <td><input type="checkbox" value="${DeclBean.bno}">${DeclBean.bno}</td>
+                  <td>${DeclBean.title}</td>
+                  <td>${DeclBean.writer}</td>
+                  <td>${DeclBean.writeDate}</td>
                 </tr>
               </tbody>
-        
+        	</c:forEach>
             </table>
 
             <form id = "adminReport_Frm" method="get" action="">
               <button type="button">삭제하기</button>
-             </form>
+            </form>
           </div>
         </section>
         <!-- section#reportList : 신고목록 영역 끝 -->
@@ -113,17 +115,18 @@ String uId_Session = (String) session.getAttribute("uId_Session");
                 </tr>
                 
               </thead>
-
-                <tbody>
+			<c:forEach var="BookBean" items="${bookList }">
+              <tbody>
                 <tr>
                 
-                  <td><input type="checkbox" value="${bookNo}">${title}</td>
-                  <td>${subTitle}</td>
-                  <td>${title}</td>
-                  <td>${category}</td>
+                  <td><input type="checkbox" value="${BookBean.bookNo}">${BookBean.title}</td>
+                  <td>${BookBean.subTitle}</td>
+                  <td>${BookBean.title}</td>
+                  <td>${BookBean.category}</td>
 
                 </tr>
               </tbody>
+            </c:forEach>
             </table>
 
           <form  id="bookfrm">

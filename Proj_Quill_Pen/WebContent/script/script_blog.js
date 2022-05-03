@@ -24,6 +24,12 @@ $(function(){
 
 	});
 	
+	$("#likeWriter").click(function(){
+		let uId = $("#myId").val();
+		let url = "/Proj_Quill_Pen/likePost?uId=" + uId;
+		location.href = url; 
+	});
+	
 	
 	/* 네이게이션 클릭했을때 나타나는 글 전환용 */
 	$("#navInt").click(function(){
