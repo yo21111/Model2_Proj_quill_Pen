@@ -57,6 +57,7 @@ public class AdminDao {
 		try {
 			return sqlSession.insert(namespace + "insertNotice", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -79,6 +80,7 @@ public class AdminDao {
 		try {
 			return sqlSession.update(namespace + "updateNotice", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
