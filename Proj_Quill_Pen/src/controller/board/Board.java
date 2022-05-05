@@ -10,6 +10,8 @@ import controller.CommandHandler;
 import repository.DTO.BoardBean;
 import repository.DTO.CmntBean;
 import repository.DTO.WriterBean;
+import service.AdminService;
+import service.AdminServiceImpl;
 import service.BoardService;
 import service.BoardServiceImpl;
 
@@ -18,6 +20,7 @@ public class Board implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		BoardService bs = new BoardServiceImpl();
+		AdminService as = new AdminServiceImpl();
 		
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		HttpSession session = req.getSession();
@@ -35,6 +38,12 @@ public class Board implements CommandHandler {
 			req.setAttribute("isLogin", "false");
 			req.setAttribute("myPost", "false");
 		}
+		if(as.isAdmin(uId)) {
+			req.setAttribute("isAdmin", "true");
+		} else {
+			req.setAttribute("isAdmin", "false");
+		}
+		
 		
 		req.setAttribute("readonly", "readonly");
 		

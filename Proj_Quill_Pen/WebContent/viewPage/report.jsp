@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>신고 페이지</title>
 <link rel="stylesheet" href="/Proj_Quill_Pen/style/style_Common.css">
+<link rel="stylesheet" href="/Proj_Quill_Pen/style/style_report.css">
 <script src="/Proj_Quill_Pen/source/jquery-3.6.0.min.js"></script>
 <script src="/Proj_Quill_Pen/script/script.js"></script>
 </head>
@@ -26,11 +27,11 @@
 					<!-- div#report_title -->
 
 					<div id="report">
-						홍보, 영리목적 <input type="radio" name="report" value="promote">
-						욕설, 비방, 차별, 혐오 <input type="radio" name="report" value="curse">
-						폭력성 <input type="radio" name="report" value="violence">
-						음란, 청소년 유해 <input type="radio" name="report" value="sexuality">
-						기타 <input type="radio" name="report" value="etc">
+						<span class="dFlex">홍보, 영리목적 <input type="radio" name="report" value="promote"></span>
+						<span class="dFlex">욕설, 비방, 차별, 혐오 <input type="radio" name="report" value="curse"></span>
+						<span class="dFlex">폭력성 <input type="radio" name="report" value="violence"></span>
+						<span class="dFlex">음란, 청소년 유해 <input type="radio" name="report" value="sexuality"></span>
+						<span class="dFlex">기타 <input type="radio" name="report" value="etc"></span>
 					
 						<br>
 					
@@ -38,7 +39,7 @@
 						불법촬영물 유통 신고<input type="radio" name="report" value="illegal_filming">
 						<p>
 							불법촬영물등 유통 신고는 전기통신 사업법 시행령에 따라, 신고인의 개인정보 수집 이용 동의와 신고 사유 등 신고서
-							제출이 필요합니다. <br> 음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게 조치됩니다.
+							제출이 필요합니다. 음란, 청소년 유해 사유로 신고하시면, 신고서 제출 없이 더 빠르게 조치됩니다.
 						</p>
 						권리침해 신고<input type="radio" name="report"
 							value="violate_right">
@@ -63,7 +64,10 @@
 				<!-- section#report : 신고하기 페이지 끝 -->
 
 				<!-- section#hidden : hidden input 영역 시작 -->
-				<section id="hidden"></section>
+				<section id="hidden">
+					<input type="hidden" name="category" value="${param.category }">
+					<input type="hidden" name="bno" value="${param.bno }">
+				</section>
 				<!-- section#hidden : hidden input 영역 끝 -->
 			</form>
 			<!-- form 영역 끝 -->

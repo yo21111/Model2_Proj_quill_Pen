@@ -5,14 +5,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.CommandHandler;
+import repository.DTO.WriterBean;
 import service.AdminService;
 import service.AdminServiceImpl;
+import service.BoardService;
+import service.BoardServiceImpl;
 
 public class AdminDelete implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		AdminService as = new AdminServiceImpl();
+		BoardService bs = new BoardServiceImpl();
 		
 		// 공지사항 삭제
 		if(req.getParameterValues("bno[]") != null) {
@@ -43,7 +47,19 @@ public class AdminDelete implements CommandHandler {
 				}			
 			}	
 		}
+		
+		
+		//신고게시글 삭제
+		if(req.getParameter("bno") != null) {
+			int dno = Integer.parseInt(req.getParameter("dno"));
+			int bno = Integer.parseInt(req.getParameter("bno"));
+			String writer = req.getParameter("writer");
 			
+			bs.adminDelete(writer, bno);
+			as.deleteDecl(dno);
+			
+			return "redirect:/Proj_Quill_Pen/admin";
+		}
 		
 		
 		// 책소개 삭제

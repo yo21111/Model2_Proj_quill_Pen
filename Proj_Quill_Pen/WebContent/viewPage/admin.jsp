@@ -89,7 +89,11 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 		              <tbody>
 		                <tr class="declSel">
 		                  <td><input type="checkbox" name="declDno[]" value="${DeclBean.dno}">${DeclBean.dno}</td>
-		                  <td>${DeclBean.bno}번게시글을 신고하였습니다.</td>
+		                  <td class="declTsel">
+		                  	${DeclBean.bno}번게시글을 신고하였습니다.
+		                  	<input type="hidden" class="declBno" value="${DeclBean.bno }">
+		                  	<input type="hidden" class="declDno" value="${DeclBean.dno }">
+		                  </td>
 		                  <td>${DeclBean.writer}</td>
 		                  <td>${DeclBean.writeDate}</td>
 		                </tr>

@@ -8,12 +8,31 @@ div#wrap {
 }
 
 section#report {
-	width: 460px;
-	
+	border: 1px solid #000;
+	width: 500px;
 	margin: 0 auto;
 	padding: 60px;
 	border: 1px solid #aaa;
-	/*background-color: #fff;*/
+	/*background-color: #fff;*/	
+}
+
+section#report span {
+	margin: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+section#report span input[type=radio] {
+	margin-left: 5px;
+	transform: translateY(3px);
+}
+
+section#report input[type=radio] {
+	margin-left: 5px;
+}
+
+section#report p {
+	margin: 10px 0;
+	text-align: left;
 }
 
 section#report h2{
@@ -24,11 +43,27 @@ section#report p{
 	font-size: 12px;
 }
 div#report_content {
-	text-align: center;
-	width: 400px;
+	margin-top: 10px;
+	width: 300px;
 }
 
-div#report_btn {
-	margin-top: 20px;
+div#report_content textarea {
+	border: 1px solid #eee;
+	resize: none;
+	outline: none;
+	text-align: left;
+}
+
+div#report_content textarea::placeholder {
 	text-align: center;
+}
+
+div#report_btn button {
+	background-color: #000;
+	display: inline-block;
+	border: 1px solid #000;
+	color: #fff;
+	border-radius: 50px;
+	font-size: 15px;
+	padding: 5px;
 }

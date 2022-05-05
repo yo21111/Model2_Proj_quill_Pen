@@ -93,6 +93,15 @@ $(function(){
 		location.href = url;
 	});
 	
+	// 신고 게시글 선택 시 
+	$(".declTsel").click(function(){
+		let bno = $(this).children().val();
+		let dno = $(this).children().next().val();
+		let url = "/Proj_Quill_Pen/boardRead?bno=" + bno;
+		url += "&&dno=" + dno;
+		location.href = url;
+	});
+	
 	// 책 썸네일 미리보기
 	$(".bookTsel").click(function(){
 		let fileName = $(this).children().val();
@@ -102,6 +111,8 @@ $(function(){
 		$("#sumnail").append("<img src='/Proj_Quill_Pen/images/test/"+fileName+"'>");		
 	});
 	
+	
+	// 책 썸네일 클릭시 사라짐
 	$("#sumnail").click(function(){
 		$("#sumnail").css("display", "none");
 	});

@@ -10,14 +10,21 @@ $(function() {
 
 
 		let myPost = $("input#myPost").val();
-
+		let chkAdmin = $("input#isAdmin").val();
 		if (myPost == "false") {
 			$("button#modify_Btn").hide();
 			$("button#delete_Btn").hide();
 		} else {
 			$("button#modify_Btn").show();
-			$("button#delete_Btn").show();
+			$("button#delete_Btn").show();			
 		}
+		
+		if (chkAdmin == "true") {
+			$("#admin_delete_Btn").show();
+		} else {
+			$("#admin_delete_Btn").hide();
+		}
+		
 	});
 
 	// 작가 페이지 이동(작가 영역 클릭시)
@@ -56,6 +63,24 @@ $(function() {
 		let offset = $("div#commenticon").offset();
 		$('html, body').animate({ scrollTop: offset.top }, 400);
 	});
+	
+	
+	
+	// 신고하기 버튼 클릭(게시글)
+	$("button#reportBtn").click(function() {
+		let result = confirm("해당 게시글을 신고하시겠습니까?");
+		let isLogin = $("input#isLogin").val();
+
+		if (isLogin == "false") {
+			alert("로그인 이후 이용 가능합니다.");
+			return;
+		} else if(result) {
+			let bno = $("input#bno").val();
+			let url = "/Proj_Quill_Pen/report?bno=" + bno;
+			location.href = url;
+		}
+	});
+	
 
 	// 신고하기 버튼 클릭
 	$("button#report_Btn").click(function() {
@@ -90,6 +115,19 @@ $(function() {
 		let bno = $("input#bno").val();
 
 		let url = "/Proj_Quill_Pen/boardDelete?bno=" + bno;
+		location.href = url;
+	});
+	
+	//삭제 버튼 클릭(관리자)
+	$("button#admin_delete_Btn").click(function() {
+		let bno = $("input#bno").val();
+		let writer = $("input#submitWriter").val();
+		let dno = $("#getDno").val();
+		
+		let url = "/Proj_Quill_Pen/adminDel?bno=" + bno;
+		url += "&&writer=" + writer;
+		url += "&&dno=" + dno;
+		
 		location.href = url;
 	});
 

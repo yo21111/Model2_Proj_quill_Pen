@@ -146,6 +146,7 @@ public class BoardDao {
 		try {
 			return sqlSession.insert(namespace + "insertDecl", dBean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

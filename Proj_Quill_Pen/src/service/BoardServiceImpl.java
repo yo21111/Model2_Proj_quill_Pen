@@ -78,6 +78,16 @@ public class BoardServiceImpl implements BoardService {
 		
 		return result;
 	}
+	
+	@Override
+	public boolean adminDelete(String uId, int bno) throws Exception {
+		boolean result = false;
+		
+		int res = bDao.deleteBoard(bno);
+		result = res==1 ? true : false;
+		
+		return result;
+	}
 
 	@Override
 	public BoardBean read(HttpServletRequest req, HttpServletResponse resp) throws Exception {
