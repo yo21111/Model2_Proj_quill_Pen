@@ -28,6 +28,9 @@ public interface BoardService {
 	// 글 수정하기 선택시
 	public boolean update (BoardBean bBean) throws Exception;
 	
+	// 글 삭제하기 선택시(관리자)
+	public boolean adminDelete (String uId, int bno) throws Exception;
+	
 	// 글 삭제하기 선택시
 	public boolean delete (String uId, int bno) throws Exception;
 

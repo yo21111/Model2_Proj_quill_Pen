@@ -72,8 +72,10 @@
 			<section id="board_btn">
 				<div id="board_btnArea" class="dFlex">
 					<button id="bbs_Btn" type="button">목록</button>
+					<button id="reportBtn" type="button">신고</button>
 					<button id="modify_Btn" type="button">수정</button>
 					<button id="delete_Btn" type="button">삭제</button>
+					<button id="admin_delete_Btn" type="button">삭제</button>
 				</div>
 			</section>
 
@@ -164,6 +166,9 @@
 				<input type="hidden" id="bno" name="bno" value="${BoardBean.bno}">
 				<input type="hidden" id="isLogin" name="isLogin" value="${isLogin}">
 				<input type="hidden" id="myPost" name="myPost" value="${myPost}">
+				<input type="hidden" id="submitWriter" value="${BoardBean.writer }">
+				<input type="hidden" id="isAdmin" value="${isAdmin}">
+				<input type="hidden" id="getDno" value="${param.dno}">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>
