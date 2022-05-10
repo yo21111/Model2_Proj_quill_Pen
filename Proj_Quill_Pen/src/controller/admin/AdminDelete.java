@@ -20,15 +20,19 @@ public class AdminDelete implements CommandHandler {
 			iBno[i] = Integer.parseInt(bno[i]);
 			System.out.println(iBno[i]);
 		}
-		int dno = Integer.parseInt(req.getParameter("dno"));
-		int bookNo = Integer.parseInt(req.getParameter("bookNo"));
+		Integer dno = Integer.parseInt(req.getParameter("dno"));
+		Integer bookNo = Integer.parseInt(req.getParameter("bookNo"));
 		
 		for (int i = 0; i < iBno.length; i++) {
 			if(iBno[i] != 0) {
 				as.deleteNotice(iBno[i]);			
 			}			
 		}
-
+		
+		if(dno == null) {
+			
+		}
+		
 		if(dno != 0) {
 			as.deleteDecl(dno);			
 		}

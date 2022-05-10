@@ -113,10 +113,10 @@
 
 	<insert id="insertCmnt" parameterType="map">
 		Insert into commentTbl
-		(bno, writer, content,
+		(bno, cOrder, writer, content,
 		writeDate, modifyDate)
 		Values
-		(#{bno}, #{writer}, #{content},
+		(#{bno}, 1, #{writer}, #{content},
 		now(), now())
 	</insert>
 

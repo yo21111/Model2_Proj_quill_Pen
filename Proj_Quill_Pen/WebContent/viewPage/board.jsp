@@ -35,7 +35,7 @@
 					</button>
 				</div>
 
-				
+
 				<div id="board_header">
 					<div id="board_header_title">
 						<input type="hidden" id="fileImg" value="${BoardBean.fileName}">
@@ -47,11 +47,11 @@
 							${readonly}>
 					</div>
 				</div>
-				
+
 				<div id="board_header_info" class="dFlex">
-					작가명 : <input type="text" id="writer" name="writer" value="${BoardBean.writer}"
-						readonly> 작성일자 : <input type="text"
-						value="${BoardBean.writeDate}" readonly>
+					작가명 : <input type="text" id="writer" name="writer"
+						value="${BoardBean.writer}" readonly> 작성일자 : <input
+						type="text" value="${BoardBean.writeDate}" readonly>
 				</div>
 			</section>
 			<!-- section#board_title : 게시글 상단 영역 끝 -->
@@ -97,12 +97,6 @@
 						<c:when test="${commentCnt ne 0}">
 							<c:forEach items="${cmntList}" var="CmntBean">
 								<div class="comment_read dFlex">
-									<div class="comment_img dFlex">
-										<div class="imgDiv">
-											<%-- <img src="/Proj_Quill_Pen/images/test/${WriterBean.fileName}"
-										alt="${CmntBean.writer}"> --%>
-										</div>
-									</div>
 									<div class="comment_container">
 										<div class="comment_content_info">
 											작성자 : <span class="writer">${CmntBean.writer}</span> 작성일자 :
@@ -114,8 +108,8 @@
 												value="${CmntBean.content}" ${readonly}>
 											<div class="comment_btn" class="dFlex">
 												<button id="report_Btn" type="button">신고</button>
-												<button id="modify_Btn" type="button">수정</button>
-												<button id="delete_Btn" type="button">삭제</button>
+												<button id="modifyCmnt_Btn" type="button">수정</button>
+												<button id="deleteCmnt_Btn" type="button">삭제</button>
 											</div>
 										</div>
 										<input type="hidden" class="hiddenValue"
@@ -138,13 +132,16 @@
 					댓글 <i class="fa-solid fa-comment"></i>
 				</button>
 			</div>
-			
+
 			<div id="cmntWrite">
-				<input type="text" id="cmntWriteContent" placeholder="댓글을 입력해주세요.">
-				<button id="cmntWriteBtn" type="button">댓글 등록</button>
+				<form action="/Proj_Quill_Pen/cmnt" method="post">
+				<input type="hidden" name="cmntBno" value="${BoardBean.bno}">
+					<input type="text" id="cmntWriteContent" name="cmnt" placeholder="댓글을 입력해주세요.">
+					<button id="cmntWriteBtn" type="button">댓글 등록</button>
+				</form>
 			</div>
-			
-			
+
+
 			<!-- section#board_writer : 게시글 작가 정보 영역 시작 -->
 			<section id="board_writer">
 				<div id="writer_container" class="dFlex">

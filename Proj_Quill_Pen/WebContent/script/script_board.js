@@ -102,27 +102,19 @@ $(function() {
 			return;
 		}
 		
-
 		$("div#cmntWrite").show();
 
 	});
 
 	$("button#cmntWriteBtn").click(function() {
-		let bno = $("input#bno").val();
-		let content = $("input#cmntWriteContent").val();
-
-		let send = { key: bno, value: content };
-		$.ajax({
-			type: 'POST',       // 요청 메서드
-			url: '/Proj_Quill_Pen/board/cmnt',  // 요청 URI
-			headers: { "content-type": "application/json; charset=utf-8" }, // 요청 헤더
-			dataType: 'json', // 전송받을 데이터의 타입
-			data: JSON.stringify(send),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
-			success: function() {
-				alert("ajax에 성공하였습니다.");
-			},
-			error: function() { alert("오류가 발생하였습니다. 다시 시도해주세요.") } // 에러가 발생했을 때, 호출될 함수
-		}); // $.ajax()		
+		let isLogin = $("input#isLogin").val();
+				
+		if(isLogin == 'true') {
+			$("div#cmntWrite form").submit();
+		} else {
+			alert("로그인이 필요한 기능입니다.");
+			return;
+		}
 
 	});
 
