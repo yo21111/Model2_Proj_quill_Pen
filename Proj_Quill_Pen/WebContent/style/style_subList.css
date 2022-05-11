@@ -20,10 +20,25 @@ div.subsTbl table {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	width: 600px;
-	
+	border-collapse: collapse;	
 }
 
-div.subsTbl table td.subBtn>button {
+
+div.subsTbl table td:not(:nth-child(2)) {
+	width: 150px;
+}
+
+
+div.subsTbl table td button.subcancle_Btn {
+	font-size: 15px;
+	border: none;
+	background-color: #000;
+	border-radius: 50px;
+	color: #fff;
+	padding: 10px;
+}
+
+div.subsTbl table td button.subscribe_Btn {
 	font-size: 15px;
 	border: none;
 	background-color: #000;

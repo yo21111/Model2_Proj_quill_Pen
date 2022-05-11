@@ -55,7 +55,6 @@ public class MyPageController implements CommandHandler {
 			}
 
 			req.setAttribute("myArticle", myArticle);
-
 			req.setAttribute("writer", writerName);
 			req.setAttribute("title", title);
 			req.setAttribute("content", content);

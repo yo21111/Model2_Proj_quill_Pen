@@ -68,9 +68,6 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 											<button id="subscribe_Btn" type="button">구독하기</button>
 										</c:when>
 									</c:choose>
-									<c:if test="${isAdmin ne 'true'}">
-										<button id = "report_Btn" type="button">신고하기</button>
-									</c:if>
 								</td>
 								<!-- </form> -->
 							</tr>
@@ -104,7 +101,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 									</c:when>
 									<c:when test="${myArticle ne null}">
 										<c:forEach var="NoticeBean" items="${myNotice}">
-											<table class="articleListTbl">
+											<table class="noticeListTbl">
 												<tbody>
 													<tr>
 														<td colspan="2" class="writeTitle">

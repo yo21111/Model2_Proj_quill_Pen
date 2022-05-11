@@ -1,5 +1,6 @@
 package controller.myPage;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,9 +33,30 @@ public class Subscribe implements CommandHandler {
 		String writerName = req.getParameter("writer");
 		String uId = ms.findId(writerName);
 		int subCnt = ms.getSubCnt(writerName);
+
 		
 //		List<WriterBean> subsList = ms.subWriter(req, resp);
 		List<WriterBean> subsList = ms.subWriter(writerName);
+		
+		
+		
+		HttpSession session = req.getSession();
+		String myId = (String)session.getAttribute("uId_Session");
+		boolean selectResult = false;
+		for (int i = 0; i < subsList.size(); i++) {
+			WriterBean wBean = subsList.get(i);
+			String writerList = wBean.getWriter();
+			selectResult = ms.selectSubWriter(myId, writerList);
+			if(selectResult) {				
+				req.setAttribute("alreadySub", selectResult); 
+			}
+		}
+		req.setAttribute("myId", myId);
+		
+		
+		
+		
+		
 		req.setAttribute("subsList", subsList);
 		req.setAttribute("subCnt", subCnt);
 		

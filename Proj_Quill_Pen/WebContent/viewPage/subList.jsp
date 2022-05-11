@@ -35,16 +35,26 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 					<table>
 						<tbody>
 							<tr>
-								<td rowspan="2" class="prof">
-									<img src="/Proj_Quill_Pen/images/test/${WriterBean.fileName }" alt="">
+								<td class="prof">
+									<a href="/Proj_Quill_Pen/myPage?writer=${WriterBean.writer }">
+										<img src="/Proj_Quill_Pen/images/test/${WriterBean.fileName }" alt="">
+									</a>
 								</td>
-								<td>${WriterBean.writer}</td>
-								<td rowspan="2" class="subBtn">
-									<button type="button">구독하기</button>
+								<td>
+									<a href="/Proj_Quill_Pen/myPage?writer=${WriterBean.writer }">${WriterBean.writer}의 블로그 입니다.</a>
 								</td>
-							</tr>
-							<tr>
-								<td>${WriterBean.writer}의 블로그입니다.</td>
+<!-- 								<td> -->
+<%-- 									<c:choose> --%>
+<%-- 										<c:when test="${alreadySub eq 'true' }"> --%>
+<!-- 											<button class="subcancle_Btn" type="button">구독해제</button> -->
+<%-- 											<input type="hidden" value="${WriterBean.writer }"> --%>
+<%-- 										</c:when> --%>
+<%-- 										<c:when test="${alreadySub ne 'true' }"> --%>
+<!-- 											<button class="subscribe_Btn" type="button">구독하기</button> -->
+<%-- 											<input type="hidden" value="${WriterBean.writer }"> --%>
+<%-- 										</c:when> --%>
+<%-- 									</c:choose> --%>
+<!-- 								</td> -->
 							</tr>
 						</tbody>
 					</table>
@@ -57,6 +67,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<section id="hidden">
 				<input type="hidden" id="subMsg" value="${subMsg}">
 				<input type="hidden" id="subCntList" value="${subCnt }">
+				<input type="hidden" id="myid" value="${myId }">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

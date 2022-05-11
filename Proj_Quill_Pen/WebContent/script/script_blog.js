@@ -6,15 +6,15 @@
 $(function(){
 	
 	/* 마우스 올렸을 때 제목 밑줄 효과 */
-	$(".articleListTbl").hover(function(){
+	$(".noitceListTbl").hover(function(){
 		$(this).css("cursor", "pointer");
 		$(this).children().children().children().first().css("text-decoration", "underline");
 	}, function(){
 		$(".writeTitle").css("text-decoration", "none");
 	});
 	
-	// 게시글 선택시 이동 
-	$(".articleListTbl").click(function(){
+	// 공지사항 선택시 이동 
+	$(".noticeListTbl").click(function(){
 		let bno = $(this).children().children().children().children().first().val();
 		let result = $("#adminConfirm").val();
 		if(result) {
@@ -23,6 +23,27 @@ $(function(){
 		}
 
 	});
+	
+	
+	/* 마우스 올렸을 때 제목 밑줄 효과 */
+	$(".articleListTbl").hover(function(){
+		$(this).css("cursor", "pointer");
+		$(this).children().children().children().first().css("text-decoration", "underline");
+	}, function(){
+		$(".writeTitle").css("text-decoration", "none");
+	});
+	
+	// 공지사항 선택시 이동 
+	$(".articleListTbl").click(function(){
+		let bno = $(this).children().children().children().children().first().val();
+		let url = "/Proj_Quill_Pen/boardRead?bno=" + bno;
+		location.href = url;			
+	});
+	
+	
+	
+	
+	
 	
 	// 관심글 클릭시
 	$("#likeWriter").click(function(){

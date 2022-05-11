@@ -72,7 +72,8 @@ public class MyPageServiceImpl implements MyPageService {
 		List<WriterBean> returnList = new ArrayList<>();
 		for (int i = 0; i < list.size(); i++) {
 			SubsBean bean = list.get(i);
-			String subWriter = mDao.findWriter(bean.getuId());
+//			String subWriter = mDao.findWriter(bean.getuId());
+			String subWriter = bean.getuId();
 			WriterBean wBean = mDao.findWBean(subWriter);
 
 			returnList.add(wBean);

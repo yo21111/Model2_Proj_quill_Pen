@@ -35,8 +35,6 @@ public class Report implements CommandHandler {
 		String content = req.getParameter("report_content");
 		
 		
-		System.out.println(bno+category+content);
-		
 		DeclBean dBean = new DeclBean();
 		dBean.setCategory(category);
 		dBean.setContent(content);

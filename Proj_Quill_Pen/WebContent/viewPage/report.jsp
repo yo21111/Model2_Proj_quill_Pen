@@ -48,7 +48,7 @@
 					</div>
 
 					<div id="report_content">
-						<textarea name="report_content" cols="66" rows="5"
+						<textarea name="report_content" cols="50" rows="5"
 							placeholder="신고사유를 입력해 주세요"></textarea>
 					</div>
 					<!-- div#report_content -->
