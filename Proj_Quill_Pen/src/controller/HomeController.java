@@ -20,6 +20,7 @@ public class HomeController implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		//1. 슬라이드 이미지 영역 데이터리스트 가져오기
 		HomeService hs = new HomeServiceImpl();
+		
 		List<BookBean> bookList = hs.getBookList(req, resp);
 		List<NoticeBean> noticeList = hs.getNoticeList();
 		List<WriterBean> writerList = hs.getWriterList();
@@ -31,6 +32,7 @@ public class HomeController implements CommandHandler {
 		
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
+		
 		if(uId != null) {
 			req.setAttribute("isLogin", "true");
 		}

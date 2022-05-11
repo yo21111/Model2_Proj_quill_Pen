@@ -64,7 +64,10 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 								</td>
 								<td id="subBtn">
 									<c:choose>
-										<c:when test="${isAdmin eq 'true'}"></c:when>
+										<c:when test="${isAdmin eq 'true'}">
+											<button id="modifyBtn" type="button">수정하기</button>
+											<button id="deleteBtn" type="button">삭제하기</button>
+										</c:when>
 										<c:when test="${alreadySub eq 'true' }">
 											<button id="subcancle_Btn" type="button">구독해제</button>
 										</c:when>
@@ -89,6 +92,11 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<section id="hidden">
 				<input type="hidden" id="writerProfile"  name="writerProfile" value="${noticeBean.writer}">
 				<input type="hidden" id="myId" value="${myId}">
+				<input type="hidden" id="submitBno" value="${noticeBean.bno }">
+				<input type="hidden" id="submitTitle" value="${noticeBean.title }">
+				<input type="hidden" id="submitContent" value="${noticeBean.content }">
+				<input type="hidden" id="submitWriter" value="${noticeBean.writer }">
+				<input type="hidden" id="submitType" value="insert">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

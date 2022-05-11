@@ -57,6 +57,7 @@ public class AdminDao {
 		try {
 			return sqlSession.insert(namespace + "insertNotice", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -79,6 +80,7 @@ public class AdminDao {
 		try {
 			return sqlSession.update(namespace + "updateNotice", bean);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -124,12 +126,14 @@ public class AdminDao {
 	}
 
 	// 신고 글 삭제하기(delete)
-	public int deleteDecl(int bno) throws Exception {
+	public int deleteDecl(int dno) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
+		System.out.println(dno);
 		try {
-			return sqlSession.delete(namespace + "deleteDecl", bno);
+			return sqlSession.delete(namespace + "deleteDecl", dno);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -190,6 +194,7 @@ public class AdminDao {
 		try {
 			return sqlSession.delete(namespace + "deleteBook", bookNo);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

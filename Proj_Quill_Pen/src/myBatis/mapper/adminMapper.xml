@@ -62,9 +62,9 @@
 	</select>
 
 	<delete id="deleteDecl" parameterType="int">
-		Delete From report
+		delete from report
 		where
-		bno = #{bno}
+		dno = ${dno}
 	</delete>
 
 	<insert id="insertBook" parameterType="BookBean">

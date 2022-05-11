@@ -32,7 +32,10 @@ public class Report implements CommandHandler {
 		}
 		
 		String category = req.getParameter("category");
-		String content = req.getParameter("content");
+		String content = req.getParameter("report_content");
+		
+		
+		System.out.println(bno+category+content);
 		
 		DeclBean dBean = new DeclBean();
 		dBean.setCategory(category);
@@ -43,7 +46,7 @@ public class Report implements CommandHandler {
 		boolean result = bs.report(dBean);
 		
 		req.setAttribute("bno", bno);
-		return "/viewPage/board.jsp";
+		return "redirect:/Proj_Quill_Pen/bbs";
 	}
 	
 }

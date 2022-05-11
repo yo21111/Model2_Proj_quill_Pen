@@ -73,5 +73,42 @@ $(function(){
 		location.href=url; 
 	});
 	
+	// 삭제하기 선택시
+	$("#deleteBtn").click(function(){
+		let result = confirm("정말 삭제하시겠습니까?");
+		if(result) {
+			let bno = $("#submitBno").val();
+			let url = "/Proj_Quill_Pen/NoticeDel?bno=" + bno;
+			location.href=url;			
+		}
+	});
+	
+	// 수정하기 선택시
+	$("#modifyBtn").click(function(){
+		let result = confirm("현재 글을 수정하시겠습니까?");
+		if(result) {
+			let bno = $("#submitBno").val();
+			let mId =$("#myId").val();
+			let title = $("#submitTitle").val();
+			let content = $("#submitContent").val();
+			let type = "mod";
+			let url = "/Proj_Quill_Pen/NoticeMod?bno=" + bno;
+			url += "&&mId=" + mId;
+			url += "&&title=" + title;
+			url += "&&content=" + content;
+			url += "&&type=" + type;
+			location.href = url;			
+		}	
+	});
+	
+	// 글쓰기 선택시
+	$("#writeNotice").click(function(){
+		let writer = $("#submitWriter").val();
+		let type = $("#submitType").val();
+		let url = "/Proj_Quill_Pen/NoticeIns?writer=" + writer;
+		url += "&&type=" + type;
+		location.href = url;
+	});
+	
 	
 });
