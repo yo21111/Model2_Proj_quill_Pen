@@ -59,6 +59,8 @@ public class Board implements CommandHandler {
 		WriterBean writerBean = bs.getWriter(writer);
 		req.setAttribute("writerBean", writerBean);
 		
+		req.setAttribute("uId", uId);
+		
 		List<CmntBean> cmntList = bs.selectCmntList(bno);
 		req.setAttribute("cmntList", cmntList);
 		

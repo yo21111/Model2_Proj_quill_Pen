@@ -104,17 +104,19 @@
 											작성자 : <span class="writer">${CmntBean.writer}</span> 작성일자 :
 											${CmntBean.modifyDate}
 										</div>
-
+										
 										<div class="comment_content dFlex">
 											<input type="text" name="cmtContent" class="comment_input"
 												value="${CmntBean.content}" ${readonly}>
 											<div class="comment_btn" class="dFlex">
 												<button id="report_Btn" type="button">신고</button>
-												<button id="modifyCmnt_Btn" type="button">수정</button>
-												<button id="deleteCmnt_Btn" type="button">삭제</button>
+												<c:if test="${uId eq CmntBean.writer}">
+													<button id="modifyCmnt_Btn" type="button">수정</button>
+													<button id="deleteCmnt_Btn" type="button">삭제</button>
+												</c:if>
 											</div>
 										</div>
-										<input type="hidden" class="hiddenValue"
+										<input id="cmntNum" type="hidden" class="hiddenValue"
 											value="${CmntBean.cno} ">
 									</div>
 									<!-- div.comment_container -->
@@ -142,7 +144,17 @@
 					<button id="cmntWriteBtn" type="button">댓글 등록</button>
 				</form>
 			</div>
-
+			
+			<div id="cmntReWrite">
+				<form action="/Proj_Quill_Pen/cmnt" method="post">
+				<input type="hidden" name="cmntkind" value="updateCmnt">
+				<input type="hidden" name="cmntNumber" id="cmntNumber">
+				<input type="hidden" name="cmntBno" value="${BoardBean.bno}">
+					<input type="text" id="cmntWriteContent" name="cmnt" placeholder="수정할 댓글 내용을 입력해주세요.">
+					<button id="cmntReWriteBtn" type="button">댓글 수정</button>
+				</form>
+			</div>
+			
 
 			<!-- section#board_writer : 게시글 작가 정보 영역 시작 -->
 			<section id="board_writer">

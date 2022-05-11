@@ -204,17 +204,17 @@ public class BoardDao {
 	}
 
 	// 댓글 수정하기
-	public int updateCmnt(int cno, String writer, String content) throws Exception {
+	public int updateCmnt(int cno, String content) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		Map<String, Object> map = new HashMap<>();
 		map.put("cno", cno);
-		map.put("writer", writer);
 		map.put("content", content);
 
 		try {
 			return sqlSession.update(namespace + "updateCmnt", map);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}
@@ -226,6 +226,7 @@ public class BoardDao {
 		try {
 			return sqlSession.delete(namespace + "deleteCmnt", cno);
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

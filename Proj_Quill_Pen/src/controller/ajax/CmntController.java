@@ -17,10 +17,26 @@ public class CmntController implements CommandHandler{
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
 		int bno = Integer.parseInt(req.getParameter("cmntBno"));
+
 		String cmnt = req.getParameter("cmnt");
 		
 		BoardService bs = new BoardServiceImpl();
-		boolean result = bs.writeCmnt(bno, uId, cmnt);
+		
+		String cmntKind = req.getParameter("cmntkind");
+		
+		if(cmntKind == null) {
+			cmntKind = "insertCmnt";
+		}
+		
+		if(cmntKind.equals("updateCmnt")) {
+			int cno = Integer.parseInt(req.getParameter("cmntNumber"));
+			boolean result = bs.updateCmnt(bno, cno, cmnt);
+		} else if(cmntKind.equals("deleteCmnt")) {
+			int cno = Integer.parseInt(req.getParameter("cmntNumber"));
+			boolean result = bs.deleteCmnt(cno);
+		} else {
+			boolean result = bs.writeCmnt(bno, uId, cmnt);
+		}
 		
 		
 		return "redirect:/Proj_Quill_Pen/boardRead?bno=" + bno;

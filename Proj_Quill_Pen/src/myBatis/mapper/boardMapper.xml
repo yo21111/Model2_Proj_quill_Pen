@@ -123,9 +123,6 @@
 	<update id="updateCmnt" parameterType="map">
 		Update commentTbl
 		Set
-		<if test='writer!=null'>
-			writer = #{writer},
-		</if>
 		<if test='content!=null'>
 			content = #{content},
 		</if>

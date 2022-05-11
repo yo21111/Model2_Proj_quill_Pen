@@ -16,15 +16,15 @@ $(function() {
 			$("button#delete_Btn").hide();
 		} else {
 			$("button#modify_Btn").show();
-			$("button#delete_Btn").show();			
+			$("button#delete_Btn").show();
 		}
-		
+
 		if (chkAdmin == "true") {
 			$("#admin_delete_Btn").show();
 		} else {
 			$("#admin_delete_Btn").hide();
 		}
-		
+
 	});
 
 	// 작가 페이지 이동(작가 영역 클릭시)
@@ -63,9 +63,9 @@ $(function() {
 		let offset = $("div#commenticon").offset();
 		$('html, body').animate({ scrollTop: offset.top }, 400);
 	});
-	
-	
-	
+
+
+
 	// 신고하기 버튼 클릭(게시글)
 	$("button#reportBtn").click(function() {
 		let result = confirm("해당 게시글을 신고하시겠습니까?");
@@ -74,13 +74,13 @@ $(function() {
 		if (isLogin == "false") {
 			alert("로그인 이후 이용 가능합니다.");
 			return;
-		} else if(result) {
+		} else if (result) {
 			let bno = $("input#bno").val();
 			let url = "/Proj_Quill_Pen/report?bno=" + bno;
 			location.href = url;
 		}
 	});
-	
+
 
 	// 신고하기 버튼 클릭
 	$("button#report_Btn").click(function() {
@@ -117,17 +117,17 @@ $(function() {
 		let url = "/Proj_Quill_Pen/boardDelete?bno=" + bno;
 		location.href = url;
 	});
-	
+
 	//삭제 버튼 클릭(관리자)
 	$("button#admin_delete_Btn").click(function() {
 		let bno = $("input#bno").val();
 		let writer = $("input#submitWriter").val();
 		let dno = $("#getDno").val();
-		
+
 		let url = "/Proj_Quill_Pen/adminDel?bno=" + bno;
 		url += "&&writer=" + writer;
 		url += "&&dno=" + dno;
-		
+
 		location.href = url;
 	});
 
@@ -139,15 +139,16 @@ $(function() {
 			alert("로그인 이후 이용 가능합니다.");
 			return;
 		}
-		
+
 		$("div#cmntWrite").show();
 
 	});
 
+	// 댓글 작성 버튼 클릭시
 	$("button#cmntWriteBtn").click(function() {
 		let isLogin = $("input#isLogin").val();
-				
-		if(isLogin == 'true') {
+
+		if (isLogin == 'true') {
 			$("div#cmntWrite form").submit();
 		} else {
 			alert("로그인이 필요한 기능입니다.");
@@ -156,5 +157,51 @@ $(function() {
 
 	});
 
+	// 댓글 수정 버튼 클릭 시
+	$("button#modifyCmnt_Btn").click(function() {
+		let isLogin = $("input#isLogin").val();
+
+		if (isLogin == 'true') {
+			let cmntNum = $(this).parent().parent().next().val().trim();
+			$("div#cmntReWrite").show();
+			$("div#cmntReWrite input#cmntNumber").val(cmntNum);
+
+			$("div#cmntReWrite input#cmntWriteContent").focus();
+		} else {
+			alert("로그인이 필요한 기능입니다.");
+			return;
+		}
+
+	});
+
+
+	// 댓글 삭제 버튼 클릭 시
+	$("button#deleteCmnt_Btn").click(function() {
+		let isLogin = $("input#isLogin").val();
+
+		if (isLogin == 'true') {
+			let cmntNum = $(this).parent().parent().next().val().trim();
+			let bno = $("input#bno").val();
+			let url = "/Proj_Quill_Pen/cmnt?cmntkind=deleteCmnt&cmntBno="+bno+"&cmntNumber=" + cmntNum;
+			location.href = url;
+		} else {
+			alert("로그인이 필요한 기능입니다.");
+			return;
+		}
+
+	});
+
+
+	// 댓글내용 수정후 수정 버튼 클릭시
+	$("button#cmntReWriteBtn").click(function() {
+		let isLogin = $("input#isLogin").val();
+
+		if (isLogin == 'true') {
+			$("div#cmntReWrite form").submit();
+		} else {
+			alert("로그인이 필요한 기능입니다.");
+			return;
+		}
+	});
 
 });

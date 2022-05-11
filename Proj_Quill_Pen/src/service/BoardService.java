@@ -61,4 +61,12 @@ public interface BoardService {
 
 	// 댓글 작성하기
 	public boolean writeCmnt(int bno, String uId, String content) throws Exception;
+
+	// 댓글 수정하기
+	public boolean updateCmnt(int bno, int cno, String content) throws Exception;
+
+	// 댓글 수정하기
+	public boolean deleteCmnt(int cno) throws Exception;
+	
+	
 }

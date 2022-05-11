@@ -143,6 +143,18 @@ public class BoardServiceImpl implements BoardService {
 		int result = bDao.insertCmnt(bno, uId, content);
 		return result == 1 ? true : false;
 	}
+
+	@Override
+	public boolean updateCmnt(int bno, int cno, String content) throws Exception {
+		int result = bDao.updateCmnt(cno, content);
+		return result == 1 ? true : false;
+	}
+
+	@Override
+	public boolean deleteCmnt(int cno) throws Exception {
+		int result = bDao.deleteCmnt(cno);
+		return result == 1 ? true : false;
+	}
 	
 	
 	
