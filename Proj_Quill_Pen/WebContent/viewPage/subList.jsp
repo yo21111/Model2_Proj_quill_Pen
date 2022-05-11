@@ -31,6 +31,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 				</c:if>
 				<hr class="sepLine">
 				<c:forEach var="WriterBean" items="${subsList }">
+				<c:set var="i" value="${i + 1}" />
 				<div class="subsTbl">
 					<table>
 						<tbody>
@@ -43,18 +44,18 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 								<td>
 									<a href="/Proj_Quill_Pen/myPage?writer=${WriterBean.writer }">${WriterBean.writer}의 블로그 입니다.</a>
 								</td>
-<!-- 								<td> -->
-<%-- 									<c:choose> --%>
-<%-- 										<c:when test="${alreadySub eq 'true' }"> --%>
-<!-- 											<button class="subcancle_Btn" type="button">구독해제</button> -->
-<%-- 											<input type="hidden" value="${WriterBean.writer }"> --%>
-<%-- 										</c:when> --%>
-<%-- 										<c:when test="${alreadySub ne 'true' }"> --%>
-<!-- 											<button class="subscribe_Btn" type="button">구독하기</button> -->
-<%-- 											<input type="hidden" value="${WriterBean.writer }"> --%>
-<%-- 										</c:when> --%>
-<%-- 									</c:choose> --%>
-<!-- 								</td> -->
+								<td>
+									<c:choose>
+										<c:when test="${alreadySub[i-1] eq 'true' }">
+											<button class="subcancle_Btn" type="button">구독해제</button>
+											<input type="hidden" value="${WriterBean.writer }">
+										</c:when>
+										<c:when test="${alreadySub[i-1] ne 'true' }">
+											<button class="subscribe_Btn" type="button">구독하기</button>
+											<input type="hidden" value="${WriterBean.writer }">
+										</c:when>
+									</c:choose>
+								</td>
 							</tr>
 						</tbody>
 					</table>

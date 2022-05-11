@@ -1,5 +1,6 @@
 package controller.myPage;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,14 +44,14 @@ public class Subscribe implements CommandHandler {
 		HttpSession session = req.getSession();
 		String myId = (String)session.getAttribute("uId_Session");
 		boolean selectResult = false;
+		ArrayList<Boolean> blist = new ArrayList<Boolean>(); 
 		for (int i = 0; i < subsList.size(); i++) {
 			WriterBean wBean = subsList.get(i);
 			String writerList = wBean.getWriter();
 			selectResult = ms.selectSubWriter(myId, writerList);
-			if(selectResult) {				
-				req.setAttribute("alreadySub", selectResult); 
-			}
+			blist.add(selectResult);
 		}
+		req.setAttribute("alreadySub", blist); 
 		req.setAttribute("myId", myId);
 		
 		
