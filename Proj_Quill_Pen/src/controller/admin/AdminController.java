@@ -26,12 +26,12 @@ public class AdminController implements CommandHandler {
 		
 		if (uId == null) {
 			req.setAttribute("errorMsg", "로그인 시 이용할 수 있는 페이지입니다.");
-			return "/index.jsp";
+			return "redirect:/Proj_Quill_Pen/main";
 		
 		// 로그인이 되었으나 관리자 등급이 아닌 경우
 		} else if (!as.isAdmin(uId)) {
 			req.setAttribute("errorMsg", "관리자만 이용할 수 있는 페이지입니다.");
-			return "/index.jsp";
+			return "redirect:/Proj_Quill_Pen/main";
 
 		}
 		
