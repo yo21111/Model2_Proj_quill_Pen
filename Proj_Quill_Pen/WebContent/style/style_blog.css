@@ -140,6 +140,10 @@ div#blog_infos_container div#info_writing table td.writeTitle {
 
 div#blog_infos_container div#info_writing table td.writeSubTitle {
 	color: #b5b5b5;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 5;
+	overflow:hidden;
 }
 
 div#blog_infos_container div#info_writing table td.writeSubTitle span {
