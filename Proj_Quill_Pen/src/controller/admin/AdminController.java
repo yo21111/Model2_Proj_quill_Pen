@@ -24,6 +24,10 @@ public class AdminController implements CommandHandler {
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		if (uId == null) {
 			req.setAttribute("errorMsg", "로그인 시 이용할 수 있는 페이지입니다.");
 			return "redirect:/Proj_Quill_Pen/main";

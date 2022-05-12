@@ -43,6 +43,10 @@ public class Subscribe implements CommandHandler {
 		
 		HttpSession session = req.getSession();
 		String myId = (String)session.getAttribute("uId_Session");
+		
+		if(myId != null) {
+			req.setAttribute("isLogin", "true");
+		}
 		boolean selectResult = false;
 		ArrayList<Boolean> blist = new ArrayList<Boolean>(); 
 		for (int i = 0; i < subsList.size(); i++) {

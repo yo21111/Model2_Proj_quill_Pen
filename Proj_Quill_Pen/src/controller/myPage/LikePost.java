@@ -27,6 +27,13 @@ public class LikePost implements CommandHandler {
 //			return "redirect:/Proj_Quill_Pen/main";
 //		}
 //		
+		HttpSession session = req.getSession();
+		String uId = (String)session.getAttribute("uId_Session");
+		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		
 		List<BoardBean> likeList = ms.likeArticle(req, resp);
 		req.setAttribute("likeList", likeList);

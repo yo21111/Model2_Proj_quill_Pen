@@ -22,6 +22,10 @@ public class NoticeContent  implements CommandHandler {
 		HttpSession session = req.getSession();
 		String uId = (String)session.getAttribute("uId_Session");
 		
+		if(uId != null) {
+			req.setAttribute("isLogin", "true");
+		}
+		
 		// 관리자일 경우
 		if(uId == null) {
 			req.setAttribute("isAdmin", "false");

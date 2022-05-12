@@ -31,7 +31,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 				</c:if>
 				<hr class="sepLine">
 				<c:forEach var="WriterBean" items="${subsList }">
-				<c:set var="i" value="${i + 1}" />
+				<c:set var="i" value="${i+1}" />
 				<div class="subsTbl">
 					<table>
 						<tbody>

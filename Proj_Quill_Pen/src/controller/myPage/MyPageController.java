@@ -31,6 +31,9 @@ public class MyPageController implements CommandHandler {
 
 			HttpSession session = req.getSession();
 			String myId = (String) session.getAttribute("uId_Session");
+			if(myId != null) {
+				req.setAttribute("isLogin", "true");
+			}
 			String uId = ms.findId(writerName);
 
 			WriterBean bean = ms.findWriter(uId);
