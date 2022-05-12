@@ -36,6 +36,7 @@ div.subsTbl table td button.subcancle_Btn {
 	border-radius: 50px;
 	color: #fff;
 	padding: 10px;
+	cursor: pointer;
 }
 
 div.subsTbl table td button.subscribe_Btn {
@@ -45,6 +46,7 @@ div.subsTbl table td button.subscribe_Btn {
 	border-radius: 50px;
 	color: #fff;
 	padding: 10px;
+	cursor: pointer;
 }
 
 div.subsTbl table td.prof img {

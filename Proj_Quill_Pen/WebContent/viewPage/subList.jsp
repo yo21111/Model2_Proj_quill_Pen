@@ -45,6 +45,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 									<a href="/Proj_Quill_Pen/myPage?writer=${WriterBean.writer }">${WriterBean.writer}의 블로그 입니다.</a>
 								</td>
 								<td>
+								<c:if test="${myWriter.writer != WriterBean.writer }" >
 									<c:choose>
 										<c:when test="${alreadySub[i-1] eq 'true' }">
 											<button class="subcancle_Btn" type="button">구독해제</button>
@@ -55,6 +56,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 											<input type="hidden" value="${WriterBean.writer }">
 										</c:when>
 									</c:choose>
+								</c:if>
 								</td>
 							</tr>
 						</tbody>
@@ -68,7 +70,7 @@ String uId_Session = (String)session.getAttribute("uId_Session");
 			<section id="hidden">
 				<input type="hidden" id="subMsg" value="${subMsg}">
 				<input type="hidden" id="subCntList" value="${subCnt }">
-				<input type="hidden" id="myid" value="${myId }">
+				<input type="hidden" id="myId" value="${myId }">
 			</section>
 			<!-- section#hidden : hidden input 영역 끝 -->
 		</main>

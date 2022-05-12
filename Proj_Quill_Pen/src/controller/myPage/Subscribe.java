@@ -51,6 +51,9 @@ public class Subscribe implements CommandHandler {
 			selectResult = ms.selectSubWriter(myId, writerList);
 			blist.add(selectResult);
 		}
+		WriterBean myWriter = ms.findWriter(myId);
+		
+		req.setAttribute("myWriter", myWriter);
 		req.setAttribute("alreadySub", blist); 
 		req.setAttribute("myId", myId);
 		
