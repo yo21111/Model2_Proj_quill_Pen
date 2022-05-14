@@ -68,7 +68,6 @@ $(function(){
    // 수정하기 버튼(profile.jsp)	
 
 	$("#Profile_Btn").click(function(){
-		alert("OK!");
 		let url ="/Proj_Quill_Pen/profile";
 		location.href = url;
 	});
