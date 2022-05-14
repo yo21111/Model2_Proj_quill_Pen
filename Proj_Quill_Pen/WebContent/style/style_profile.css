@@ -53,6 +53,7 @@ div#profile_profileUpdate table td:first-child {
 }
 
 div#profile_profileUpdate table td#writerName {
+	width: 300px;
 	font-weight: bold;
 	font-size: 30px;
 }

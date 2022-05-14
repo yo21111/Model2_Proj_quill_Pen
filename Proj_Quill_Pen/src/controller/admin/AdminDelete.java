@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.CommandHandler;
-import repository.DTO.WriterBean;
 import service.AdminService;
 import service.AdminServiceImpl;
 import service.BoardService;

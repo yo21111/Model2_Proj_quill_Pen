@@ -34,27 +34,27 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 						<tbody>
 							<tr>
 								<td>아이디</td>
-								<td colspan="2">test</td>
+								<td colspan="2">${mBean.uId}</td>
 							</tr>
 							<tr>
 								<td>작가명</td>
-								<td>test</td>
+								<td>${mBean.writer}</td>
 							</tr>
 							<tr>
 								<td>이름</td>
-								<td colspan="2">test</td>
+								<td colspan="2">${mBean.uName}</td>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<td colspan="2">test@naver.com</td>
+								<td colspan="2">${mBean.uEmail}</td>
 							</tr>
 							<tr>
 								<td>휴대폰 번호</td>
-								<td colspan="2">010-1111-1111</td>
+								<td colspan="2">${mBean.uPhone}</td>
 							</tr>
 							<tr>
 								<td>생년 월일</td>
-								<td colspan="2">1111-11-11</td>
+								<td colspan="2">${mBean.uBirth }</td>
 							</tr>
 						</tbody>
 					</table>
@@ -65,7 +65,7 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 					<table>
 						<thead>
 							<tr>
-								<td id="writerName">작가명</td>
+								<td id="writerName">작가명 : ${mBean.writer}</td>
 								<td><img src="/Proj_Quill_Pen/images/profile/profile1.jpg" alt="프로필 이미지"></td>
 							</tr>
 						</thead>

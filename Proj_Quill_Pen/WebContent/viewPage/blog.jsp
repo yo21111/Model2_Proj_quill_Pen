@@ -59,15 +59,35 @@ String uId_Session = (String) session.getAttribute("uId_Session");
 								</td>
 								<!-- <form id = "blog_Frm" method="" action=""> -->
 								<td>
+								<c:if test="${isAdmin ne 'true'}">
 									<c:choose>
-										<c:when test="${myId eq uId }"></c:when>
+										<c:when test="${myId eq uId }">
+										<button id="Profile_Btn">수정하기</button>
+						
+										</c:when>
 										<c:when test="${alreadySub eq 'true' }">
 											<button id="subcancle_Btn" type="button">구독해제</button>
 										</c:when>
 										<c:when test="${alreadySub ne 'true' }">
 											<button id="subscribe_Btn" type="button">구독하기</button>
+											<button id="report_Btn" type="button">신고하기</button>
 										</c:when>
 									</c:choose>
+									</c:if>
+									
+									 <c:if test="${isAdmin eq 'true'}">
+										<c:choose>
+											<c:when test="${myId eq uId }">
+												<button id="reports_Btn">신고목록</button>
+
+											</c:when>
+							
+										</c:choose>
+									</c:if>
+
+
+
+
 								</td>
 								<!-- </form> -->
 							</tr>

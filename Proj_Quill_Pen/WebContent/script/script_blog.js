@@ -65,8 +65,19 @@ $(function(){
 		let url = "/Proj_Quill_Pen/main";
 		location.href=url;
 	});
+   // 수정하기 버튼(profile.jsp)	
+
+	$("#Profile_Btn").click(function(){
+		alert("OK!");
+		let url ="/Proj_Quill_Pen/profile";
+		location.href = url;
+	});
 	
-	
+  // 신고목록 버튼(report.jsp)	
+	    $("#reports_Btn").click(function(){
+		let url = "/Proj_Quill_Pen/admin";
+		location.href = url;
+	})
 	
 	/* 네이게이션 클릭했을때 나타나는 글 전환용 */
 	$("#navInt").click(function(){

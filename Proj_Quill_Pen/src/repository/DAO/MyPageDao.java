@@ -122,6 +122,7 @@ public class MyPageDao {
 			return sqlSession.delete(namespace + "deleteMember", uId);
 
 		} finally {
+			sqlSession.commit();
 			sqlSession.close();
 		}
 	}

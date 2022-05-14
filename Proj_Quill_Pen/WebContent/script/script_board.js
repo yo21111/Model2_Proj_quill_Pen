@@ -113,9 +113,10 @@ $(function() {
 	//삭제 버튼 클릭
 	$("button#delete_Btn").click(function() {
 		let bno = $("input#bno").val();
-
-		let url = "/Proj_Quill_Pen/boardDelete?bno=" + bno;
-		location.href = url;
+		if (confirm("게시글을 삭제하시겠습니까?")) {
+			let url = "/Proj_Quill_Pen/boardDelete?bno=" + bno;
+			location.href = url;
+		}
 	});
 
 	//삭제 버튼 클릭(관리자)
@@ -182,8 +183,10 @@ $(function() {
 		if (isLogin == 'true') {
 			let cmntNum = $(this).parent().parent().next().val().trim();
 			let bno = $("input#bno").val();
-			let url = "/Proj_Quill_Pen/cmnt?cmntkind=deleteCmnt&cmntBno="+bno+"&cmntNumber=" + cmntNum;
-			location.href = url;
+			if (confirm("댓글을 삭제하시겠습니까?")) {
+				let url = "/Proj_Quill_Pen/cmnt?cmntkind=deleteCmnt&cmntBno=" + bno + "&cmntNumber=" + cmntNum;
+				location.href = url;
+			}
 		} else {
 			alert("로그인이 필요한 기능입니다.");
 			return;
